@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Cleaner</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="phone_booster">Phone\nBooster</string>
+    <string name="junk_cleaner">Junk Cleaner</string>
+    <string name="battery_optimizer">Battery Optimizer</string>
+    <string name="cpu_cooler">CPU Cooler</string>
+    <string name="file_manager">File Manager</string>
+    <string name="phone_booster">Phone Booster</string>
+    <string name="pb_main">Phone\nBooster</string>
     <string name="term_and_privacy">Term and Privacy</string>
 </resources>

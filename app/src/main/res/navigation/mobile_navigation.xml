@@ -3,23 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_phone_booster">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.missclickads.cleaner.ui.cpucooler.CpuCoolerFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_cpu_cooler" />
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_phone_booster"
         android:name="com.missclickads.cleaner.ui.phonebooster.PhoneBoosterFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/phone_booster"
         tools:layout="@layout/fragment_phone_booster" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_cpu_cooler"
+        android:name="com.missclickads.cleaner.ui.cpucooler.CpuCoolerFragment"
+        android:label="@string/cpu_cooler"
+        tools:layout="@layout/fragment_cpu_cooler" />
+
+
+    <fragment
+        android:id="@+id/navigation_battery_optimizer"
         android:name="com.missclickads.cleaner.ui.batteryoptimizer.BatteryOptimizerFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/battery_optimizer"
         tools:layout="@layout/fragment_battery_optimizer" />
+    <fragment
+        android:id="@+id/navigation_junk_cleaner"
+        android:name="com.missclickads.cleaner.ui.junkcleaner.JunkCleanerFragment"
+        android:label="@string/junk_cleaner"
+        tools:layout="@layout/fragment_junk_cleaner" />
+    <fragment
+        android:id="@+id/navigation_file_manager"
+        android:name="com.missclickads.cleaner.ui.filemanager.FileManagerFragment"
+        android:label="@string/file_manager"
+        tools:layout="@layout/fragment_file_manager" />
 </navigation>

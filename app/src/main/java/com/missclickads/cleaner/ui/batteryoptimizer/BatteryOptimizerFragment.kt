@@ -12,18 +12,18 @@ import com.missclickads.cleaner.R
 
 class BatteryOptimizerFragment : Fragment() {
 
-    private lateinit var BatteryOptimizerViewModel: BatteryOptimizerViewModel
+    private lateinit var batteryOptimizerViewModel: BatteryOptimizerViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        BatteryOptimizerViewModel =
+        batteryOptimizerViewModel =
                 ViewModelProvider(this).get(BatteryOptimizerViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_battery_optimizer, container, false)
         val textView: TextView = root.findViewById(R.id.text_battery_optimizer)
-        BatteryOptimizerViewModel.text.observe(viewLifecycleOwner, Observer {
+        batteryOptimizerViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
