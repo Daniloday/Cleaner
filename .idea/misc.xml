@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout/activity_splash.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable-v24/progress_bar_splash.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout-v28/activity_splash.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout/activity_splash.xml" value="0.22" />
       </map>
     </option>
   </component>
