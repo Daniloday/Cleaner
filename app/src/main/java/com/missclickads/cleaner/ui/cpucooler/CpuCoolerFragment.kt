@@ -1,4 +1,4 @@
-package com.missclickads.cleaner.ui.dashboard
+package com.missclickads.cleaner.ui.cpucooler
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.missclickads.cleaner.R
 
-class DashboardFragment : Fragment() {
+class CpuCoolerFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var cpuCoolerViewModel: CpuCoolerViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        cpuCoolerViewModel =
+                ViewModelProvider(this).get(CpuCoolerViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_cpu_cooler, container, false)
+        val textView: TextView = root.findViewById(R.id.text_cpu_cooler)
+        cpuCoolerViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
