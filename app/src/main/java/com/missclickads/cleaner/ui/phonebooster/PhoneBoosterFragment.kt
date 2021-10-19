@@ -1,4 +1,4 @@
-package com.missclickads.cleaner.ui.home
+package com.missclickads.cleaner.ui.phonebooster
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.missclickads.cleaner.R
 
-class HomeFragment : Fragment() {
+class PhoneBoosterFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var phoneBoosterViewModel: PhoneBoosterViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        phoneBoosterViewModel =
+                ViewModelProvider(this).get(PhoneBoosterViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_phone_booster, container, false)
+        val textView: TextView = root.findViewById(R.id.text_phone_booster)
+        phoneBoosterViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
