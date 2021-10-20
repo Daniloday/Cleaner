@@ -1,7 +1,6 @@
 package com.missclickads.cleaner
 
 import android.app.Application
-import com.missclickads.cleaner.di.appModule
 
 import com.missclickads.cleaner.di.dataModule
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +16,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             androidLogger()
-            modules(appModule, dataModule)
+            modules(dataModule)
         }
     }
 }

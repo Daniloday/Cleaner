@@ -8,8 +8,3 @@ import com.missclickads.cleaner.ui.junkcleaner.JunkCleanerViewModel
 import com.missclickads.cleaner.ui.phonebooster.PhoneBoosterViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-
-val appModule = module {
-
-
-}

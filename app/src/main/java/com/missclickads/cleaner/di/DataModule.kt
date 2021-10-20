@@ -7,11 +7,8 @@ import org.koin.dsl.module
 
 val dataModule = module {
     single {
-        providePhoneData(get())
+        PhoneData(get())
     }
 }
 
-fun providePhoneData(context: Context) : PhoneData {
-    return PhoneData(context)
-}
 
