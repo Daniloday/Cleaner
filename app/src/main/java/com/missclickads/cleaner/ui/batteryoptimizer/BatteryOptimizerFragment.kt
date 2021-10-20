@@ -11,12 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FragmentBatteryOptimizerBinding
 
+
 class BatteryOptimizerFragment : Fragment() {
 
-    private lateinit var batteryOptimizerViewModel: BatteryOptimizerViewModel
+    private val viewModel : BatteryOptimizerViewModel by viewModel()
     private var _binding: FragmentBatteryOptimizerBinding? = null
-    // This property is only valid between onCreateView and
-// onDestroyView.
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
