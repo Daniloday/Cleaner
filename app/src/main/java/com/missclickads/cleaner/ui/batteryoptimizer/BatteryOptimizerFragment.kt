@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentBatteryOptimizerBinding
+import com.missclickads.cleaner.utils.PhoneData
+import org.koin.android.ext.android.inject
 
 class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override val viewModel : BatteryOptimizerViewModel by viewModels()
     private var _binding: FragmentBatteryOptimizerBinding? = null
-
+    val phoneData : PhoneData by inject()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -27,6 +29,8 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        println(phoneData.getBatteryValue())
+        println(phoneData.getUsedTotalMemory())
         initUi()
     }
 

@@ -7,6 +7,7 @@ import com.missclickads.cleaner.core.BaseViewModel
 
 class BatteryOptimizerViewModel : BaseViewModel() {
 
+
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"
     }
