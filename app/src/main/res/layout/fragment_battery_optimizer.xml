@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.batteryoptimizer.BatteryOptimizerFragment">
 
+
+
+    <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:optRoundCardBackgroundColor="#0073D7"
+        app:optRoundCardCornerRadius="30dp"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false" />
+
     <TextView
         android:id="@+id/text_battery_optimizer"
         android:layout_width="match_parent"

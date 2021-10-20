@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.phonebooster.PhoneBoosterFragment">
 
+
+
+    <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:optRoundCardCornerRadius="30dp"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false"
+        app:optRoundCardBackgroundColor="#0073D7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
     <TextView
         android:id="@+id/text_phone_booster"
         android:layout_width="match_parent"
