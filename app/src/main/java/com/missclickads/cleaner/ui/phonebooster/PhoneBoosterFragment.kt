@@ -4,28 +4,55 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.missclickads.cleaner.R
+import androidx.fragment.app.viewModels
+import android.util.Log
+import com.missclickads.cleaner.core.BaseFragment
+import com.missclickads.cleaner.databinding.FragmentPhoneBoosterBinding
 
-class PhoneBoosterFragment : Fragment() {
 
-    private lateinit var phoneBoosterViewModel: PhoneBoosterViewModel
+class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
+
+    override val viewModel : PhoneBoosterViewModel by viewModels()
+    private var _binding: FragmentPhoneBoosterBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        phoneBoosterViewModel =
-                ViewModelProvider(this).get(PhoneBoosterViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_phone_booster, container, false)
-        val textView: TextView = root.findViewById(R.id.text_phone_booster)
-        phoneBoosterViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentPhoneBoosterBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUi()
+    }
+
+    private fun initUi(){
+        //todo buttons, etc
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun notOptimized() {
+        Log.e("PhoneBooster", "notOptimized")
+    }
+
+    override fun optimization() {
+        Log.e("PhoneBooster", "optimization")
+    }
+
+    override fun optimized() {
+        Log.e("PhoneBooster", "optimized")
+    }
+
+    override fun error() {
+        Log.e("PhoneBooster", "error")
     }
 }

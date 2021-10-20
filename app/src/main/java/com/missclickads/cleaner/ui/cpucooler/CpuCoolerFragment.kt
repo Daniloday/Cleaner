@@ -1,33 +1,57 @@
 package com.missclickads.cleaner.ui.cpucooler
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.missclickads.cleaner.R
-import com.missclickads.cleaner.ui.batteryoptimizer.BatteryOptimizerViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.missclickads.cleaner.core.BaseFragment
+import com.missclickads.cleaner.databinding.FragmentCpuCoolerBinding
 
-class CpuCoolerFragment : Fragment() {
+class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
-    private val viewModel : CpuCoolerViewModel by viewModels()
+    override val viewModel : CpuCoolerViewModel by viewModels()
+    private var _binding: FragmentCpuCoolerBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentCpuCoolerBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-        val root = inflater.inflate(R.layout.fragment_cpu_cooler, container, false)
-        val textView: TextView = root.findViewById(R.id.text_cpu_cooler)
-        viewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUi()
+    }
+
+    private fun initUi(){
+        //todo buttons, etc
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun notOptimized() {
+        Log.e("CpuCooler", "notOptimized")
+    }
+
+    override fun optimization() {
+        Log.e("CpuCooler", "optimization")
+    }
+
+    override fun optimized() {
+        Log.e("CpuCooler", "optimized")
+    }
+
+    override fun error() {
+        Log.e("CpuCooler", "error")
     }
 }
