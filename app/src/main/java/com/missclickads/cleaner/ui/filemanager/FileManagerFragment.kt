@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.missclickads.cleaner.R
+import com.missclickads.cleaner.ui.cpucooler.CpuCoolerViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FileManagerFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = FileManagerFragment()
-    }
 
-    private lateinit var viewModel: FileManagerViewModel
+
+    private val viewModel : FileManagerViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +23,6 @@ class FileManagerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_file_manager, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FileManagerViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }

@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FragmentBatteryOptimizerBinding
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BatteryOptimizerFragment : Fragment() {
 
@@ -24,8 +24,6 @@ class BatteryOptimizerFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        batteryOptimizerViewModel =
-                ViewModelProvider(this).get(BatteryOptimizerViewModel::class.java)
         _binding = FragmentBatteryOptimizerBinding.inflate(layoutInflater)
         return binding.root
     }
