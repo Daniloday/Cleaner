@@ -13,8 +13,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FileManagerFragment : Fragment() {
 
-
-
     private val viewModel : FileManagerViewModel by viewModels()
 
     override fun onCreateView(
