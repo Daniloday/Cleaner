@@ -10,10 +10,6 @@ import com.missclickads.cleaner.R
 
 class JunkCleanerFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = JunkCleanerFragment()
-    }
-
     private lateinit var viewModel: JunkCleanerViewModel
 
     override fun onCreateView(

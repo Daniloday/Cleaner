@@ -9,21 +9,21 @@ import com.missclickads.cleaner.ui.phonebooster.PhoneBoosterViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule = module {
-    single {
-        BatteryOptimizerViewModel()
-    }
-    single {
-        CpuCoolerViewModel()
-    }
-    single {
-        FileManagerViewModel()
-    }
-    single {
-        JunkCleanerViewModel()
-    }
-    single {
-        PhoneBoosterViewModel()
-    }
-
-}
+//val appModule = module {
+//    single {
+//        BatteryOptimizerViewModel()
+//    }
+//    single {
+//        CpuCoolerViewModel()
+//    }
+//    single {
+//        FileManagerViewModel()
+//    }
+//    single {
+//        JunkCleanerViewModel()
+//    }
+//    single {
+//        PhoneBoosterViewModel()
+//    }
+//
+//}
