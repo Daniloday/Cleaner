@@ -12,11 +12,11 @@ open class BaseViewModel : ViewModel() {
     private val _viewStates = MutableLiveData<BaseUiState>(BaseUiState.NotOptimize)
     val viewStates : LiveData<BaseUiState> = _viewStates
 
-     protected fun startOptimization(){
+    fun startOptimization(){
         _viewStates.value = BaseUiState.Optimization
     }
 
-    protected fun endOptimization(){
+    fun endOptimization(){
         _viewStates.value = BaseUiState.Optimized
     }
 }

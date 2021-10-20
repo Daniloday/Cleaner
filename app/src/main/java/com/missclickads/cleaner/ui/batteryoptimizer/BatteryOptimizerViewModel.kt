@@ -11,4 +11,5 @@ class BatteryOptimizerViewModel : BaseViewModel() {
         value = "This is notifications Fragment"
     }
     val text: LiveData<String> = _text
+
 }

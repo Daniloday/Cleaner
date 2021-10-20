@@ -10,19 +10,19 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    viewModel {
+    single {
         BatteryOptimizerViewModel()
     }
-    viewModel {
+    single {
         CpuCoolerViewModel()
     }
-    viewModel {
+    single {
         FileManagerViewModel()
     }
-    viewModel {
+    single {
         JunkCleanerViewModel()
     }
-    viewModel {
+    single {
         PhoneBoosterViewModel()
     }
 

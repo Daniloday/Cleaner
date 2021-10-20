@@ -1,21 +1,24 @@
 package com.missclickads.cleaner.ui.batteryoptimizer
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentBatteryOptimizerBinding
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
-    override val viewModel : BatteryOptimizerViewModel by viewModel()
+    override val viewModel : BatteryOptimizerViewModel by viewModels()
     private var _binding: FragmentBatteryOptimizerBinding? = null
 
     private val binding get() = _binding!!
@@ -44,18 +47,18 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
     }
 
     override fun notOptimized() {
-        TODO("Not yet implemented")
+        Log.e("BatteryOptimizer", "notOptimized")
     }
 
     override fun optimization() {
-        TODO("Not yet implemented")
+        Log.e("BatteryOptimizer", "optimization")
     }
 
     override fun optimized() {
-        TODO("Not yet implemented")
+        Log.e("BatteryOptimizer", "optimized")
     }
 
     override fun error() {
-        TODO("Not yet implemented")
+        Log.e("BatteryOptimizer", "error")
     }
 }
