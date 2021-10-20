@@ -15,7 +15,7 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override val viewModel : BatteryOptimizerViewModel by viewModels()
     private var _binding: FragmentBatteryOptimizerBinding? = null
-    val phoneData : PhoneData by inject()
+    private val phoneData : PhoneData by inject()
     private val binding get() = _binding!!
 
     override fun onCreateView(
