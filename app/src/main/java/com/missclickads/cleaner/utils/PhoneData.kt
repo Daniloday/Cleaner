@@ -8,13 +8,13 @@ import kotlin.math.ceil
 
 class PhoneData(val context: Context) {
 
-    fun getUsedTotalMemory(): Pair<Int, Int> {
+    fun getUsedTotalMemory(): Pair<Int, Double> {
         val actManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val memInfo = ActivityManager.MemoryInfo()
         actManager.getMemoryInfo(memInfo)
-        val totalMemory = ceil((memInfo.totalMem / (1024 * 1024)).toDouble() / 1000).toInt()
-        val availMemory = ceil((memInfo.availMem / (1024 * 1024)).toDouble() / 1000).toInt()
-        val usedMemory = totalMemory - availMemory
+        val totalMemory = ceil((memInfo.totalMem / (1024 * 1024)).toDouble() / 1000).toInt().toDouble()
+        val availMemory = (memInfo.availMem / (1024 * 1024)).toDouble()
+        val usedMemory = (totalMemory * 1000 - availMemory).toInt()
         return Pair(usedMemory, totalMemory)
     }
 
