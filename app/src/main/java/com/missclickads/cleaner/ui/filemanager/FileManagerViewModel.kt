@@ -1,7 +1,7 @@
 package com.missclickads.cleaner.ui.filemanager
 
-import androidx.lifecycle.ViewModel
+import com.missclickads.cleaner.core.BaseViewModel
 
-class FileManagerViewModel : ViewModel() {
+class FileManagerViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }

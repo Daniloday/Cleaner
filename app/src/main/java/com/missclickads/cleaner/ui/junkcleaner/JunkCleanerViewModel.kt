@@ -1,7 +1,7 @@
 package com.missclickads.cleaner.ui.junkcleaner
 
-import androidx.lifecycle.ViewModel
+import com.missclickads.cleaner.core.BaseViewModel
 
-class JunkCleanerViewModel : ViewModel() {
+class JunkCleanerViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }
