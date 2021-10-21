@@ -3,6 +3,8 @@ package com.missclickads.cleaner.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import com.missclickads.cleaner.models.OptimizeData
+import com.missclickads.cleaner.models.OptimizeType
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -51,7 +53,7 @@ class OptimizeDataSaver(context: Context) {
         }
     }
 
-    fun getData():OptimizeData{
+    fun getData(): OptimizeData {
         val timeUpdateStatus = 15 * 60 * 1000
         val phoneBooster = getDataFormat(S_PHONE_BOOSTER)
         val batteryOptimizer = getDataFormat(S_BATTERY_OPTIMIZER)
@@ -76,16 +78,5 @@ class OptimizeDataSaver(context: Context) {
 
 }
 
-enum class OptimizeType{
-    PHONE_BOOSTER,
-    BATTERY_OPTIMIZER,
-    CPU_COOLER,
-    JUNK_CLEANER
-}
 
-data class OptimizeData(
-    val phoneBooster : Boolean,
-    val batteryOptimizer : Boolean,
-    val cpuCooler : Boolean,
-    val junkCleaner : Boolean,
-)
+

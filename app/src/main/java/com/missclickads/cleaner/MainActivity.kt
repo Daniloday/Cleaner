@@ -7,7 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.missclickads.cleaner.utils.OptimizeData
+import com.missclickads.cleaner.models.OptimizeData
+
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import java.util.*
 

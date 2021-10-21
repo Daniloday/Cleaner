@@ -31,6 +31,7 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         println(phoneData.getBatteryValue())
         println(phoneData.getUsedTotalMemory())
+        phoneData.getFileManagerData()
         initUi()
     }
 
