@@ -11,4 +11,6 @@
     <color name="dark_blue">#475792</color>
     <color name="gradient_lime_start">#24DA2B</color>
     <color name="gradient_lime_end">#6DD919</color>
+    <color name="magenta_blue">#475792</color>
+
 </resources>

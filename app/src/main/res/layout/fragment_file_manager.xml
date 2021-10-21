@@ -6,16 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".ui.filemanager.FileManagerFragment">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="File Manager"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image_battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_folder_open"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineTop" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/battery_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/please_provide_the_required_permissions"
+        android:textColor="@color/magenta_blue"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineCenter" />
+
     <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:id="@+id/optRoundCardView2"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:optRoundCardCornerRadius="30dp"
-        app:optRoundCardLeftBottomCorner="false"
-        app:optRoundCardRightBottomCorner="false"
-        app:optRoundCardBackgroundColor="#0073D7"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineBot"
+        app:layout_constraintVertical_bias="1.0"
+        app:optRoundCardBackgroundColor="#0073D7"
+        app:optRoundCardCornerRadius="30dp"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/ic_lime_gradient"
+                android:clipToPadding="false"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:text="@string/submit_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:cornerRadius="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

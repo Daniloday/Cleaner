@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.cpucooler.CpuCoolerFragment">
 
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
@@ -13,6 +14,7 @@
         android:text="CPU Cooler"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guidelineTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,32 +28,35 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTop"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTop" />
 
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="86.7 C"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/light_black"
+        android:text="86,7 °C"
         android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/materialTextView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCenter" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineCenter"
+        app:layout_constraintVertical_bias="0.71000004" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Overheated"
+        android:textColor="@color/magenta_blue"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/optRoundCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
 
     <com.github.captain_miao.optroundcardview.OptRoundCardView
         android:id="@+id/optRoundCardView"
@@ -65,6 +70,30 @@
         app:optRoundCardCornerRadius="30dp"
         app:optRoundCardLeftBottomCorner="false"
         app:optRoundCardRightBottomCorner="false">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/optimize_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/ic_lime_gradient"
+                android:clipToPadding="false"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:text="@string/optimize_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:cornerRadius="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
@@ -87,6 +116,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.36" />
+        app:layout_constraintGuide_percent="0.44" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
