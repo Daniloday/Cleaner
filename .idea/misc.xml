@@ -8,10 +8,22 @@
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_battery.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_battery_off.xml" value="0.3828125" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_battery_on.xml" value="0.3828125" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_cpu_high.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.221875" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.221875" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_launcher_background.xml" value="0.221875" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.221875" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_battery_off.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_battery_on.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_file.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_file_off.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_file_on.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_fire.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_fire_off.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_fire_on.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_snow.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_snow_off.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/drawable/ic_tab_trash.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout-v28/activity_splash.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout/activity_main.xml" value="0.20572916666666666" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout/activity_splash.xml" value="0.22" />
@@ -21,16 +33,17 @@
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout/fragment_junk_cleaner.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/layout/fragment_phone_booster.xml" value="0.20572916666666666" />
         <entry key="..\:/AndroidProjects/Cleaner2new/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/drawable-v24/progress_bar_splash.xml" value="0.30648148148148147" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/drawable/ic_battery.xml" value="0.30648148148148147" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/drawable/ic_cpu_high.xml" value="0.30648148148148147" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/activity_main.xml" value="0.1884498480243161" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/activity_splash.xml" value="0.21927083333333333" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_battery_optimizer.xml" value="0.27717391304347827" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_cpu_cooler.xml" value="0.21927083333333333" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_file_manager.xml" value="0.21927083333333333" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_junk_cleaner.xml" value="0.21927083333333333" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_phone_booster.xml" value="0.21927083333333333" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_battery_green.xml" value="0.21875" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_battery_red.xml" value="0.21875" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_battery_yellow.xml" value="0.21875" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_cpu_high.xml" value="0.2537037037037037" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2537037037037037" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2537037037037037" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_lime_gradient.xml" value="0.2537037037037037" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_tab_snow_off.xml" value="0.2537037037037037" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_battery_optimizer.xml" value="0.33" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_cpu_cooler.xml" value="0.1762917933130699" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_file_manager.xml" value="0.1762917933130699" />
       </map>
     </option>
   </component>
