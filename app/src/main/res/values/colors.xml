@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_blue">#475792</color>
+    <color name="gradient_lime_start">#24DA2B</color>
+    <color name="gradient_lime_end">#6DD919</color>
 </resources>

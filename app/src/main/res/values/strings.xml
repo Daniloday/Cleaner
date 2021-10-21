@@ -7,4 +7,6 @@
     <string name="phone_booster">Phone Booster</string>
     <string name="pb_main">Phone\nBooster</string>
     <string name="term_and_privacy">Term and Privacy</string>
+    <string name="optimized_btn">Optimize</string>
+    <string name="charging_time_remaining">Charging time remaining</string>
 </resources>
