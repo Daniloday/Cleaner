@@ -116,6 +116,21 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.33" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/optimize_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_lime_gradient"
+                android:clipToPadding="false"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:text="@string/optimized_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:cornerRadius="12dp"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="140dp" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.github.captain_miao.optroundcardview.OptRoundCardView>
@@ -146,31 +161,6 @@
         app:layout_constraintStart_toStartOf="@+id/image_battery"
         app:layout_constraintTop_toTopOf="@+id/image_battery"
         app:layout_constraintVertical_bias="0.6" />
-
-
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/optimize_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
-        android:background="@drawable/ic_lime_gradient"
-        android:clipToPadding="false"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:text="@string/optimized_btn"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/optRoundCardView2"
-        app:layout_constraintVertical_bias="0.61" />
-
-
 
 
     <androidx.constraintlayout.widget.Guideline
