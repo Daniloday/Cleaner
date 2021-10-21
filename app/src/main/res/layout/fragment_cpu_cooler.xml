@@ -35,28 +35,26 @@
         android:id="@+id/materialTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/light_black"
         android:text="86,7 °C"
+        android:textColor="@color/light_black"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/materialTextView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCenter"
-        app:layout_constraintVertical_bias="0.71000004" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineCenter" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:text="Overheated"
         android:textColor="@color/magenta_blue"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <com.github.captain_miao.optroundcardview.OptRoundCardView
         android:id="@+id/optRoundCardView"
@@ -93,6 +91,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.15" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/applications_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/applications_class_are_causing_problem_hit_cool_down"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/optimize_btn"
+                app:layout_constraintVertical_bias="0.110000014" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.github.captain_miao.optroundcardview.OptRoundCardView>

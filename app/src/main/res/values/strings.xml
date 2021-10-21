@@ -11,4 +11,5 @@
     <string name="charging_time_remaining">Charging time remaining</string>
     <string name="please_provide_the_required_permissions">Please provide the required permissions</string>
     <string name="submit_btn">Submit</string>
+    <string name="applications_class_are_causing_problem_hit_cool_down">ApplicationsClass are causing \n problem hit cool down</string>
 </resources>
