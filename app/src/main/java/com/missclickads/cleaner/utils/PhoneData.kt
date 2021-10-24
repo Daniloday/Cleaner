@@ -71,7 +71,7 @@ class PhoneData(val context: Context) {
             res.updateConfiguration(originalConfig, dm)
             appImages.add(appIcon)
             image +=1
-            if (image == 5) break
+            if (image == 6) break
         }
         return appImages
     }

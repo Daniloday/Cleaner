@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
+import com.missclickads.cleaner.SplashActivity
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentBatteryOptimizerBinding
 import com.missclickads.cleaner.models.OptimizeType
@@ -44,6 +46,7 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
     private fun initUi(){
         val batteryValue = phoneData.getBatteryValue()
         binding.batteryInfo.text = "$batteryValue %"
+
         if (batteryValue <= 20)
             binding.imageBattery.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_battery_red))
@@ -87,6 +90,8 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
     override fun error() {
         Log.e("BatteryOptimizer", "error")
     }
+
+
 
 
 }

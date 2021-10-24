@@ -56,6 +56,9 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
             it.setImageDrawable(ContextCompat.getDrawable(activity as MainActivity,
                 R.drawable.ic_red_circle_junk))
         }
+        binding.shapeableImageView.setImageDrawable(
+            ContextCompat.getDrawable(activity as MainActivity,
+            R.drawable.ic_junk_hard))
         binding.optimizeBtn.setOnClickListener {
             viewModel.startOptimization()
         }
@@ -68,6 +71,9 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override fun optimized() {
         optimizeDataSaver.saveOptimization(type = OptimizeType.JUNK_CLEANER)
+        binding.shapeableImageView.setImageDrawable(
+            ContextCompat.getDrawable(activity as MainActivity,
+                R.drawable.ic_junk_cleared))
         binding.optimizeBtn.text = getString(R.string.optimized_btn)
         binding.optimizeBtn.setOnClickListener {
             showToast(fragmentName = getString(R.string.junk_cleaner))
