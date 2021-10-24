@@ -4,7 +4,6 @@
     <string name="battery_optimizer">Battery Optimizer</string>
     <string name="cpu_cooler">CPU Cooler</string>
     <string name="file_manager">File Manager</string>
-    <string name="phone_booster">Phone Booster</string>
     <string name="pb_main">Phone\nBooster</string>
     <string name="term_and_privacy">Term and Privacy</string>
     <string name="optimize_btn">Optimize</string>
@@ -13,5 +12,6 @@
     <string name="please_provide_the_required_permissions">Please provide the required permissions</string>
     <string name="submit_btn">Submit</string>
     <string name="applications_class_are_causing_problem_hit_cool_down">ApplicationsClass are causing \n problem hit cool down</string>
+    <string name="phone_booster">Phone Booster</string>
 
 </resources>
