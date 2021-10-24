@@ -33,7 +33,6 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
 
     fun showToast(fragmentName: String){
         val text = "$fragmentName already optimized!"
-        println(text)
         val duration = Toast.LENGTH_SHORT
         val toast = Toast.makeText((activity as MainActivity), text, duration)
         toast.show()

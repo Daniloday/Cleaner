@@ -44,19 +44,21 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     @SuppressLint("SetTextI18n")
     private fun initUi(){
-        val batteryValue = phoneData.getBatteryValue()
-        binding.batteryInfo.text = "$batteryValue %"
+        if (optimizeDataSaver.dataSaver.batteryOptimizer) viewModel.endOptimization()
 
-        if (batteryValue <= 20)
+        val batteryValue = phoneData.getBatteryValue()
+        binding.batteryInfo.text = "${batteryValue[0]} %"
+        if (batteryValue[0] <= 20)
             binding.imageBattery.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_battery_red))
-        if (batteryValue in 21..50)
+        if (batteryValue[0] in 21..50)
             binding.imageBattery.setImageDrawable(
                 ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_battery_yellow))
-        if (batteryValue > 50)
+        if (batteryValue[0] > 50)
             binding.imageBattery.setImageDrawable(
                 ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_battery_green))
-        if (optimizeDataSaver.dataSaver.batteryOptimizer) viewModel.endOptimization()
+        binding.batteryTimeInfoHours.text = batteryValue[1].toString()
+        binding.batteryTimeInfoMinutes.text = batteryValue[2].toString()
     }
 
     override fun onDestroyView() {
@@ -66,6 +68,7 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override fun notOptimized() {
         Log.e("BatteryOptimizer", "notOptimized")
+
         binding.optimizeBtn.text = getString(R.string.optimize_btn)
         binding.optimizeBtn.setOnClickListener {
             viewModel.startOptimization()
@@ -79,8 +82,9 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override fun optimized() {
         Log.e("BatteryOptimizer", "optimized")
-        //todo add to string
+
         optimizeDataSaver.saveOptimization(type = OptimizeType.BATTERY_OPTIMIZER)
+
         binding.optimizeBtn.text = getString(R.string.optimized_btn)
         binding.optimizeBtn.setOnClickListener {
             showToast(fragmentName = getString(R.string.battery_optimizer))

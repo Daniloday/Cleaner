@@ -8,13 +8,17 @@ import androidx.fragment.app.viewModels
 import android.util.Log
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentPhoneBoosterBinding
+import com.missclickads.cleaner.utils.OptimizeDataSaver
+import com.missclickads.cleaner.utils.PhoneData
+import org.koin.android.ext.android.inject
 
 
 class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
 
     override val viewModel : PhoneBoosterViewModel by viewModels()
     private var _binding: FragmentPhoneBoosterBinding? = null
-
+    private val phoneData : PhoneData by inject()
+    private val optimizeDataSaver : OptimizeDataSaver by inject()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -33,6 +37,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
 
     private fun initUi(){
         //todo buttons, etc
+        binding.progressBarCircle.progress = 60
     }
 
     override fun onDestroyView() {

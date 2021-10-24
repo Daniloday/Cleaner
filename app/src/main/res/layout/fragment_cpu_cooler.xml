@@ -32,7 +32,7 @@
 
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView2"
+        android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="86,7 °C"
@@ -44,16 +44,16 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineCenter" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView3"
+        android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Overheated"
+        android:text="@string/overheated"
         android:textColor="@color/magenta_blue"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineBot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/temperature"
         app:layout_constraintVertical_bias="0.100000024" />
 
     <com.github.captain_miao.optroundcardview.OptRoundCardView
@@ -107,6 +107,7 @@
                 app:layout_constraintVertical_bias="0.110000014" />
 
             <LinearLayout
+                android:id="@+id/apps_linear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -137,6 +138,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/app_mb_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -169,6 +171,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/app_mb_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -201,6 +204,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/app_mb_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -233,6 +237,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/app_mb_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -265,6 +270,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/app_mb_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -297,6 +303,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/app_mb_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"

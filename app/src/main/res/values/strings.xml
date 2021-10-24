@@ -13,5 +13,8 @@
     <string name="submit_btn">Submit</string>
     <string name="applications_class_are_causing_problem_hit_cool_down">ApplicationsClass are causing \n problem hit cool down</string>
     <string name="phone_booster">Phone Booster</string>
+    <string name="overheated">Overheated</string>
+    <string name="normal">Normal</string>
+    <string name = "cpu_good">CPU Temperature is Good</string>>
 
 </resources>

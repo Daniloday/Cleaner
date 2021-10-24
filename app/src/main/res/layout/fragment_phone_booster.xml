@@ -31,6 +31,22 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineTop"
         app:layout_constraintVertical_bias="0.15" />
 
+    <ProgressBar
+        android:id="@+id/progressBarCircle"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:maxWidth="5dp"
+        android:maxHeight="5dp"
+        android:progressDrawable="@drawable/progress_bar_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+
     <com.github.captain_miao.optroundcardview.OptRoundCardView
         android:id="@+id/optRoundCardView2"
         android:layout_width="match_parent"

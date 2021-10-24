@@ -28,20 +28,42 @@ import java.util.concurrent.TimeUnit
 
 class PhoneData(val context: Context) {
 
-    fun getUsedTotalMemory(): Pair<Int, Double> {
+    private val appsCount = 6
+    val cpuBeforeOpt = (340..490).random().toDouble() / 10.0
+    val cpuAfterOpt = cpuBeforeOpt - 9
+    val appMemories = mutableListOf<Int>()
+
+    val junkCleanerOpt = (230..320).random()
+
+    init{
+        for (i in 0 until appsCount){
+            appMemories.add((10..30).random())
+        }
+    }
+
+    //phone booster
+    fun getMemory(): List<Any> {
         val actManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val memInfo = ActivityManager.MemoryInfo()
         actManager.getMemoryInfo(memInfo)
-        val totalMemory = ceil((memInfo.totalMem / (1024 * 1024)).toDouble() / 1000).toInt().toDouble()
+        val totalMemory = ceil((memInfo.totalMem / (1024 * 1024)).toDouble() / 1000).toInt()
+            .toDouble()
         val availMemory = (memInfo.availMem / (1024 * 1024)).toDouble()
         val usedMemory = (totalMemory * 1000 - availMemory).toInt()
-        return Pair(usedMemory, totalMemory)
+        val percent = usedMemory / (totalMemory * 10)
+        return listOf(usedMemory, totalMemory, percent)
     }
 
-    fun getBatteryValue() : Int{
+    // battery opt
+    fun getBatteryValue() : List<Int> {
         val bm = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-        return bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+        val value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+        val batteryHours = (value * 1.2 * 4 / 60).toInt()
+        val batteryMinutes = (value * 1.2 * 4 % 60).toInt()
+        return listOf(value, batteryHours, batteryMinutes)
     }
+
+    //CPU Cooler
 
     @SuppressLint("UseCompatLoadingForDrawables")
     fun getAppImages(): MutableList<Drawable>{
@@ -71,7 +93,7 @@ class PhoneData(val context: Context) {
             res.updateConfiguration(originalConfig, dm)
             appImages.add(appIcon)
             image +=1
-            if (image == 6) break
+            if (image == appsCount) break
         }
         return appImages
     }

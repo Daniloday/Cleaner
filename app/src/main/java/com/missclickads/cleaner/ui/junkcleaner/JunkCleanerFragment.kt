@@ -39,7 +39,8 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
     }
 
     private fun initUi(){
-        if (optimizeDataSaver.dataSaver.batteryOptimizer) viewModel.endOptimization()
+        if (optimizeDataSaver.dataSaver.junkCleaner) viewModel.endOptimization()
+
         circlesList = listOf(binding.imageCircle1, binding.imageCircle2,
             binding.imageCircle3, binding.imageCircle4)
     }
@@ -51,16 +52,17 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override fun notOptimized() {
         Log.e("JunkCleaner", "notOptimized")
+
+        binding.shapeableImageView.setImageDrawable(
+            ContextCompat.getDrawable(activity as MainActivity,
+                R.drawable.ic_junk_hard))
         binding.optimizeBtn.text = getString(R.string.optimize_btn)
+        binding.optimizeBtn.setOnClickListener {
+            viewModel.startOptimization()
+        }
         circlesList.forEach {
             it.setImageDrawable(ContextCompat.getDrawable(activity as MainActivity,
                 R.drawable.ic_red_circle_junk))
-        }
-        binding.shapeableImageView.setImageDrawable(
-            ContextCompat.getDrawable(activity as MainActivity,
-            R.drawable.ic_junk_hard))
-        binding.optimizeBtn.setOnClickListener {
-            viewModel.startOptimization()
         }
     }
 
@@ -70,7 +72,10 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
     }
 
     override fun optimized() {
+        Log.e("JunkCleaner", "optimized")
+
         optimizeDataSaver.saveOptimization(type = OptimizeType.JUNK_CLEANER)
+
         binding.shapeableImageView.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity,
                 R.drawable.ic_junk_cleared))
@@ -82,7 +87,6 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
             it.setImageDrawable(ContextCompat.getDrawable(activity as MainActivity,
                 R.drawable.ic_green_circle_junk))
         }
-        Log.e("JunkCleaner", "optimized")
     }
 
     override fun error() {

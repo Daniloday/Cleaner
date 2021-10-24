@@ -50,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_lime_gradient"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:clipToPadding="false"
                 android:text="@string/optimize_btn"
                 android:textAllCaps="false"
