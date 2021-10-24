@@ -25,6 +25,11 @@ class OptimizeDataSaver(context: Context) {
     private var sPrefs : SharedPreferences = context.getSharedPreferences(S_PREF_NAME, Context.MODE_PRIVATE)
     private val dateFormat: DateFormat = SimpleDateFormat(DATA_PATTERN)
     private val formatter = SimpleDateFormat(DATA_PATTERN)
+    var dataSaver : OptimizeData
+
+    init{
+        dataSaver = getData()
+    }
 
     @SuppressLint("SimpleDateFormat")
     fun saveOptimization(type: OptimizeType){
@@ -39,6 +44,7 @@ class OptimizeDataSaver(context: Context) {
             OptimizeType.JUNK_CLEANER ->
                 sPrefs.edit().putString(S_JUNK_CLEANER, dateFormat.format(date)).apply()
         }
+        dataSaver = getData()
     }
 
     fun checkShowRate(): Boolean {

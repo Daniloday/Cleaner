@@ -122,6 +122,7 @@ class PhoneData(val context: Context) {
         )
         query?.use { cursor ->
             // Cache column indices.
+
             val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID)
             val nameColumn =
                 cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME)
@@ -130,6 +131,7 @@ class PhoneData(val context: Context) {
             val sizeColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE)
 
             while (cursor.moveToNext()) {
+                println("pri")
                 // Get values of columns for a given video.
                 val id = cursor.getLong(idColumn)
                 val name = cursor.getString(nameColumn)

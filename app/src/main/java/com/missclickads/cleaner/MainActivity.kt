@@ -8,14 +8,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.missclickads.cleaner.models.OptimizeData
+import com.missclickads.cleaner.models.OptimizeType
 
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var dataSaver: OptimizeDataSaver
-    private lateinit var optimizeData : OptimizeData
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +32,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-        dataSaver = OptimizeDataSaver(this)
-        optimizeData = dataSaver.getData()
-
     }
+
+
 
 }

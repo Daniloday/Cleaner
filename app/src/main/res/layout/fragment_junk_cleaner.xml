@@ -96,6 +96,7 @@
                         android:textSize="14sp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/image_circle1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -103,7 +104,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_gravity="end"
                         android:layout_marginBottom="16dp"
-                        android:src="@drawable/ic_red_huinya_junk"/>
+                        android:src="@drawable/ic_red_circle_junk"/>
 
                 </FrameLayout>
 
@@ -141,6 +142,7 @@
                         android:textSize="14sp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/image_circle2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -148,7 +150,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_gravity="end"
                         android:layout_marginBottom="16dp"
-                        android:src="@drawable/ic_red_huinya_junk"/>
+                        android:src="@drawable/ic_red_circle_junk"/>
 
                 </FrameLayout>
 
@@ -186,6 +188,7 @@
                         android:textSize="14sp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/image_circle3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -193,7 +196,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_gravity="end"
                         android:layout_marginBottom="16dp"
-                        android:src="@drawable/ic_red_huinya_junk"/>
+                        android:src="@drawable/ic_red_circle_junk"/>
 
                 </FrameLayout>
 
@@ -231,6 +234,7 @@
                         android:textSize="14sp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/image_circle4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -238,7 +242,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_gravity="end"
                         android:layout_marginBottom="16dp"
-                        android:src="@drawable/ic_red_huinya_junk"/>
+                        android:src="@drawable/ic_red_circle_junk"/>
 
                 </FrameLayout>
 

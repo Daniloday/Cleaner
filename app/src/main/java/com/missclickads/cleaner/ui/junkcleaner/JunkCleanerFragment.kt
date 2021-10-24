@@ -6,15 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
+import androidx.core.content.ContextCompat
+import com.google.android.material.imageview.ShapeableImageView
+import com.missclickads.cleaner.MainActivity
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentJunkCleanerBinding
+import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.utils.OptimizeDataSaver
+import org.koin.android.ext.android.inject
 
 class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override val viewModel : JunkCleanerViewModel by viewModels()
     private var _binding: FragmentJunkCleanerBinding? = null
-
+    private val optimizeDataSaver : OptimizeDataSaver by inject()
     private val binding get() = _binding!!
+    private lateinit var circlesList : List<ShapeableImageView>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +39,9 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
     }
 
     private fun initUi(){
-        //todo buttons, etc
+        if (optimizeDataSaver.dataSaver.batteryOptimizer) viewModel.endOptimization()
+        circlesList = listOf(binding.imageCircle1, binding.imageCircle2,
+            binding.imageCircle3, binding.imageCircle4)
     }
 
     override fun onDestroyView() {
@@ -41,13 +51,31 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override fun notOptimized() {
         Log.e("JunkCleaner", "notOptimized")
+        binding.optimizeBtn.text = getString(R.string.optimize_btn)
+        circlesList.forEach {
+            it.setImageDrawable(ContextCompat.getDrawable(activity as MainActivity,
+                R.drawable.ic_red_circle_junk))
+        }
+        binding.optimizeBtn.setOnClickListener {
+            viewModel.startOptimization()
+        }
     }
 
     override fun optimization() {
         Log.e("JunkCleaner", "optimization")
+        viewModel.endOptimization()
     }
 
     override fun optimized() {
+        optimizeDataSaver.saveOptimization(type = OptimizeType.JUNK_CLEANER)
+        binding.optimizeBtn.text = getString(R.string.optimized_btn)
+        binding.optimizeBtn.setOnClickListener {
+            showToast(fragmentName = getString(R.string.junk_cleaner))
+        }
+        circlesList.forEach {
+            it.setImageDrawable(ContextCompat.getDrawable(activity as MainActivity,
+                R.drawable.ic_green_circle_junk))
+        }
         Log.e("JunkCleaner", "optimized")
     }
 
