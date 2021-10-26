@@ -15,6 +15,8 @@ import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.BatteryManager
 import android.os.Build
+import android.os.Environment
+import android.os.StatFs
 
 import android.util.DisplayMetrics
 import kotlin.math.ceil
@@ -22,15 +24,17 @@ import android.provider.MediaStore
 import androidx.core.content.ContentResolverCompat.query
 
 import com.missclickads.cleaner.models.VideoModel
+import java.io.File
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
+import kotlin.math.roundToInt
 
 
 class PhoneData(val context: Context) {
 
     private val appsCount = 6
-    val cpuBeforeOpt = (340..490).random().toDouble() / 10.0
-    val cpuAfterOpt = cpuBeforeOpt - 9
+    val cpuBeforeOpt = (340..490).random() / 10.0
+    val cpuAfterOpt = ((cpuBeforeOpt - 9.0) * 10).roundToInt() / 10.0
     val appMemories = mutableListOf<Int>()
 
     val junkCleanerOpt = (230..320).random()
@@ -50,8 +54,22 @@ class PhoneData(val context: Context) {
             .toDouble()
         val availMemory = (memInfo.availMem / (1024 * 1024)).toDouble()
         val usedMemory = (totalMemory * 1000 - availMemory).toInt()
-        val percent = usedMemory / (totalMemory * 10)
+        val percent = (usedMemory / (totalMemory * 10)).roundToInt()
         return listOf(usedMemory, totalMemory, percent)
+    }
+
+    fun getStorage(): Pair<Int, Double> {
+        val iPath: File = Environment.getDataDirectory()
+        val iStat = StatFs(iPath.path)
+        val iBlockSize = iStat.blockSizeLong
+        val iAvailableBlocks = iStat.availableBlocksLong
+        val iTotalBlocks = iStat.blockCountLong
+        val iAvailableSpace = ((iAvailableBlocks * iBlockSize) / (1024.0 * 1024)).toInt()
+        var iTotalSpace = (iTotalBlocks * iBlockSize) / (1024.0 * 1024 * 1024)
+        iTotalSpace = (iTotalSpace * 10.0).roundToInt() / 10.0
+        val used = (iTotalSpace * 1000 - iAvailableSpace).toInt()
+        return Pair(used,iTotalSpace)
+
     }
 
     // battery opt
@@ -62,6 +80,8 @@ class PhoneData(val context: Context) {
         val batteryMinutes = (value * 1.2 * 4 % 60).toInt()
         return listOf(value, batteryHours, batteryMinutes)
     }
+
+
 
     //CPU Cooler
 

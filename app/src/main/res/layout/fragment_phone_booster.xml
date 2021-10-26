@@ -41,7 +41,7 @@
         android:max="100"
         android:maxWidth="5dp"
         android:maxHeight="5dp"
-        android:progressDrawable="@drawable/progress_bar_circle"
+        android:progressDrawable="@drawable/progress_bar_circle_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
