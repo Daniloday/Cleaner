@@ -12,8 +12,10 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
+import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentCpuCoolerBinding
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.optimazid.CompleteOptimizationDialogFragment
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
 import org.koin.android.ext.android.inject
@@ -72,7 +74,9 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
         binding.status.text = getString(R.string.overheated)
         binding.optimizeBtn.text = getString(R.string.optimize_btn)
         binding.optimizeBtn.setOnClickListener {
-            viewModel.startOptimization()
+            //viewModel.startOptimization()
+            val dialog = CompleteOptimizationDialogFragment()
+            dialog.show(childFragmentManager, "optimization")
         }
         binding.applicationsClass.text = getString(
             R.string.applications_class_are_causing_problem_hit_cool_down)

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
+import androidx.navigation.fragment.findNavController
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
 
@@ -31,7 +33,7 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
     }
 
     private fun initUi(){
-        //todo buttons, etc
+        findNavController().navigate(R.id.fileManagerTypesFragment)
     }
 
     override fun onDestroyView() {
