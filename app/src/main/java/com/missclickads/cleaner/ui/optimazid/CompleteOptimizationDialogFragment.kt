@@ -50,7 +50,7 @@ class CompleteOptimizationDialogFragment : DialogFragment() {
                 Log.e("Animation:","start")
             }
 
-            override fun onAncimationEnd(animation: Animator?) {
+            override fun onAnimationEnd(animation: Animator?) {
                 dismiss()
             }
 
