@@ -6,27 +6,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
+import com.missclickads.cleaner.databinding.FileManagerTypesFragmentBinding
+import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
+import com.missclickads.cleaner.ui.filemanager.items.TypeItem
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+import kotlinx.coroutines.MainCoroutineDispatcher
 
 class FileManagerTypesFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = FileManagerTypesFragment()
-    }
+    private var _binding: FileManagerTypesFragmentBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var viewModel: FileManagerTypesViewModel
+    private lateinit var viewModel: FileManagerViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.file_manager_types_fragment, container, false)
+    ): View {
+        _binding = FileManagerTypesFragmentBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FileManagerTypesViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val adapter = GroupAdapter<GroupieViewHolder>()
+
+        val item = TypeItem(
+            image = R.drawable.ic_video_icon,
+            type = "Video",
+            memory = "246mb"
+        )
+        val item2 = TypeItem(
+            image = R.drawable.ic_video_icon,
+            type = "Video",
+            memory = "246mb"
+        )
+
+        adapter.add(item)
+        adapter.add(item2)
+        binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
+        binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
+        binding.recycler.adapter = adapter
     }
 
 }

@@ -66,120 +66,18 @@
 
     </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/guidelineCenter2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineCenter">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/video_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_video_icon"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelineCenter2"
-            app:layout_constraintVertical_bias="0.503" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Video"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintTop_toTopOf="@+id/guidelineCenter2" />
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/video_mb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="268 mb"
-            android:textColor="@color/gray"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            android:layout_marginEnd="23dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintTop_toTopOf="@+id/guidelineCenter2" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optRoundCardView2"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/video_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_video_icon"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelineCenter2"
-            app:layout_constraintVertical_bias="0.503" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Video"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintTop_toTopOf="@+id/guidelineCenter2" />
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/video_mb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="268 mb"
-            android:textColor="@color/gray"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            android:layout_marginEnd="23dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintTop_toTopOf="@+id/guidelineCenter2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.424" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.568" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.712" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.856" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineCenter5"
         android:layout_width="wrap_content"

@@ -67,6 +67,11 @@ dependencies {
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
+    //groupie
+    def groupie_version = "2.9.0"
+    implementation "com.github.lisawray.groupie:groupie:$groupie_version"
+    implementation "com.github.lisawray.groupie:groupie-viewbinding:$groupie_version"
+
     //Ui
     implementation 'com.github.captain-miao:optroundcardview:1.0.0'
 }
