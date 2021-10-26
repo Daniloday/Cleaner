@@ -15,6 +15,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
-        app:lottie_rawRes="@raw/ok_optimization_animation"/>
+        app:lottie_rawRes="@raw/ok_optimization_anim"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
