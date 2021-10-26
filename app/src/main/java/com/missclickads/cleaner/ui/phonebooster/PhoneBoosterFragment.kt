@@ -44,6 +44,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
         val memory = phoneData.getMemory()
         val storage = phoneData.getStorage()
         binding.storage.text = storage.first.toString()
+        binding.storage2.text = storage.first.toString()
         binding.storageMb.text = "${storage.first} MB / ${storage.second} GB"
         binding.ram.text = "${memory[2]}%"
         binding.ramMb.text = "${memory[0]} MB / ${memory[1]} GB"
