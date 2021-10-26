@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.imageview.ShapeableImageView
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
@@ -18,6 +19,8 @@ import com.missclickads.cleaner.models.OptimizeType
 import com.missclickads.cleaner.ui.optimazid.CompleteOptimizationDialogFragment
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
@@ -74,9 +77,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
         binding.status.text = getString(R.string.overheated)
         binding.optimizeBtn.text = getString(R.string.optimize_btn)
         binding.optimizeBtn.setOnClickListener {
-            //viewModel.startOptimization()
-            val dialog = CompleteOptimizationDialogFragment()
-            dialog.show(childFragmentManager, "optimization")
+            viewModel.startOptimization()
         }
         binding.applicationsClass.text = getString(
             R.string.applications_class_are_causing_problem_hit_cool_down)
@@ -86,7 +87,13 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
     override fun optimization() {
         Log.e("CpuCooler", "optimization")
-        viewModel.endOptimization()
+        //viewModel.startOptimization()
+        val dialog = CompleteOptimizationDialogFragment()
+        dialog.show(childFragmentManager, "optimization")
+        lifecycleScope.launch {
+            delay(2000)
+            viewModel.endOptimization()
+        }
     }
 
     override fun optimized() {
