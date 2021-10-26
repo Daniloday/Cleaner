@@ -57,10 +57,15 @@ dependencies {
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+
     //koin
     def koin_version =  "3.1.2"
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-android:$koin_version"
+
+    //animation
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     //Ui
     implementation 'com.github.captain-miao:optroundcardview:1.0.0'
