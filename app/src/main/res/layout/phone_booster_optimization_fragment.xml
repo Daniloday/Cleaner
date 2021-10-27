@@ -6,16 +6,31 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_optimization_background">
 
+    <ProgressBar
+        android:id="@+id/progressBarCircle"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:maxWidth="5dp"
+        android:maxHeight="5dp"
+        android:progressDrawable="@drawable/progress_bar_optimization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineBar" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image_rocket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_rocket"
-        app:layout_constraintBottom_toBottomOf="@+id/guidelineBot"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarCircle"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarCircle"
+        app:layout_constraintStart_toStartOf="@+id/progressBarCircle"
+        app:layout_constraintTop_toTopOf="@+id/progressBarCircle" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView"
@@ -23,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Scanning RAM..."
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +58,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
