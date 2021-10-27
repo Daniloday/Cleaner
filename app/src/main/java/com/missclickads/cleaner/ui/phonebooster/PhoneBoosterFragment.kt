@@ -11,7 +11,6 @@ import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentPhoneBoosterBinding
-import com.missclickads.cleaner.models.OptimizeType
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
 import org.koin.android.ext.android.inject
@@ -67,6 +66,8 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     }
 
     override fun optimization() {
+        val dialog = PhoneOptimizationDialogFragment()
+        dialog.show(childFragmentManager, "optimization")
         Log.e("PhoneBooster", "optimization")
         viewModel.endOptimization()
     }

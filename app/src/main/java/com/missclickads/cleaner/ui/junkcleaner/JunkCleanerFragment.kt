@@ -13,6 +13,7 @@ import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentJunkCleanerBinding
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import org.koin.android.ext.android.inject
 
@@ -67,6 +68,8 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override fun optimization() {
         Log.e("JunkCleaner", "optimization")
+        val dialog = JunkOptimizationDialogFragment()
+        dialog.show(childFragmentManager, "optimization")
         viewModel.endOptimization()
     }
 

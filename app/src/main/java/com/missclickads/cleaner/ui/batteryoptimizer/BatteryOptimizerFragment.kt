@@ -15,6 +15,7 @@ import com.missclickads.cleaner.SplashActivity
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentBatteryOptimizerBinding
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
 import org.koin.android.ext.android.inject
@@ -77,6 +78,8 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override fun optimization() {
         Log.e("BatteryOptimizer", "optimization")
+        val dialog = BatteryOptimizationDialogFragment()
+        dialog.show(childFragmentManager, "optimization")
         viewModel.endOptimization()
     }
 

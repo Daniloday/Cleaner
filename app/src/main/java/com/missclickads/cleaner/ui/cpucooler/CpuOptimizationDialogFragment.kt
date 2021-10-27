@@ -1,23 +1,17 @@
-package com.missclickads.cleaner.ui.optimazid
+package com.missclickads.cleaner.ui.cpucooler
 
-import android.animation.Animator
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.lifecycleScope
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class CompleteOptimizationDialogFragment : DialogFragment() {
-
+class CpuOptimizationDialogFragment : DialogFragment() {
     private var _binding: CompleteDialogFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -41,27 +35,6 @@ class CompleteOptimizationDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupAnimationListener()
-    }
 
-    fun setupAnimationListener(){
-        binding.anim.addAnimatorListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animation: Animator?) {
-                Log.e("Animation:","start")
-            }
-
-            override fun onAnimationEnd(animation: Animator?) {
-                dismiss()
-            }
-
-            override fun onAnimationCancel(animation: Animator?) {
-                Log.e("Animation:","start");
-            }
-
-            override fun onAnimationRepeat(animation: Animator?) {
-                Log.e("Animation:","repeat")
-            }
-
-        })
     }
 }
