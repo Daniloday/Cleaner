@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.google.android.gms.ads.AdRequest
 import com.google.android.material.imageview.ShapeableImageView
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
@@ -43,6 +44,8 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
         if (optimizeDataSaver.dataSaver.junkCleaner) viewModel.endOptimization()
         circlesList = listOf(binding.imageCircle1, binding.imageCircle2,
             binding.imageCircle3, binding.imageCircle4)
+        //ads
+        binding.adView.loadAd(AdRequest.Builder().build())
     }
 
     override fun onDestroyView() {

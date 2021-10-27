@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.ads.MobileAds
 import com.missclickads.cleaner.models.OptimizeData
 import com.missclickads.cleaner.models.OptimizeType
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        MobileAds.initialize(this) {}
         supportActionBar?.hide()
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)

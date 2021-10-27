@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
@@ -49,6 +50,8 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
         binding.ram.text = "${memory[2]}%"
         binding.ramMb.text = "${memory[0]} MB / ${memory[1]} GB"
         binding.progressBarCircle.progress = memory[2] as Int
+        //ads
+        binding.adView.loadAd(AdRequest.Builder().build())
     }
 
     override fun onDestroyView() {

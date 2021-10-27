@@ -17,4 +17,13 @@
     <string name="normal">Normal</string>
     <string name = "cpu_good">CPU Temperature is Good</string>>
 
+<!--    Ads-->
+    <string name="admob">ca-app-pub-5421414594983392~4176660642</string>
+    <string name="splash_ads">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="phone_booster_ads">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="cpu_cooler_ads">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="battery_ads">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="junk_cleaner_ads">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="file_manager_ads">ca-app-pub-3940256099942544/6300978111</string>
+
 </resources>

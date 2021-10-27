@@ -74,4 +74,8 @@ dependencies {
 
     //Ui
     implementation 'com.github.captain-miao:optroundcardview:1.0.0'
+
+    //ads
+    implementation 'com.google.android.gms:play-services-ads:20.3.0'
+    implementation 'com.google.android.gms:play-services-ads-lite:20.3.0'
 }

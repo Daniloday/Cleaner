@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.imageview.ShapeableImageView
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
@@ -15,8 +16,11 @@ import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentCpuCoolerBinding
 import com.missclickads.cleaner.models.OptimizeType
+
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
@@ -85,7 +89,10 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
         Log.e("CpuCooler", "optimization")
         val dialog = CpuOptimizationDialogFragment()
         dialog.show(childFragmentManager, "optimization")
-        viewModel.endOptimization()
+        lifecycleScope.launch {
+            delay(2000)
+            viewModel.endOptimization()
+        }
     }
 
     override fun optimized() {

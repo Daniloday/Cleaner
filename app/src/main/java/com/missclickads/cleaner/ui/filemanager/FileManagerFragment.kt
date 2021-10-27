@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
@@ -33,6 +34,8 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
     }
 
     private fun initUi(){
+        //ads
+        binding.adView.loadAd(AdRequest.Builder().build())
         findNavController().navigate(R.id.fileManagerTypesFragment)
     }
 

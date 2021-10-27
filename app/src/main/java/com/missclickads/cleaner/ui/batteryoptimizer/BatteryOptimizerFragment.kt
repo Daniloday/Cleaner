@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.SplashActivity
@@ -60,6 +61,8 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
                 ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_battery_green))
         binding.batteryTimeInfoHours.text = batteryValue[1].toString()
         binding.batteryTimeInfoMinutes.text = batteryValue[2].toString()
+        //ads
+        binding.adView.loadAd(AdRequest.Builder().build())
     }
 
     override fun onDestroyView() {
