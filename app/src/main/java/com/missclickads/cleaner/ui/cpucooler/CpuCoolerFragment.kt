@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.AdRequest
 import com.google.android.material.imageview.ShapeableImageView
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
@@ -47,6 +48,8 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
     @SuppressLint("SetTextI18n")
     private fun initUi(){
+        //ads
+        binding.adView.loadAd(AdRequest.Builder().build())
         if (optimizeDataSaver.dataSaver.cpuCooler) viewModel.endOptimization()
 
         val appImageViewList = listOf(binding.appImage1,binding.appImage2,binding.appImage3,binding.appImage4,
@@ -73,7 +76,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
         binding.shapeableImageView.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_cpu_high))
-        binding.temperature.text = "${phoneData.cpuBeforeOpt} °C"
+        binding.temperature.text = "${phoneData.cpuBeforeOpt}"
         binding.status.text = getString(R.string.overheated)
         binding.optimizeBtn.text = getString(R.string.optimize_btn)
         binding.optimizeBtn.setOnClickListener {
@@ -102,7 +105,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
         binding.shapeableImageView.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_cpu_low))
-        binding.temperature.text = "${phoneData.cpuAfterOpt} °C"
+        binding.temperature.text = "${phoneData.cpuAfterOpt}"
         binding.status.text = getString(R.string.normal)
         binding.optimizeBtn.text = getString(R.string.optimized_btn)
         binding.optimizeBtn.setOnClickListener {
