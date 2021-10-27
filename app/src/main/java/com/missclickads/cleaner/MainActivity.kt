@@ -10,13 +10,16 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.ads.MobileAds
 import com.missclickads.cleaner.models.OptimizeData
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.phonebooster.PhoneOptimizationDialogFragment
+import com.missclickads.cleaner.ui.rate.RateDialogFragment
 
 import com.missclickads.cleaner.utils.OptimizeDataSaver
+import org.koin.android.ext.android.inject
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-
+    private val optimizeDataSaver : OptimizeDataSaver by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        if (optimizeDataSaver.checkShowRate()) rate()
+
+    }
+
+    fun rate(){
+        val dialog = RateDialogFragment()
+        dialog.show(supportFragmentManager, "RateDialogFragment")
     }
 
 
