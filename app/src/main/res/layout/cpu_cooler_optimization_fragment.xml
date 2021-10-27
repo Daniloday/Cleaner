@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/guidelineText">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView"
+            android:id="@+id/materialTextView1"
             android:layout_width="114dp"
             android:layout_height="20dp"
             android:text="123"
@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView"
+            android:id="@+id/materialTextView2"
             android:layout_width="114dp"
             android:layout_height="20dp"
             android:text=""
