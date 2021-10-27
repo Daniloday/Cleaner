@@ -46,9 +46,9 @@ class RateDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnRate.setOnClickListener {
-            //todo open Google Play
-        }
+//        binding.btnRate.setOnClickListener {
+//            //todo open Google Play
+//        }
     }
 
 

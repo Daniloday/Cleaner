@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
 import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
@@ -73,9 +72,8 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     override fun optimization() {
         val dialog = PhoneOptimizationDialogFragment()
         dialog.show(childFragmentManager, "optimization")
-        findNavController().navigate(R.id.optimizationEndsFragment)
         Log.e("PhoneBooster", "optimization")
-        //viewModel.endOptimization()
+        viewModel.endOptimization()
     }
 
     override fun optimized() {
