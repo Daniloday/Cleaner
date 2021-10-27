@@ -6,31 +6,47 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_optimization_background">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image_rocket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_snow_cpu_cooler"
         app:layout_constraintBottom_toBottomOf="@+id/guidelineBot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/scanner_jc"/>
+        app:layout_constraintTop_toTopOf="@id/guidelineTop" />
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scanning..."
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guidelineCenter"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/guidelineText">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="114dp"
+            android:layout_height="20dp"
+            android:text="123"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="114dp"
+            android:layout_height="20dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineBot"
@@ -46,11 +62,12 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter"
+        android:id="@+id/guidelineText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.59" />
+        app:layout_constraintGuide_percent="0.52" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
