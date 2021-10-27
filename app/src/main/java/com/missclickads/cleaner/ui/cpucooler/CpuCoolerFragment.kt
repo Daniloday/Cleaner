@@ -15,7 +15,6 @@ import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentCpuCoolerBinding
 import com.missclickads.cleaner.models.OptimizeType
-import com.missclickads.cleaner.ui.optimazid.CompleteOptimizationDialogFragment
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
 import org.koin.android.ext.android.inject

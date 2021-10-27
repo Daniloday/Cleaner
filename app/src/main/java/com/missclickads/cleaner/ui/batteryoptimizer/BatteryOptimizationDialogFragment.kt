@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
+import com.missclickads.cleaner.databinding.BatteryOptimizerOptimizationFragmentBinding
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 
 class BatteryOptimizationDialogFragment : DialogFragment() {
-    private var _binding: CompleteDialogFragmentBinding? = null
+    private var _binding: BatteryOptimizerOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onStart() {
@@ -29,7 +30,7 @@ class BatteryOptimizationDialogFragment : DialogFragment() {
             getDialog()?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
-        _binding = CompleteDialogFragmentBinding.inflate(inflater, container, false)
+        _binding = BatteryOptimizerOptimizationFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

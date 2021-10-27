@@ -10,9 +10,10 @@ import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
+import com.missclickads.cleaner.databinding.JunkCleanerOptimizationFragmentBinding
 
 class JunkOptimizationDialogFragment : DialogFragment() {
-    private var _binding: CompleteDialogFragmentBinding? = null
+    private var _binding: JunkCleanerOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onStart() {
@@ -29,7 +30,7 @@ class JunkOptimizationDialogFragment : DialogFragment() {
             getDialog()?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
-        _binding = CompleteDialogFragmentBinding.inflate(inflater, container, false)
+        _binding = JunkCleanerOptimizationFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
