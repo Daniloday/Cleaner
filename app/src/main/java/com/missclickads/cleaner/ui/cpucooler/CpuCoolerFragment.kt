@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.AdRequest
 import com.google.android.material.imageview.ShapeableImageView
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
@@ -47,6 +48,8 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
     @SuppressLint("SetTextI18n")
     private fun initUi(){
+        //ads
+        binding.adView.loadAd(AdRequest.Builder().build())
         if (optimizeDataSaver.dataSaver.cpuCooler) viewModel.endOptimization()
 
         val appImageViewList = listOf(binding.appImage1,binding.appImage2,binding.appImage3,binding.appImage4,
