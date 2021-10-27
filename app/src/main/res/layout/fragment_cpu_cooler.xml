@@ -43,17 +43,42 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineTop" />
 
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/temperature"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/temperature_constraint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="86,7 °C"
-        android:textColor="@color/light_black"
-        android:textSize="32sp"
-        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/optRoundCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCenter" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineCenter"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="86,7"
+            android:textColor="@color/light_black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="°C"
+            android:textColor="@color/light_black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/temperature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/temperature"
+            app:layout_constraintTop_toTopOf="@+id/temperature"
+            app:layout_constraintVertical_bias="0.19999999" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/status"
@@ -65,8 +90,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineBot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperature"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintTop_toBottomOf="@+id/temperature_constraint"
+        app:layout_constraintVertical_bias="0.3" />
 
     <com.github.captain_miao.optroundcardview.OptRoundCardView
         android:id="@+id/optRoundCardView"

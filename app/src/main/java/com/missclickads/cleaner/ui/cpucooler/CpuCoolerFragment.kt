@@ -73,7 +73,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
         binding.shapeableImageView.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_cpu_high))
-        binding.temperature.text = "${phoneData.cpuBeforeOpt} °C"
+        binding.temperature.text = "${phoneData.cpuBeforeOpt}"
         binding.status.text = getString(R.string.overheated)
         binding.optimizeBtn.text = getString(R.string.optimize_btn)
         binding.optimizeBtn.setOnClickListener {
@@ -102,7 +102,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
         binding.shapeableImageView.setImageDrawable(
             ContextCompat.getDrawable(activity as MainActivity, R.drawable.ic_cpu_low))
-        binding.temperature.text = "${phoneData.cpuAfterOpt} °C"
+        binding.temperature.text = "${phoneData.cpuAfterOpt}"
         binding.status.text = getString(R.string.normal)
         binding.optimizeBtn.text = getString(R.string.optimized_btn)
         binding.optimizeBtn.setOnClickListener {
