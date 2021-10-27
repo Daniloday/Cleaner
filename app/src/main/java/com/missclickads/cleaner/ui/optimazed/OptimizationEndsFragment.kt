@@ -39,16 +39,26 @@ class OptimizationEndsFragment : Fragment() {
         val adapter = GroupAdapter<GroupieViewHolder>()
 
         val item = OptimizationItem(
-            image = R.drawable.ic_video_icon,
-            title = "Video",
+            image = R.drawable.ic_battery022_icon,
+            title = "Battery\nSaver",
         )
         val item2 = OptimizationItem(
-            image = R.drawable.ic_video_icon,
-            title = "Video",
+            image = R.drawable.ic_cpu022_icon,
+            title = "CPU\nCooler",
+        )
+        val item3 = OptimizationItem(
+            image = R.drawable.ic_junk022_icon,
+            title = "Junk\nCleaner",
+        )
+        val item4 = OptimizationItem(
+            image = R.drawable.ic_phone022_icon,
+            title = "Phone\nBooster",
         )
 
         adapter.add(item)
         adapter.add(item2)
+        adapter.add(item3)
+        adapter.add(item4)
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter

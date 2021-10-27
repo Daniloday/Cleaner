@@ -40,16 +40,27 @@ class FileManagerTypesFragment : Fragment() {
         val item = TypeItem(
             image = R.drawable.ic_video_icon,
             type = "Video",
-            memory = "246mb"
+            memory = "268mb"
         )
         val item2 = TypeItem(
-            image = R.drawable.ic_video_icon,
-            type = "Video",
-            memory = "246mb"
+            image = R.drawable.ic_audio_icon,
+            type = "Audio",
+            memory = "268mb"
         )
-
+        val item3 = TypeItem(
+            image = R.drawable.ic_images_icon,
+            type = "Images",
+            memory = "268mb"
+        )
+        val item4 = TypeItem(
+            image = R.drawable.ic_documents_icon,
+            type = "Documents",
+            memory = "268mb"
+        )
         adapter.add(item)
         adapter.add(item2)
+        adapter.add(item3)
+        adapter.add(item4)
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter

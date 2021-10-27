@@ -70,8 +70,10 @@
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_cpu_cooler.xml" value="0.33" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_file_manager.xml" value="0.33" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_junk_cleaner.xml" value="0.33" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_optimization_end.xml" value="0.23233695652173914" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_phone_booster.xml" value="0.34810126582278483" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/item_folders_types.xml" value="0.24322916666666666" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/item_optimization_end.xml" value="0.24635416666666668" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/junk_cleaner_optimization_fragment.xml" value="0.240625" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/phone_booster_optimization.xml" value="0.24322916666666666" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/phone_booster_optimization_fragment.xml" value="0.23822463768115942" />
