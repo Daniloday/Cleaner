@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 
 class CompleteOptimizationDialogFragment(
@@ -52,6 +54,7 @@ class CompleteOptimizationDialogFragment(
             }
 
             override fun onAnimationEnd(animation: Animator?) {
+                findNavController().navigate(R.id.optimizationEndsFragment)
                 callback.invoke()
                 dismiss()
             }

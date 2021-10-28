@@ -9,11 +9,13 @@ import com.xwray.groupie.viewbinding.BindableItem
 class OptimizationItem(
 private val image : Int,
 private val title : String,
+private val setOnClickCallback : ()->(Unit)
 ) : BindableItem<ItemOptimizationEndBinding>(){
 
     override fun bind(viewBinding: ItemOptimizationEndBinding, position: Int) {
         viewBinding.icon.setImageResource(image)
         viewBinding.typeText.text = title
+        viewBinding.btnOptimize.setOnClickListener { setOnClickCallback.invoke() }
     }
 
     override fun getLayout(): Int = R.layout.item_optimization_end

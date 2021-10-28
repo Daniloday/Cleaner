@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.missclickads.cleaner.MainActivity
@@ -14,13 +15,16 @@ import com.missclickads.cleaner.databinding.FragmentOptimizationEndBinding
 import com.missclickads.cleaner.databinding.JunkCleanerOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.filemanager.items.TypeItem
 import com.missclickads.cleaner.ui.optimazed.item.OptimizationItem
+import com.missclickads.cleaner.utils.OptimizeDataSaver
+import com.missclickads.cleaner.utils.PhoneData
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import org.koin.android.ext.android.inject
 
 class OptimizationEndsFragment : Fragment() {
     private var _binding: FragmentOptimizationEndBinding? = null
     private val binding get() = _binding!!
-
+    private val optimizeDataSaver : OptimizeDataSaver by inject()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,24 +39,44 @@ class OptimizationEndsFragment : Fragment() {
         setupRecycler()
     }
 
-    fun setupRecycler(){
+    private fun setupRecycler(){
         val adapter = GroupAdapter<GroupieViewHolder>()
 
         val item = OptimizationItem(
-            image = R.drawable.ic_battery022_icon,
+            image =
+            if(optimizeDataSaver.dataSaver.batteryOptimizer) R.drawable.ic_battery022_icon
+            else R.drawable.battery_warning,
             title = "Battery\nSaver",
+            setOnClickCallback = {
+                findNavController().navigate(R.id.navigation_battery_optimizer)
+            }
         )
         val item2 = OptimizationItem(
-            image = R.drawable.ic_cpu022_icon,
+            image =
+            if (optimizeDataSaver.dataSaver.cpuCooler) R.drawable.ic_cpu022_icon
+            else R.drawable.cpu_warning,
             title = "CPU\nCooler",
+            setOnClickCallback = {
+                findNavController().navigate(R.id.navigation_cpu_cooler)
+            }
         )
         val item3 = OptimizationItem(
-            image = R.drawable.ic_junk022_icon,
+            image =
+            if (optimizeDataSaver.dataSaver.junkCleaner) R.drawable.ic_junk022_icon
+            else R.drawable.junk_warning,
             title = "Junk\nCleaner",
+            setOnClickCallback = {
+                findNavController().navigate(R.id.navigation_junk_cleaner)
+            }
         )
         val item4 = OptimizationItem(
-            image = R.drawable.ic_phone022_icon,
+            image =
+            if (optimizeDataSaver.dataSaver.phoneBooster) R.drawable.ic_phone022_icon
+            else R.drawable.phone_warning,
             title = "Phone\nBooster",
+            setOnClickCallback = {
+                findNavController().navigate(R.id.navigation_phone_booster)
+            }
         )
 
         adapter.add(item)

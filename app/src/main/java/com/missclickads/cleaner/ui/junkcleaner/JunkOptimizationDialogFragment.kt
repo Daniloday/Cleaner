@@ -12,6 +12,8 @@ import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.JunkCleanerOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment

@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
