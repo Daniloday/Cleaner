@@ -10,9 +10,13 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
+import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FragmentExitDialogBinding
 import com.missclickads.cleaner.databinding.FragmentRateDialogBinding
+import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.utils.OptimizeDataSaver
+import org.koin.android.ext.android.inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +30,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class ExitDialogFragment : DialogFragment() {
 
-
+    private val optimizeDataSaver : OptimizeDataSaver by inject()
     private var _binding: FragmentExitDialogBinding? = null
     private val binding get() = _binding!!
 
@@ -50,8 +54,43 @@ class ExitDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnOptimize.setOnClickListener {  }
-        binding.textQuit.setOnClickListener {  }
+
+        if(optimizeDataSaver.dataSaver.phoneBooster){
+            binding.textNotOptimized.text = getString(R.string.phone_booster)
+            binding.btnOptimize.setOnClickListener {
+                (activity as MainActivity).callbackFromDialog(OptimizeType.PHONE_BOOSTER)
+                dismiss()
+            }
+        }
+
+        if(optimizeDataSaver.dataSaver.batteryOptimizer){
+            binding.textNotOptimized.text = getString(R.string.battery_optimizer)
+            binding.btnOptimize.setOnClickListener {
+                (activity as MainActivity).callbackFromDialog(OptimizeType.BATTERY_OPTIMIZER)
+                dismiss()
+            }
+        }
+
+        if(optimizeDataSaver.dataSaver.cpuCooler){
+            binding.textNotOptimized.text = getString(R.string.cpu_cooler)
+            binding.btnOptimize.setOnClickListener {
+                (activity as MainActivity).callbackFromDialog(OptimizeType.CPU_COOLER)
+                dismiss()
+            }
+        }
+
+        if(optimizeDataSaver.dataSaver.phoneBooster){
+            binding.textNotOptimized.text = getString(R.string.junk_cleaner)
+            binding.btnOptimize.setOnClickListener {
+                (activity as MainActivity).callbackFromDialog(OptimizeType.PHONE_BOOSTER)
+                dismiss()
+            }
+        }
+
+
+        binding.textQuit.setOnClickListener {
+            (activity as MainActivity).finish()
+        }
     }
 
 

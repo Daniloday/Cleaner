@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 class SplashActivity : AppCompatActivity() {
 
     private var mInterstitialAd: InterstitialAd? = null
-
+    var closed = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -38,6 +38,7 @@ class SplashActivity : AppCompatActivity() {
                 val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent)
+                closed = true
                 finish()
             }
         }
@@ -60,6 +61,7 @@ class SplashActivity : AppCompatActivity() {
                         object : FullScreenContentCallback() {
                             override fun onAdDismissedFullScreenContent() {
                                 mInterstitialAd = null
+                                closed = true
                                 val intent = Intent(this@SplashActivity, MainActivity::class.java)
                                 startActivity(intent)
                             }
@@ -70,5 +72,12 @@ class SplashActivity : AppCompatActivity() {
                 }
         })
     }
+
+    override fun onResume() {
+        super.onResume()
+        if(closed) finish()
+
+    }
+
 
 }

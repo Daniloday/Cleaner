@@ -73,13 +73,18 @@
         <entry key="..\:/Cleaner3/app/src/main/res/layout/phone_booster_optimization_fragment.xml" value="0.23822463768115942" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/dialog_delete_files_fragment.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/item_optimization_end.xml" value="0.1884498480243161" />
+        <entry key="app/src/main/res/drawable-v24/progress_bar_splash.xml" value="0.28055555555555556" />
         <entry key="app/src/main/res/drawable/ic_lime_gradient.xml" value="0.2861111111111111" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/complete_dialog_fragment.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/cpu_cooler_optimization_fragment.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/delete_files_fragment.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/file_manager_optimization_fragment.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/file_manager_types_fragment.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/fragment_cpu_cooler.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_exit_dialog.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_file_manager.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/fragment_phone_booster.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/fragment_rate_dialog.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/item_folders_types.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/item_optimization_end.xml" value="0.14361702127659576" />
