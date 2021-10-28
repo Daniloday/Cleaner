@@ -13,7 +13,9 @@ import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 
-class CompleteOptimizationDialogFragment : DialogFragment() {
+class CompleteOptimizationDialogFragment(
+    private val callback : () -> (Unit)
+) : DialogFragment() {
 
     private var _binding: CompleteDialogFragmentBinding? = null
     private val binding get() = _binding!!
@@ -48,6 +50,7 @@ class CompleteOptimizationDialogFragment : DialogFragment() {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
+                callback.invoke()
                 dismiss()
             }
 
