@@ -22,7 +22,7 @@
             android:thicknessRatio="30.0"
             android:useLevel="false" >
 
-            <solid android:color="#EBECF8" />
+            <solid android:color="#7BB9E7" />
         </shape>
     </item>
     <item android:id="@android:id/progress">
