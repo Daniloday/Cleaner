@@ -48,7 +48,7 @@ class JunkOptimizationDialogFragment(
             animation.start()
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment(text =""){
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="${phoneData.junkCleaner}mb cleaned"){
                     callback.invoke()
                     dismiss()
                 }
