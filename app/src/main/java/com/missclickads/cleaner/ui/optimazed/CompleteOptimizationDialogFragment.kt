@@ -47,14 +47,13 @@ class CompleteOptimizationDialogFragment(
         setupAnimationListener()
     }
 
-    fun setupAnimationListener(){
+    private fun setupAnimationListener(){
         binding.anim.addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator?) {
                 Log.e("Animation:","start")
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                findNavController().navigate(R.id.optimizationEndsFragment)
                 callback.invoke()
                 dismiss()
             }

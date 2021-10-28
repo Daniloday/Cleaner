@@ -1,9 +1,11 @@
 package com.missclickads.cleaner.ui.batteryoptimizer
 
 import android.animation.ObjectAnimator
+import android.content.ContentValues
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,15 @@ import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.missclickads.cleaner.MainActivity
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.BatteryOptimizerOptimizationFragmentBinding
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
@@ -59,4 +70,7 @@ class BatteryOptimizationDialogFragment(
         super.onViewCreated(view, savedInstanceState)
 
     }
+
+
+
 }

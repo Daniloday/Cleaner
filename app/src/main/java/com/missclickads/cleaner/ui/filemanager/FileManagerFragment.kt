@@ -34,9 +34,12 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
     }
 
     private fun initUi(){
+        binding.submitBtn.setOnClickListener {
+            findNavController().navigate(R.id.fileManagerTypesFragment)
+        }
         //ads
         binding.adView.loadAd(AdRequest.Builder().build())
-        findNavController().navigate(R.id.fileManagerTypesFragment)
+
     }
 
     override fun onDestroyView() {

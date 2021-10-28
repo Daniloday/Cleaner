@@ -1,5 +1,6 @@
 package com.missclickads.cleaner.ui.phonebooster
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,13 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.missclickads.cleaner.App
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
@@ -27,6 +34,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     private val phoneData : PhoneData by inject()
     private val optimizeDataSaver : OptimizeDataSaver by inject()
     private val binding get() = _binding!!
+    var mInterstitialAd: InterstitialAd? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,7 +61,9 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
         binding.ramMb.text = "${memory[0]} MB / ${memory[1]} GB"
         binding.progressBarCircle.progress = memory[2] as Int
         //ads
-        binding.adView.loadAd(AdRequest.Builder().build())
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+        loadAds(adRequest)
     }
 
     override fun onDestroyView() {
@@ -74,6 +84,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     override fun optimization() {
         val dialog = PhoneOptimizationDialogFragment{
             viewModel.endOptimization()
+            showAd()
         }
         dialog.show(childFragmentManager, "optimization")
 
@@ -94,4 +105,53 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     override fun error() {
         Log.e("PhoneBooster", "error")
     }
+
+    private fun showAd(){
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(activity as MainActivity)
+            println("Ads go!")
+        }
+        else{
+            findNavController().navigate(R.id.optimizationEndsFragment)
+        }
+    }
+
+    private fun loadAds(adRequest: AdRequest){
+        //ads
+        InterstitialAd.load(
+            activity as MainActivity,
+            "ca-app-pub-3940256099942544/1033173712",
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    Log.d(ContentValues.TAG, adError?.message)
+                    mInterstitialAd = null
+                }
+
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    Log.d(ContentValues.TAG, "Ad was loaded")
+                    mInterstitialAd = interstitialAd
+                    mInterstitialAd?.fullScreenContentCallback =
+                        object : FullScreenContentCallback() {
+                            override fun onAdDismissedFullScreenContent() {
+                                Log.d(ContentValues.TAG, "Ad was dismissed.")
+                                findNavController().navigate(R.id.optimizationEndsFragment)
+                            }
+
+                            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+                                Log.d(ContentValues.TAG, "Ad failed to show.")
+                                findNavController().navigate(R.id.optimizationEndsFragment)
+                            }
+
+
+                            override fun onAdShowedFullScreenContent() {
+                                findNavController().navigate(R.id.optimizationEndsFragment)
+                                Log.d(ContentValues.TAG, "Ad showed fullscreen content.")
+                                mInterstitialAd = null
+                            }
+                        }
+                }
+            })
+    }
+
 }
