@@ -6,7 +6,7 @@
     android:layout_marginEnd="16dp"
     android:layout_marginStart="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.rate.RateDialogFragment"
+    tools:context=".ui.exit.ExitDialogFragment"
     app:cardCornerRadius="30dp"
     >
 
@@ -14,63 +14,90 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="30dp"
-        android:paddingEnd="30dp">
+        android:paddingEnd="30dp"
+        android:paddingBottom="27dp">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_rate"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/are_you_want_to_quit"
+            android:textColor="@color/black"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <ImageView
+            android:id="@+id/image_rocket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:layout_marginTop="22dp"
-            android:text="@string/rate_multi_cleaner_pro"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:src="@drawable/ic_rocket"
+            android:layout_marginTop="21dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
-
-            android:id="@+id/textView3"
+            android:id="@+id/text_not_optimized"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="14dp"
-            android:text="@string/rate_text"
-            android:textAlignment="center"
+            android:text="Phone Booster"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_rocket" />
+
+        <TextView
+            android:id="@+id/text_still"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/stil_not_optimized"
+            android:textColor="#FF3317"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_not_optimized" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_optimize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/optimize_btn"
+            app:cornerRadius="54dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:background="@drawable/ic_lime_gradient"
+            android:paddingStart="54dp"
+            android:paddingEnd="54dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_still">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:id="@+id/text_quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quit"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <ImageView
-            android:id="@+id/btn_rate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/ic_button_rate"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_optimize" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </com.google.android.material.card.MaterialCardView>

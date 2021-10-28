@@ -30,5 +30,7 @@
     <string name="rate_multi_cleaner_pro">Rate Multi Cleaner PRO</string>
     <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
     <string name="are_you_want_to_quit">Are you want to quit?</string>
+    <string name="stil_not_optimized">Stil not optimized!</string>
+    <string name="quit">Quit</string>
 
 </resources>

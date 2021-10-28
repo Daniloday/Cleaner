@@ -50,7 +50,8 @@ class ExitDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.btnOptimize.setOnClickListener {  }
+        binding.textQuit.setOnClickListener {  }
     }
 
 
