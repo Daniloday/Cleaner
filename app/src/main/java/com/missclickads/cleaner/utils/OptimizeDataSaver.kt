@@ -29,6 +29,7 @@ class OptimizeDataSaver(context: Context) {
 
     init{
         dataSaver = getData()
+        println(dataSaver)
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -45,6 +46,7 @@ class OptimizeDataSaver(context: Context) {
                 sPrefs.edit().putString(S_JUNK_CLEANER, dateFormat.format(date)).apply()
         }
         dataSaver = getData()
+        println(dataSaver)
     }
 
     fun checkShowRate(): Boolean {
@@ -59,7 +61,7 @@ class OptimizeDataSaver(context: Context) {
         }
     }
 
-    fun getData(): OptimizeData {
+    private fun getData(): OptimizeData {
         val timeUpdateStatus = 15 * 60 * 1000
         val phoneBooster = getDataFormat(S_PHONE_BOOSTER)
         val batteryOptimizer = getDataFormat(S_BATTERY_OPTIMIZER)

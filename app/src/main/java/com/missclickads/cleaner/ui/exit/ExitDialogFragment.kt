@@ -55,23 +55,15 @@ class ExitDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(optimizeDataSaver.dataSaver.phoneBooster){
-            binding.textNotOptimized.text = getString(R.string.phone_booster)
+        if(!optimizeDataSaver.dataSaver.junkCleaner){
+            binding.textNotOptimized.text = getString(R.string.junk_cleaner)
             binding.btnOptimize.setOnClickListener {
-                (activity as MainActivity).callbackFromDialog(OptimizeType.PHONE_BOOSTER)
+                (activity as MainActivity).callbackFromDialog(OptimizeType.JUNK_CLEANER)
                 dismiss()
             }
         }
 
-        if(optimizeDataSaver.dataSaver.batteryOptimizer){
-            binding.textNotOptimized.text = getString(R.string.battery_optimizer)
-            binding.btnOptimize.setOnClickListener {
-                (activity as MainActivity).callbackFromDialog(OptimizeType.BATTERY_OPTIMIZER)
-                dismiss()
-            }
-        }
-
-        if(optimizeDataSaver.dataSaver.cpuCooler){
+        if(!optimizeDataSaver.dataSaver.cpuCooler){
             binding.textNotOptimized.text = getString(R.string.cpu_cooler)
             binding.btnOptimize.setOnClickListener {
                 (activity as MainActivity).callbackFromDialog(OptimizeType.CPU_COOLER)
@@ -79,8 +71,16 @@ class ExitDialogFragment : DialogFragment() {
             }
         }
 
-        if(optimizeDataSaver.dataSaver.phoneBooster){
-            binding.textNotOptimized.text = getString(R.string.junk_cleaner)
+        if(!optimizeDataSaver.dataSaver.batteryOptimizer){
+            binding.textNotOptimized.text = getString(R.string.battery_optimizer)
+            binding.btnOptimize.setOnClickListener {
+                (activity as MainActivity).callbackFromDialog(OptimizeType.BATTERY_OPTIMIZER)
+                dismiss()
+            }
+        }
+
+        if(!optimizeDataSaver.dataSaver.phoneBooster){
+            binding.textNotOptimized.text = getString(R.string.phone_booster)
             binding.btnOptimize.setOnClickListener {
                 (activity as MainActivity).callbackFromDialog(OptimizeType.PHONE_BOOSTER)
                 dismiss()
