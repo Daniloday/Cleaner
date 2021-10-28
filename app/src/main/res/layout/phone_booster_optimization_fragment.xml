@@ -26,7 +26,7 @@
         android:id="@+id/image_rocket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_rocket"
+        android:src="@drawable/ic_rocket_green"
         app:layout_constraintBottom_toBottomOf="@+id/progressBarCircle"
         app:layout_constraintEnd_toEndOf="@+id/progressBarCircle"
         app:layout_constraintStart_toStartOf="@+id/progressBarCircle"
