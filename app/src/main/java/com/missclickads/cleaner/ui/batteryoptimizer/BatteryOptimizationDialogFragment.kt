@@ -1,5 +1,6 @@
 package com.missclickads.cleaner.ui.batteryoptimizer
 
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -9,10 +10,16 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
 import com.missclickads.cleaner.databinding.BatteryOptimizerOptimizationFragmentBinding
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
+import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-class BatteryOptimizationDialogFragment : DialogFragment() {
+class BatteryOptimizationDialogFragment(
+    private val callback : () -> (Unit)
+) : DialogFragment() {
     private var _binding: BatteryOptimizerOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -31,6 +38,20 @@ class BatteryOptimizationDialogFragment : DialogFragment() {
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
         _binding = BatteryOptimizerOptimizationFragmentBinding.inflate(inflater, container, false)
+        binding.apply {
+            val animation = ObjectAnimator.ofInt(progressBarCircle, "progress", 0, 100)
+            animation.duration = 5 * 1000
+            animation.start()
+            lifecycleScope.launch{
+                delay(5*1000)
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Complete"){
+                    callback.invoke()
+                    dismiss()
+                }
+                dialogCompleted.show(childFragmentManager, "optimization")
+                //dismiss()
+            }
+        }
         return binding.root
     }
 

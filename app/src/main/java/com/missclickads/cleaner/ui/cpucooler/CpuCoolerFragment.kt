@@ -90,12 +90,11 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
     override fun optimization() {
         Log.e("CpuCooler", "optimization")
-        val dialog = CpuOptimizationDialogFragment()
-        dialog.show(childFragmentManager, "optimization")
-        lifecycleScope.launch {
-            delay(2000)
+        val dialog = CpuOptimizationDialogFragment{
             viewModel.endOptimization()
         }
+        dialog.show(childFragmentManager, "optimization")
+
     }
 
     override fun optimized() {

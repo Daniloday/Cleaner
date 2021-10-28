@@ -14,6 +14,7 @@ import androidx.fragment.app.DialogFragment
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 
 class CompleteOptimizationDialogFragment(
+    private val text : String,
     private val callback : () -> (Unit)
 ) : DialogFragment() {
 
@@ -40,6 +41,7 @@ class CompleteOptimizationDialogFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.materialTextView.text = text
         setupAnimationListener()
     }
 

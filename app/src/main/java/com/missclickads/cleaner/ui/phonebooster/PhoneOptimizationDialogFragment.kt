@@ -17,7 +17,9 @@ import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class PhoneOptimizationDialogFragment : DialogFragment() {
+class PhoneOptimizationDialogFragment  (
+    private val callback : () -> (Unit)
+) : DialogFragment() {
     private var _binding: PhoneBoosterOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -42,7 +44,8 @@ class PhoneOptimizationDialogFragment : DialogFragment() {
             animation.start()
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment{
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Complete"){
+                    callback.invoke()
                     dismiss()
                 }
                 dialogCompleted.show(childFragmentManager, "optimization")

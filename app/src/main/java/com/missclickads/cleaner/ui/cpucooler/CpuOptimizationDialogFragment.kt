@@ -1,5 +1,6 @@
 package com.missclickads.cleaner.ui.cpucooler
 
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -9,12 +10,21 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.CpuCoolerOptimizationFragmentBinding
+import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
+import com.missclickads.cleaner.utils.PhoneData
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
-class CpuOptimizationDialogFragment : DialogFragment() {
+class CpuOptimizationDialogFragment(
+    private val callback : () -> (Unit)
+) : DialogFragment() {
     private var _binding: CpuCoolerOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
+    private val phoneData : PhoneData by inject()
 
     override fun onStart() {
         super.onStart()
@@ -31,6 +41,21 @@ class CpuOptimizationDialogFragment : DialogFragment() {
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
         _binding = CpuCoolerOptimizationFragmentBinding.inflate(inflater, container, false)
+        binding.apply {
+            val animation = ObjectAnimator.ofInt(progressBarCircle, "progress", 0, 100)
+            animation.duration = 5 * 1000
+            animation.start()
+            temperature.text = "${phoneData.cpuBeforeOpt}"
+            lifecycleScope.launch{
+                delay(5*1000)
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Cooled CPU to ${phoneData.cpuAfterOpt} °C"){
+                    callback.invoke()
+                    dismiss()
+                }
+                dialogCompleted.show(childFragmentManager, "optimization")
+                //dismiss()
+            }
+        }
         return binding.root
     }
 

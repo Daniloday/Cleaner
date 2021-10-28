@@ -81,9 +81,11 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override fun optimization() {
         Log.e("BatteryOptimizer", "optimization")
-        val dialog = BatteryOptimizationDialogFragment()
+        val dialog = BatteryOptimizationDialogFragment{
+            viewModel.endOptimization()
+        }
         dialog.show(childFragmentManager, "optimization")
-        viewModel.endOptimization()
+
     }
 
     override fun optimized() {

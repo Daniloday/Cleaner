@@ -71,9 +71,11 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override fun optimization() {
         Log.e("JunkCleaner", "optimization")
-        val dialog = JunkOptimizationDialogFragment()
+        val dialog = JunkOptimizationDialogFragment{
+            viewModel.endOptimization()
+        }
         dialog.show(childFragmentManager, "optimization")
-        viewModel.endOptimization()
+
     }
 
     override fun optimized() {
