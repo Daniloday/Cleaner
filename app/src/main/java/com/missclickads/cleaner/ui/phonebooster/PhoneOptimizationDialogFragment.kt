@@ -42,10 +42,11 @@ class PhoneOptimizationDialogFragment : DialogFragment() {
             animation.start()
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment()
+                val dialogCompleted = CompleteOptimizationDialogFragment{
+                    dismiss()
+                }
                 dialogCompleted.show(childFragmentManager, "optimization")
-
-                dismiss()
+                //dismiss()
             }
         }
 
