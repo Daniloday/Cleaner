@@ -14,14 +14,17 @@ import androidx.lifecycle.lifecycleScope
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.PhoneBoosterOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
+import com.missclickads.cleaner.utils.PhoneData
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class PhoneOptimizationDialogFragment  (
     private val callback : () -> (Unit)
 ) : DialogFragment() {
     private var _binding: PhoneBoosterOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onStart() {
         super.onStart()

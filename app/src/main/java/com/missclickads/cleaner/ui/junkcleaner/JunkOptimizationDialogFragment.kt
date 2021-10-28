@@ -1,6 +1,7 @@
 package com.missclickads.cleaner.ui.junkcleaner
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -14,20 +15,23 @@ import androidx.lifecycle.lifecycleScope
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.JunkCleanerOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
+import com.missclickads.cleaner.utils.PhoneData
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class JunkOptimizationDialogFragment(
     private val callback : () -> (Unit)
 ) : DialogFragment() {
     private var _binding: JunkCleanerOptimizationFragmentBinding? = null
     private val binding get() = _binding!!
-
+    private val phoneData : PhoneData by inject()
     override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
     }
 
+    @SuppressLint("ObjectAnimatorBinding")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

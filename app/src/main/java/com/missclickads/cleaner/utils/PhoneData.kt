@@ -35,6 +35,7 @@ class PhoneData(val context: Context) {
     private val appsCount = 6
     val cpuBeforeOpt = (340..490).random() / 10.0
     val cpuAfterOpt = ((cpuBeforeOpt - 9.0) * 10).roundToInt() / 10.0
+    val junkCleaner = (230..320).random()
     val appMemories = mutableListOf<Int>()
 
     val junkCleanerOpt = (230..320).random()
