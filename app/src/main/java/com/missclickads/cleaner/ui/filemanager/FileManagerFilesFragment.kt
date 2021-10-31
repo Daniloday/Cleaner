@@ -65,7 +65,6 @@ class FileManagerFilesFragment : Fragment() {
             selectAll(adapter)
         }
 
-//        phoneData.getFileManagerData()
     }
 
     private fun selectAll(adapter: GroupAdapter<GroupieViewHolder>){
@@ -77,9 +76,9 @@ class FileManagerFilesFragment : Fragment() {
 
     private fun getData(): MutableList<FileModel> = when (filesType) {
             "Video" -> phoneData.getVideos()
-            "Audio" -> phoneData.getVideos()
+            "Audio" -> phoneData.getAudios()
             "Images" -> phoneData.getImages()
-            "Documents" -> phoneData.getVideos()
+            "Documents" -> phoneData.getDocs()
             else -> phoneData.getVideos()
         }
 

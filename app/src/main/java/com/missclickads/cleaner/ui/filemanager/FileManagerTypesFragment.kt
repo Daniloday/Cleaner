@@ -77,7 +77,7 @@ class FileManagerTypesFragment : Fragment() {
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
-        phoneData.getFileManagerData()
+
     }
 
     private fun nextFragment(type : String){

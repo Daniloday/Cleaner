@@ -1,7 +1,6 @@
 package com.missclickads.cleaner.utils
 
 
-import android.R.attr
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.ContentResolver
@@ -10,26 +9,19 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Matrix
 import android.graphics.drawable.Drawable
-import android.media.ThumbnailUtils
+import android.media.MediaMetadataRetriever
 import android.os.BatteryManager
 import android.os.Environment
 import android.os.StatFs
 import android.provider.MediaStore
 import android.util.DisplayMetrics
-import android.widget.ImageView
 import com.missclickads.cleaner.models.FileModel
 import java.io.File
-import java.net.URI
 import kotlin.math.ceil
 import kotlin.math.roundToInt
-import android.R.attr.path
 
-import android.media.MediaMetadataRetriever
-import android.R.attr.path
 
 class PhoneData(val context: Context) {
 
@@ -120,15 +112,7 @@ class PhoneData(val context: Context) {
         return appImages
     }
 
-    fun getFileManagerData(){
-        getVideos()
-//        val videos = getImages()
-        val videos = getVideos()
-        for (video in videos){
-            print("next")
-            println(video)
-        }
-    }
+
 
     fun getVideos(): MutableList<FileModel> {
 
@@ -148,10 +132,9 @@ class PhoneData(val context: Context) {
                 media.setDataSource(path)
                 val extractedImage = media.frameAtTime
 
-                val newSize = ((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0
                 val video = FileModel(
                     title = title,
-                    size = newSize.toString(),
+                    size = getCorrectSize(size),
                     image = extractedImage,
                     path = path,
                 )
@@ -184,7 +167,7 @@ class PhoneData(val context: Context) {
 
                 val image = FileModel(
                     title = title,
-                    size = (size.toInt() / (1024.0 * 1024.0)).toString(),
+                    size = getCorrectSize(size),
                     image = im,
                     path = path,
                 )
@@ -196,5 +179,67 @@ class PhoneData(val context: Context) {
         return images
 
     }
+
+    fun getAudios(): MutableList<FileModel> {
+
+        val contentResolver: ContentResolver = context.contentResolver
+        val uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+        val cursor = contentResolver
+            .query(uri, null, null, null, null)
+        val audios = mutableListOf<FileModel>()
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                val title =
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME))
+                val size =
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.SIZE))
+                val path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
+
+                val audio = FileModel(
+                    title = title,
+                    size = getCorrectSize(size),
+                    path = path,
+                )
+                audios.add(audio)
+
+            } while (cursor.moveToNext())
+        }
+
+        return audios
+
+    }
+
+    fun getDocs(): MutableList<FileModel> {
+
+        val contentResolver: ContentResolver = context.contentResolver
+        val uri = MediaStore.Files.getContentUri("external")
+        val cursor = contentResolver
+            .query(uri, null, "_data LIKE '%.pdf'", null, "_id DESC")
+        val docs = mutableListOf<FileModel>()
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                val title =
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME))
+                val size =
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.SIZE))
+                val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA))
+
+                val doc = FileModel(
+                    title = title,
+                    size = getCorrectSize(size),
+                    path = path,
+                )
+                docs.add(doc)
+
+            } while (cursor.moveToNext())
+        }
+
+        return docs
+
+    }
+
+    private fun getCorrectSize(size : String) =
+        (((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0).toString()
+
 
 }
