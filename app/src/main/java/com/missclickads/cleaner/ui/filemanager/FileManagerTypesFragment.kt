@@ -65,6 +65,10 @@ class FileManagerTypesFragment : Fragment() {
         adapter.add(item3)
         adapter.add(item4)
 
+        binding.buttonBack.setOnClickListener {
+            (activity as MainActivity).back = true
+            requireActivity().onBackPressed()
+        }
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter

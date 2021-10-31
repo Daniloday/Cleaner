@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private val optimizeDataSaver : OptimizeDataSaver by inject()
     lateinit var navController : NavController
+    var back = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,17 +44,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-
-        if(
-            optimizeDataSaver.dataSaver.batteryOptimizer
-            && optimizeDataSaver.dataSaver.cpuCooler
-            && optimizeDataSaver.dataSaver.junkCleaner
-            && optimizeDataSaver.dataSaver.phoneBooster
-        ) {
-            finish()
+        if(back) {
+            super.onBackPressed()
+            back = false
         }
-        else {
-            exit()
+        else{
+            if(
+                optimizeDataSaver.dataSaver.batteryOptimizer
+                && optimizeDataSaver.dataSaver.cpuCooler
+                && optimizeDataSaver.dataSaver.junkCleaner
+                && optimizeDataSaver.dataSaver.phoneBooster
+            ) {
+                finish()
+            }
+            else {
+                exit()
+            }
         }
     }
 

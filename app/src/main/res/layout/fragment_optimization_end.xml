@@ -8,7 +8,6 @@
     tools:context=".ui.batteryoptimizer.BatteryOptimizerFragment">
 
 
-
     <com.github.captain_miao.optroundcardview.OptRoundCardView
         android:id="@+id/optRoundCardView2"
         android:layout_width="match_parent"
@@ -27,6 +26,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_button_back"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineCenterinside"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineCenterinsideVertical"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image_battery"
@@ -59,6 +73,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCenterinsideVertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
