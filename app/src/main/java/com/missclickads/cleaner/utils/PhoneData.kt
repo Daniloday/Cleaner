@@ -128,7 +128,7 @@ class PhoneData(val context: Context) {
         }
     }
 
-    private fun getVideos(): MutableList<FileModel> {
+    fun getVideos(): MutableList<FileModel> {
 
         val contentResolver: ContentResolver = context.contentResolver
         val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
