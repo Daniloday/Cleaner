@@ -79,6 +79,10 @@ class OptimizationEndsFragment : Fragment() {
             }
         )
 
+        binding.buttonBack.setOnClickListener {
+            (activity as MainActivity).back = true
+            requireActivity().onBackPressed()
+        }
         adapter.add(item)
         adapter.add(item2)
         adapter.add(item3)
