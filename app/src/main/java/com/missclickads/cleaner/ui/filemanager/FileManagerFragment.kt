@@ -1,16 +1,30 @@
 package com.missclickads.cleaner.ui.filemanager
 
+import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
+
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
+import com.missclickads.cleaner.utils.PhoneData
+import org.koin.android.ext.android.inject
+
+import android.widget.Toast
+
+
+
+import android.content.pm.PackageManager
+import androidx.activity.result.contract.ActivityResultContracts
+import com.missclickads.cleaner.MainActivity
+
 
 class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
 
@@ -18,6 +32,7 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
     private var _binding: FragmentFileManagerBinding? = null
 
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +45,19 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ActivityCompat.requestPermissions(
+            activity as MainActivity,
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+            1);
+
         initUi()
     }
 
+
+
     private fun initUi(){
+
         binding.submitBtn.setOnClickListener {
             findNavController().navigate(R.id.fileManagerTypesFragment)
         }

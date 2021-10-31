@@ -13,9 +13,11 @@ import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FileManagerTypesFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
 import com.missclickads.cleaner.ui.filemanager.items.TypeItem
+import com.missclickads.cleaner.utils.PhoneData
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.MainCoroutineDispatcher
+import org.koin.android.ext.android.inject
 
 class FileManagerTypesFragment : Fragment() {
 
@@ -23,6 +25,7 @@ class FileManagerTypesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: FileManagerViewModel
+    private val phoneData : PhoneData by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,6 +68,7 @@ class FileManagerTypesFragment : Fragment() {
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
+        phoneData.getFileManagerData()
     }
 
 }
