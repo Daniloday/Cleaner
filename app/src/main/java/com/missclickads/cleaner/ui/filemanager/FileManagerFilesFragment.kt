@@ -52,15 +52,25 @@ class FileManagerFilesFragment : Fragment() {
 
     private fun initUi(){
         val adapter = GroupAdapter<GroupieViewHolder>()
+        val selectedData = mutableListOf<FileModel>()
 
         val data = getData()
         data.forEach {
-            adapter.add(FileItem(it))
+            adapter.add(FileItem(it){ file, selected ->
+                if(selected) selectedData.add(file)
+                else selectedData.remove(file)
+            })
         }
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
 
+        binding.submitBtn.setOnClickListener {
+            Log.e("Files", selectedData.toString())
+            phoneData.deleteFiles(selectedData)
+            (activity as MainActivity).back = true
+            requireActivity().onBackPressed()
+        }
         binding.checkBtn.setOnClickListener {
             selectAll(adapter)
         }

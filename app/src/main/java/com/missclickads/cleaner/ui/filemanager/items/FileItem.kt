@@ -8,7 +8,8 @@ import com.missclickads.cleaner.models.FileModel
 import com.xwray.groupie.viewbinding.BindableItem
 
 class FileItem (
-    private val file : FileModel
+    private val file : FileModel,
+    private val selectedCallback : (FileModel, Boolean) -> (Unit)
 ) : BindableItem<ItemFileBinding>(){
 
     private var btn : AppCompatImageButton? = null
@@ -20,7 +21,8 @@ class FileItem (
         viewBinding.textSizeBottom.text = file.size
 
         viewBinding.checkBtn.setOnClickListener {
-             it.isSelected = !it.isSelected
+            it.isSelected = !it.isSelected
+            selectedCallback(file, it.isSelected)
         }
     }
 
