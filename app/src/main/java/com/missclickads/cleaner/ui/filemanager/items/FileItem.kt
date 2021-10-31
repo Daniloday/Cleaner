@@ -11,7 +11,7 @@ class FileItem (
     private val file : FileModel
 ) : BindableItem<ItemFileBinding>(){
 
-    lateinit var btn : AppCompatImageButton
+    private var btn : AppCompatImageButton? = null
 
     override fun bind(viewBinding: ItemFileBinding, position: Int) {
         btn = viewBinding.checkBtn
@@ -25,7 +25,7 @@ class FileItem (
     }
 
     fun selectItem(){
-        btn.isSelected = true
+        btn?.isSelected = true
     }
 
     override fun getLayout(): Int = R.layout.item_file
