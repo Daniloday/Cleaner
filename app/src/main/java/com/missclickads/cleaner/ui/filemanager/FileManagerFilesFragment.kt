@@ -78,7 +78,7 @@ class FileManagerFilesFragment : Fragment() {
     private fun getData(): MutableList<FileModel> = when (filesType) {
             "Video" -> phoneData.getVideos()
             "Audio" -> phoneData.getVideos()
-            "Images" -> phoneData.getVideos()
+            "Images" -> phoneData.getImages()
             "Documents" -> phoneData.getVideos()
             else -> phoneData.getVideos()
         }

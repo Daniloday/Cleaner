@@ -15,8 +15,10 @@ class FileItem (
 
     override fun bind(viewBinding: ItemFileBinding, position: Int) {
         btn = viewBinding.checkBtn
+        file.image?.let { viewBinding.icon.setImageBitmap(it) }
         viewBinding.textNameTop.text = file.title
         viewBinding.textSizeBottom.text = file.size
+
         viewBinding.checkBtn.setOnClickListener {
              it.isSelected = !it.isSelected
         }

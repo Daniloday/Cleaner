@@ -31,13 +31,6 @@ import android.R.attr.path
 import android.media.MediaMetadataRetriever
 import android.R.attr.path
 
-
-
-
-
-
-
-
 class PhoneData(val context: Context) {
 
     private val appsCount = 6
