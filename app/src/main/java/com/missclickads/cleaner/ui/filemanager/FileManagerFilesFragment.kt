@@ -68,6 +68,7 @@ class FileManagerFilesFragment : Fragment() {
         binding.submitBtn.setOnClickListener {
             Log.e("Files", selectedData.toString())
             phoneData.deleteFiles(selectedData)
+            //todo optimization process
             (activity as MainActivity).back = true
             requireActivity().onBackPressed()
         }
