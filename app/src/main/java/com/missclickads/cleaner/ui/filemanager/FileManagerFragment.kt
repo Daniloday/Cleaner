@@ -48,7 +48,7 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
 
         ActivityCompat.requestPermissions(
             activity as MainActivity,
-            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE),
             1);
 
         initUi()

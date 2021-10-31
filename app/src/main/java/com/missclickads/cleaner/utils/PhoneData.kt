@@ -1,5 +1,7 @@
 package com.missclickads.cleaner.utils
 
+
+import android.R.attr
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.ContentResolver
@@ -8,20 +10,26 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.graphics.drawable.Drawable
-import android.net.Uri
+import android.media.ThumbnailUtils
 import android.os.BatteryManager
 import android.os.Environment
 import android.os.StatFs
-
-import android.util.DisplayMetrics
-import kotlin.math.ceil
 import android.provider.MediaStore
+import android.util.DisplayMetrics
+import android.widget.ImageView
 import com.missclickads.cleaner.models.FileModel
-
-
 import java.io.File
+import java.net.URI
+import kotlin.math.ceil
 import kotlin.math.roundToInt
+import android.R.attr.path
+
+import android.media.MediaMetadataRetriever
+import android.R.attr.path
 
 
 
@@ -121,6 +129,7 @@ class PhoneData(val context: Context) {
 
     fun getFileManagerData(){
         getVideos()
+//        val videos = getImages()
         val videos = getVideos()
         for (video in videos){
             print("next")
@@ -142,18 +151,56 @@ class PhoneData(val context: Context) {
 
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA))
 
+                val media = MediaMetadataRetriever()
+                media.setDataSource(path)
+                val extractedImage = media.frameAtTime
 
+                val newSize = ((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0
                 val video = FileModel(
                     title = title,
-                    size = size,
+                    size = newSize.toString(),
+                    image = extractedImage,
                     path = path,
                 )
+                println(video)
                 videos.add(video)
 
             } while (cursor.moveToNext())
         }
 
         return videos
+
+    }
+
+    fun getImages(): MutableList<FileModel> {
+
+        val contentResolver: ContentResolver = context.contentResolver
+        val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        val cursor = contentResolver.query(uri, null, null, null, null)
+        val images = mutableListOf<FileModel>()
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                val title = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME))
+                val size =
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.SIZE))
+
+                val path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
+
+                val im = BitmapFactory.decodeFile(path)
+
+
+                val image = FileModel(
+                    title = title,
+                    size = (size.toInt() / (1024.0 * 1024.0)).toString(),
+                    image = image,
+                    path = path,
+                )
+                images.add(image)
+
+            } while (cursor.moveToNext())
+        }
+
+        return images
 
     }
 

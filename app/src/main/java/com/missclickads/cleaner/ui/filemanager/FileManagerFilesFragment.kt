@@ -65,7 +65,7 @@ class FileManagerFilesFragment : Fragment() {
             selectAll(adapter)
         }
 
-        phoneData.getFileManagerData()
+//        phoneData.getFileManagerData()
     }
 
     private fun selectAll(adapter: GroupAdapter<GroupieViewHolder>){
