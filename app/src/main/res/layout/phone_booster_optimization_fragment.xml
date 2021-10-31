@@ -32,6 +32,16 @@
         app:layout_constraintStart_toStartOf="@+id/progressBarCircle"
         app:layout_constraintTop_toTopOf="@+id/progressBarCircle" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_intoprogressbar"
+        app:layout_constraintBottom_toBottomOf="@+id/image_rocket"
+        app:layout_constraintEnd_toEndOf="@+id/image_rocket"
+        app:layout_constraintStart_toStartOf="@+id/image_rocket"
+        app:layout_constraintTop_toTopOf="@+id/image_rocket"
+        app:layout_constraintVertical_bias="0.63" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
