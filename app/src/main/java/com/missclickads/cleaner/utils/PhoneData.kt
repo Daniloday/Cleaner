@@ -192,7 +192,7 @@ class PhoneData(val context: Context) {
                 val image = FileModel(
                     title = title,
                     size = (size.toInt() / (1024.0 * 1024.0)).toString(),
-                    image = image,
+                    image = im,
                     path = path,
                 )
                 images.add(image)
