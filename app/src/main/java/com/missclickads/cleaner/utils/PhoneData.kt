@@ -238,8 +238,21 @@ class PhoneData(val context: Context) {
 
     }
 
+    fun deleteFiles(files : List<FileModel>){
+        for (file in files){
+            val fDelete= File(file.path)
+            if (fDelete.exists()) {
+                if (fDelete.delete()) {
+                    println("file Deleted :" + file.path)
+                } else {
+                    println("file not Deleted :" + file.path)
+                }
+            }
+        }
+    }
+
     private fun getCorrectSize(size : String) =
-        (((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0).toString()
+        (((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0).toString() + " mb"
 
 
 }
