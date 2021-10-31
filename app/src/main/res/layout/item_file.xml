@@ -28,6 +28,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_name_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Top"
@@ -35,6 +36,7 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_size_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bottom"

@@ -41,4 +41,8 @@
         android:id="@+id/optimizationEndsFragment"
         android:name="com.missclickads.cleaner.ui.optimazed.OptimizationEndsFragment"
         android:label="OptimizationEndsFragment" />
+    <fragment
+        android:id="@+id/fileManagerFilesFragment"
+        android:name="com.missclickads.cleaner.ui.filemanager.FileManagerFilesFragment"
+        android:label="FileManagerFilesFragment" />
 </navigation>

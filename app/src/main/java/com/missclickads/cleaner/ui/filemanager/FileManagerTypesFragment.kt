@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.missclickads.cleaner.MainActivity
@@ -43,22 +44,26 @@ class FileManagerTypesFragment : Fragment() {
         val item = TypeItem(
             image = R.drawable.ic_video_icon,
             type = "Video",
-            memory = "268mb"
+            memory = "268mb",
+            ::nextFragment
         )
         val item2 = TypeItem(
             image = R.drawable.ic_audio_icon,
             type = "Audio",
-            memory = "268mb"
+            memory = "268mb",
+            ::nextFragment
         )
         val item3 = TypeItem(
             image = R.drawable.ic_images_icon,
             type = "Images",
-            memory = "268mb"
+            memory = "268mb",
+            ::nextFragment
         )
         val item4 = TypeItem(
             image = R.drawable.ic_documents_icon,
             type = "Documents",
-            memory = "268mb"
+            memory = "268mb",
+            ::nextFragment
         )
         adapter.add(item)
         adapter.add(item2)
@@ -73,6 +78,10 @@ class FileManagerTypesFragment : Fragment() {
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
         phoneData.getFileManagerData()
+    }
+
+    private fun nextFragment(type : String){
+        findNavController().navigate(R.id.fileManagerFilesFragment, FileManagerFilesFragment.newInstance(type))
     }
 
 }
