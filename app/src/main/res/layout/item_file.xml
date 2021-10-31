@@ -30,12 +30,16 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Top" />
+            android:text="Top"
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bottom" />
+            android:text="Bottom"
+            android:textSize="16dp"
+            android:textColor="@color/gray"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

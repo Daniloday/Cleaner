@@ -38,6 +38,7 @@
         <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_battery_green.xml" value="0.21875" />
         <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_battery_red.xml" value="0.21875" />
         <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_battery_yellow.xml" value="0.21875" />
+        <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_check.xml" value="0.22135416666666666" />
         <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_cpu_high.xml" value="0.2537037037037037" />
         <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2537037037037037" />
         <entry key="..\:/Cleaner3/app/src/main/res/drawable/ic_dots.xml" value="0.25416666666666665" />
@@ -66,10 +67,17 @@
         <entry key="..\:/Cleaner3/app/src/main/res/layout/file_manager_types_fragment.xml" value="0.24322916666666666" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_battery_optimizer.xml" value="0.33" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_cpu_cooler.xml" value="0.33" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_exit_dialog.xml" value="0.24739583333333334" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_file_manager.xml" value="0.33" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_file_manager_files_list_fragment.xml" value="0.22" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_junk_cleaner.xml" value="0.33" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_optimization_end.xml" value="0.20520833333333333" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_phone_booster.xml" value="0.34810126582278483" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/fragment_rate_dialog.xml" value="0.290625" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/item_file.xml" value="0.5" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/item_folders_types.xml" value="0.24322916666666666" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/item_optimization_end.xml" value="0.22780797101449277" />
+        <entry key="..\:/Cleaner3/app/src/main/res/layout/item_spinner.xml" value="0.24739583333333334" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/junk_cleaner_optimization_fragment.xml" value="0.240625" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/phone_booster_optimization.xml" value="0.24322916666666666" />
         <entry key="..\:/Cleaner3/app/src/main/res/layout/phone_booster_optimization_fragment.xml" value="0.23822463768115942" />
@@ -84,7 +92,6 @@
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_optimization_end.xml" value="0.1884498480243161" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_phone_booster.xml" value="0.1884498480243161" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/fragment_rate_dialog.xml" value="0.2296195652173913" />
-        <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/item_file.xml" value="0.22192028985507245" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/item_folders_types.xml" value="0.1884498480243161" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/item_optimization_end.xml" value="0.1884498480243161" />
         <entry key="..\:/Users/Nikita/StudioProjects/Cleaner/app/src/main/res/layout/junk_cleaner_optimization_fragment.xml" value="0.2296195652173913" />
