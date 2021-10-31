@@ -55,13 +55,24 @@ class FileManagerFilesFragment : Fragment() {
 
         val data = getData()
         data.forEach {
-            Log.e("Files", it.toString())
             adapter.add(FileItem(it))
         }
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
+
+        binding.checkBtn.setOnClickListener {
+            selectAll(adapter)
+        }
+
         phoneData.getFileManagerData()
+    }
+
+    private fun selectAll(adapter: GroupAdapter<GroupieViewHolder>){
+        (0 until adapter.itemCount).forEach {
+            Log.e("Files", adapter.getItem(it).toString())
+            (adapter.getItem(it) as FileItem).selectItem()
+        }
     }
 
     private fun getData(): MutableList<FileModel> = when (filesType) {
