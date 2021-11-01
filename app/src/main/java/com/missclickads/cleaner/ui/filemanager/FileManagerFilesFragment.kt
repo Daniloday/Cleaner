@@ -17,6 +17,15 @@ import com.missclickads.cleaner.utils.PhoneData
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import org.koin.android.ext.android.inject
+import android.widget.AdapterView
+
+import android.widget.Spinner
+import com.missclickads.cleaner.adapters.CustomSpinnerAdapter
+
+
+import android.widget.ArrayAdapter
+import com.missclickads.cleaner.R
+
 
 private const val ARG_PARAM = "param"
 
@@ -55,12 +64,23 @@ class FileManagerFilesFragment : Fragment() {
         val selectedData = mutableListOf<FileModel>()
 
         val data = getData()
-        data.forEach {
-            adapter.add(FileItem(it){ file, selected ->
-                if(selected) selectedData.add(file)
-                else selectedData.remove(file)
-            })
-        }
+
+//        when(binding.spinner.selectedItem.toString()){
+//            "Max size" -> {
+//                data.sortBy { it.size }
+//                data.reverse()
+//            }
+//            "Min size" -> { data.sortBy { it.size } }
+//            "Date" -> {data.sortBy { it.title }} // todo change on date
+//        }
+//        data.forEach {
+//            adapter.add(FileItem(it){ file, selected ->
+//                if(selected) selectedData.add(file)
+//                else selectedData.remove(file)
+//            })
+//        }
+
+
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
@@ -75,6 +95,35 @@ class FileManagerFilesFragment : Fragment() {
         binding.checkBtn.setOnClickListener {
             selectAll(adapter)
         }
+
+
+//        // Подключаем свой шаблон с значками
+//        // Подключаем свой шаблон с значками
+//        val sortTypes = listOf("Max size", "Min size", "Date")
+//
+//        // Подключаем свой шаблон с разными значками
+//
+//        val adapterSpinner = CustomSpinnerAdapter(
+//            activity as MainActivity,
+//            R.id.sort, sortTypes
+//        )
+//
+//        // Вызываем адаптер
+//
+//        // Вызываем адаптер
+//        binding.spinner.adapter = adapterSpinner
+//        binding.spinner.setPromptId(R.string.phone_booster)
+////        binding.spinner.setSelection(2, true)
+//
+//        binding.spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?, view: View?,
+//                pos: Int, id: Long
+//            ) {
+//            }
+//
+//            override fun onNothingSelected(arg0: AdapterView<*>?) {}
+//        })
 
     }
 

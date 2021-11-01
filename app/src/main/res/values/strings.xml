@@ -33,4 +33,10 @@
     <string name="stil_not_optimized">Stil not optimized!</string>
     <string name="quit">Quit</string>
 
+    <string-array name="spinners">
+        <item>Date</item>
+        <item>Max size</item>
+        <item>Min size</item>
+    </string-array>
+
 </resources>

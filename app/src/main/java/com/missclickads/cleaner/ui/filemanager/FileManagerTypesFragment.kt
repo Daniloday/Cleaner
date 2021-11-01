@@ -10,8 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
-import com.missclickads.cleaner.MainActivity
-import com.missclickads.cleaner.R
+
 import com.missclickads.cleaner.databinding.FileManagerTypesFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
 import com.missclickads.cleaner.ui.filemanager.items.TypeItem
@@ -20,6 +19,16 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.MainCoroutineDispatcher
 import org.koin.android.ext.android.inject
+import android.widget.AdapterView
+
+
+import com.missclickads.cleaner.MainActivity
+
+import android.widget.Spinner
+import android.widget.SpinnerAdapter
+import com.missclickads.cleaner.R
+import com.missclickads.cleaner.adapters.CustomSpinnerAdapter
+
 
 class FileManagerTypesFragment : Fragment() {
 
@@ -80,6 +89,10 @@ class FileManagerTypesFragment : Fragment() {
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
+
+
+
+
 
     }
 
