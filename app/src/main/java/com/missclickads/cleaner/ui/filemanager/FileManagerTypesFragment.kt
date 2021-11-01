@@ -10,7 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
-
+import com.missclickads.cleaner.MainActivity
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FileManagerTypesFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentFileManagerBinding
 import com.missclickads.cleaner.ui.filemanager.items.TypeItem
@@ -19,22 +20,12 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.MainCoroutineDispatcher
 import org.koin.android.ext.android.inject
-import android.widget.AdapterView
-
-
-import com.missclickads.cleaner.MainActivity
-
-import android.widget.Spinner
-import android.widget.SpinnerAdapter
-import com.missclickads.cleaner.R
-import com.missclickads.cleaner.adapters.CustomSpinnerAdapter
-
+import kotlin.math.roundToInt
 
 class FileManagerTypesFragment : Fragment() {
 
     private var _binding: FileManagerTypesFragmentBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var viewModel: FileManagerViewModel
     private val phoneData : PhoneData by inject()
 
@@ -52,6 +43,9 @@ class FileManagerTypesFragment : Fragment() {
         binding.adView.loadAd(adRequest)
         super.onViewCreated(view, savedInstanceState)
         val adapter = GroupAdapter<GroupieViewHolder>()
+        val storage = phoneData.getStorage()
+        val percent = (storage.first / (storage.second * 1024)*100).roundToInt().toString()
+        binding.storageFileManager.text = "${percent}%"
 
         val item = TypeItem(
             image = R.drawable.ic_icon_video,
@@ -89,10 +83,6 @@ class FileManagerTypesFragment : Fragment() {
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.recycler.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.recycler.adapter = adapter
-
-
-
-
 
     }
 
