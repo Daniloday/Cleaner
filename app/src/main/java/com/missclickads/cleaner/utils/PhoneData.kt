@@ -242,6 +242,7 @@ class PhoneData(val context: Context) {
         for (file in files){
             val fDelete= File(file.path)
             if (fDelete.exists()) {
+                fDelete.delete()
                 if (fDelete.delete()) {
                     println("file Deleted :" + file.path)
                 } else {

@@ -73,12 +73,12 @@ class FileManagerFilesFragment : Fragment() {
 //            "Min size" -> { data.sortBy { it.size } }
 //            "Date" -> {data.sortBy { it.title }} // todo change on date
 //        }
-//        data.forEach {
-//            adapter.add(FileItem(it){ file, selected ->
-//                if(selected) selectedData.add(file)
-//                else selectedData.remove(file)
-//            })
-//        }
+        data.forEach {
+            adapter.add(FileItem(it){ file, selected ->
+                if(selected) selectedData.add(file)
+                else selectedData.remove(file)
+            })
+        }
 
 
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
