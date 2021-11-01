@@ -17,9 +17,9 @@
     <item android:id="@android:id/background">
         <shape
 
-            android:innerRadiusRatio="3"
+            android:innerRadiusRatio="4"
             android:shape="ring"
-            android:thicknessRatio="12.0"
+            android:thicknessRatio="10.0"
             android:useLevel="false" >
 
             <solid android:color="#EBECF8" />
@@ -34,11 +34,11 @@
             android:toDegrees="270" >
 
             <shape
-                android:innerRadiusRatio="3"
+                android:innerRadiusRatio="4"
                 android:opticalInsetTop="16dp"
                 android:shape="ring"
                 android:useLevel="true"
-                android:thicknessRatio="12.0">
+                android:thicknessRatio="10.0">
 
                 <rotate
                     android:fromDegrees="0"
