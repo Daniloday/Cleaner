@@ -20,12 +20,12 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.MainCoroutineDispatcher
 import org.koin.android.ext.android.inject
+import kotlin.math.roundToInt
 
 class FileManagerTypesFragment : Fragment() {
 
     private var _binding: FileManagerTypesFragmentBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var viewModel: FileManagerViewModel
     private val phoneData : PhoneData by inject()
 
@@ -43,6 +43,9 @@ class FileManagerTypesFragment : Fragment() {
         binding.adView.loadAd(adRequest)
         super.onViewCreated(view, savedInstanceState)
         val adapter = GroupAdapter<GroupieViewHolder>()
+        val storage = phoneData.getStorage()
+        val percent = (storage.first / (storage.second * 1024)*100).roundToInt().toString()
+        binding.storageFileManager.text = "${percent}%"
 
         val item = TypeItem(
             image = R.drawable.ic_icon_video,
