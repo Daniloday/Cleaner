@@ -25,6 +25,10 @@ import com.missclickads.cleaner.adapters.CustomSpinnerAdapter
 
 import android.widget.ArrayAdapter
 import com.missclickads.cleaner.R
+import com.missclickads.cleaner.ui.filemanager.items.ChildrenDropDown
+import com.missclickads.cleaner.ui.filemanager.items.ParentDropDown
+import com.xwray.groupie.ExpandableGroup
+import com.xwray.groupie.Section
 
 
 private const val ARG_PARAM = "param"
@@ -96,35 +100,25 @@ class FileManagerFilesFragment : Fragment() {
             selectAll(adapter)
         }
 
+        initSpinner()
 
-//        // Подключаем свой шаблон с значками
-//        // Подключаем свой шаблон с значками
-//        val sortTypes = listOf("Max size", "Min size", "Date")
-//
-//        // Подключаем свой шаблон с разными значками
-//
-//        val adapterSpinner = CustomSpinnerAdapter(
-//            activity as MainActivity,
-//            R.id.sort, sortTypes
-//        )
-//
-//        // Вызываем адаптер
-//
-//        // Вызываем адаптер
-//        binding.spinner.adapter = adapterSpinner
-//        binding.spinner.setPromptId(R.string.phone_booster)
-////        binding.spinner.setSelection(2, true)
-//
-//        binding.spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?, view: View?,
-//                pos: Int, id: Long
-//            ) {
-//            }
-//
-//            override fun onNothingSelected(arg0: AdapterView<*>?) {}
-//        })
+    }
 
+    fun initSpinner(){
+        val adapter = GroupAdapter<GroupieViewHolder>()
+        val spinnerParent = ExpandableGroup(ParentDropDown())
+            .apply {
+                add(Section().apply {
+                    add(ChildrenDropDown("Sort by pizza"))
+                })
+                add(Section().apply {
+                    add(ChildrenDropDown("Sort by hueta"))
+                })
+            }
+        adapter.add(spinnerParent)
+        binding.dropdownMenu.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
+        binding.dropdownMenu.layoutManager = LinearLayoutManager(activity as MainActivity)
+        binding.dropdownMenu.adapter = adapter
     }
 
     private fun selectAll(adapter: GroupAdapter<GroupieViewHolder>){
