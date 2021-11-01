@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.JunkCleanerOptimizationFragmentBinding
@@ -44,6 +45,8 @@ class JunkOptimizationDialogFragment(
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
         _binding = JunkCleanerOptimizationFragmentBinding.inflate(inflater, container, false)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
         binding.apply {
             val animation = ObjectAnimator.ofInt(anim, "progress", 0, 100)
             animation.duration = 5 * 1000

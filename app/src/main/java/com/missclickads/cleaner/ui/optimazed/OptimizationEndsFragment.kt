@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FragmentJunkCleanerBinding
@@ -37,6 +38,8 @@ class OptimizationEndsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecycler()
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 
     private fun setupRecycler(){

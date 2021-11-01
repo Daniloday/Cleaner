@@ -6,6 +6,7 @@
     android:paddingTop="20dp"
     android:paddingBottom="20dp">
 
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/icon"
         android:layout_width="wrap_content"

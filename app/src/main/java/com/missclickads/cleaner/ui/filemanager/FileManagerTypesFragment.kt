@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FileManagerTypesFragmentBinding
@@ -38,11 +39,13 @@ class FileManagerTypesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
         super.onViewCreated(view, savedInstanceState)
         val adapter = GroupAdapter<GroupieViewHolder>()
 
         val item = TypeItem(
-            image = R.drawable.ic_video_icon,
+            image = R.drawable.ic_icon_video,
             type = "Video",
             memory = "268mb",
             ::nextFragment

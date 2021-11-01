@@ -49,6 +49,8 @@ class BatteryOptimizationDialogFragment(
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
         _binding = BatteryOptimizerOptimizationFragmentBinding.inflate(inflater, container, false)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
         binding.apply {
             val animation = ObjectAnimator.ofInt(progressBarCircle, "progress", 0, 100)
             animation.duration = 5 * 1000

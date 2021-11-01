@@ -11,6 +11,7 @@ import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.CpuCoolerOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
@@ -41,6 +42,8 @@ class CpuOptimizationDialogFragment(
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
         _binding = CpuCoolerOptimizationFragmentBinding.inflate(inflater, container, false)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
         binding.apply {
             val animation = ObjectAnimator.ofInt(progressBarCircle, "progress", 0, 100)
             animation.duration = 5 * 1000

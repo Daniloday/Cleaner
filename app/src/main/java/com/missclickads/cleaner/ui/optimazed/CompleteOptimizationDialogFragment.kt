@@ -12,6 +12,7 @@ import android.view.Window
 import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 
@@ -38,6 +39,8 @@ class CompleteOptimizationDialogFragment(
             getDialog()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE);
         }
         _binding = CompleteDialogFragmentBinding.inflate(inflater, container, false)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
         return binding.root
     }
 
