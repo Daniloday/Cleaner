@@ -18,51 +18,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/guidelineBot"
+    <ProgressBar
+        android:id="@+id/progressBarCircle"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:maxWidth="5dp"
+        android:maxHeight="5dp"
+        android:progressDrawable="@drawable/progress_bar_optimization"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/scanner_jc"/>
+        app:layout_constraintTop_toTopOf="@+id/guidelineBar" />
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image_files"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scanning..."
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guidelineCenter"
-        app:layout_constraintVertical_bias="0.0" />
+        android:src="@drawable/ic_storage_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarCircle"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarCircle"
+        app:layout_constraintStart_toStartOf="@+id/progressBarCircle"
+        app:layout_constraintTop_toTopOf="@+id/progressBarCircle" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_intoprogressbar"
+        app:layout_constraintBottom_toBottomOf="@+id/image_files"
+        app:layout_constraintEnd_toEndOf="@+id/image_files"
+        app:layout_constraintStart_toStartOf="@+id/image_files"
+        app:layout_constraintTop_toTopOf="@+id/image_files"
+        app:layout_constraintVertical_bias="0.60" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineBot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.49" />
+        app:layout_constraintGuide_percent="0.42" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14" />
+        app:layout_constraintGuide_percent="0.25" />
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter"
+        android:id="@+id/guidelineBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.59" />
+        app:layout_constraintGuide_percent="0.10" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,30 +70,35 @@
         app:optRoundCardCornerRadius="30dp"
         app:optRoundCardLeftBottomCorner="false"
         app:optRoundCardRightBottomCorner="false">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/submit_btn"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_optimization_background">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="23dp"
-                android:background="@drawable/ic_lime_gradient"
-                android:clipToPadding="false"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:text="@string/submit_btn"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:cornerRadius="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.15" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="23dp"
+                    android:background="@drawable/ic_lime_gradient"
+                    android:clipToPadding="false"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:text="@string/submit_btn"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
 

@@ -93,8 +93,12 @@ class FileManagerFilesFragment : Fragment() {
             Log.e("Files", selectedData.toString())
             phoneData.deleteFiles(selectedData)
             //todo optimization process
-            (activity as MainActivity).back = true
-            requireActivity().onBackPressed()
+            val dialog = FileOptimizationDialogFragment(text2 = getSize(data)) {
+                viewModel.endOptimization()
+            }
+            dialog.show(childFragmentManager, "optimization")
+//            (activity as MainActivity).back = true
+//            requireActivity().onBackPressed()
         }
         binding.checkBtn.setOnClickListener {
             selectAll(adapter)
@@ -135,6 +139,13 @@ class FileManagerFilesFragment : Fragment() {
             "Documents" -> phoneData.getDocs()
             else -> phoneData.getVideos()
         }
+    private fun getSize(list: List<FileModel>): String{
+        var size = 0.0
+        list.forEach{
+            size+=(it.size).removeSuffix(" mb").toDouble()
+        }
+        return size.toString()
+    }
 
 
     companion object{
