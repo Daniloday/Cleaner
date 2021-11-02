@@ -4,6 +4,7 @@ package com.missclickads.cleaner.utils
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.ContentResolver
+import android.content.ContentUris
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -12,12 +13,15 @@ import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.media.MediaMetadataRetriever
+import android.net.Uri
 import android.os.BatteryManager
+import android.os.Build
 import android.os.Environment
 import android.os.StatFs
 import android.provider.MediaStore
 import android.util.DisplayMetrics
 import com.missclickads.cleaner.models.FileModel
+import kotlinx.coroutines.*
 import java.io.File
 import kotlin.math.ceil
 import kotlin.math.roundToInt
@@ -131,12 +135,18 @@ class PhoneData(val context: Context) {
                 val media = MediaMetadataRetriever()
                 media.setDataSource(path)
                 val extractedImage = media.frameAtTime
-
+                val videoUri: Uri = ContentUris
+                    .withAppendedId(
+                        MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
+                        cursor.getInt(cursor.getColumnIndex(MediaStore.Video.VideoColumns._ID))
+                            .toLong()
+                    )
                 val video = FileModel(
                     title = title,
                     size = getCorrectSize(size),
                     image = extractedImage,
                     path = path,
+                    uri = videoUri
                 )
                 println(video)
                 videos.add(video)
@@ -162,6 +172,13 @@ class PhoneData(val context: Context) {
 
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
 
+                val imageUri: Uri = ContentUris
+                    .withAppendedId(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        cursor.getInt(cursor.getColumnIndex(MediaStore.Images.ImageColumns._ID))
+                            .toLong()
+                    )
+
                 val im = BitmapFactory.decodeFile(path)
 
 
@@ -170,6 +187,7 @@ class PhoneData(val context: Context) {
                     size = getCorrectSize(size),
                     image = im,
                     path = path,
+                    uri = imageUri
                 )
                 images.add(image)
 
@@ -194,11 +212,17 @@ class PhoneData(val context: Context) {
                 val size =
                     cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.SIZE))
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
-
+                val uri: Uri = ContentUris
+                    .withAppendedId(
+                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                        cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.AudioColumns._ID))
+                            .toLong()
+                    )
                 val audio = FileModel(
                     title = title,
                     size = getCorrectSize(size),
                     path = path,
+                    uri = uri
                 )
                 audios.add(audio)
 
@@ -223,11 +247,17 @@ class PhoneData(val context: Context) {
                 val size =
                     cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.SIZE))
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA))
-
+                val uri: Uri = ContentUris
+                    .withAppendedId(
+                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                        cursor.getInt(cursor.getColumnIndex(MediaStore.Files.FileColumns._ID))
+                            .toLong()
+                    )
                 val doc = FileModel(
                     title = title,
                     size = getCorrectSize(size),
                     path = path,
+                    uri = uri
                 )
                 docs.add(doc)
 
@@ -240,15 +270,26 @@ class PhoneData(val context: Context) {
 
     fun deleteFiles(files : List<FileModel>){
         for (file in files){
-            val fDelete= File(file.path)
+            val pat = file.path
+            val fDelete= File(pat)
             if (fDelete.exists()) {
-                fDelete.delete()
-                if (fDelete.delete()) {
-                    println("file Deleted :" + file.path)
-                } else {
-                    println("file not Deleted :" + file.path)
+                GlobalScope.launch {
+                    withContext(Dispatchers.IO) {
+                        val contentResolver: ContentResolver = context.getContentResolver()
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            println("R r r")
+                            MediaStore.createDeleteRequest(contentResolver, listOf(file.uri))
+                        }
+                        else{
+                            println("k r r")
+                            contentResolver.delete(file.uri!!, null, null)
+                        }
+
+                    }
                 }
+
             }
+
         }
     }
 

@@ -22,6 +22,9 @@ import android.widget.Toast
 
 
 import android.content.pm.PackageManager
+import android.provider.MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI
+import android.provider.MediaStore.Audio.Artists.EXTERNAL_CONTENT_URI
+import android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 import androidx.activity.result.contract.ActivityResultContracts
 import com.missclickads.cleaner.MainActivity
 
@@ -48,8 +51,14 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
 
         ActivityCompat.requestPermissions(
             activity as MainActivity,
-            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE),
+            arrayOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_MEDIA_LOCATION
+            ),
             1);
+
 
         initUi()
     }
