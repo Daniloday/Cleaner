@@ -145,7 +145,8 @@
                     android:text="@string/optimize_btn"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
+                    android:padding="15dp"
                     app:cornerRadius="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -169,7 +170,8 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
@@ -199,7 +201,7 @@
                                 android:layout_marginBottom="0dp"
                                 android:text="1823"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
+                                android:textSize="18sp"
                                 android:textStyle="bold" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -212,7 +214,7 @@
                             android:gravity="center_horizontal"
                             android:text="Storage"
                             android:textColor="@color/black"
-                            android:textSize="14sp" />
+                            android:textSize="16sp" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/storage_mb"
@@ -224,7 +226,7 @@
                             android:gravity="center"
                             android:text="1873 MB/ 2.7 GB"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
 
@@ -246,7 +248,8 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
@@ -276,7 +279,7 @@
                                 android:layout_marginBottom="0dp"
                                 android:text="65%"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
+                                android:textSize="18sp"
                                 android:textStyle="bold" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -289,7 +292,7 @@
                             android:gravity="center_horizontal"
                             android:text="Ram Usage"
                             android:textColor="@color/black"
-                            android:textSize="14sp" />
+                            android:textSize="16sp" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/ram_mb"
@@ -301,7 +304,7 @@
                             android:gravity="center"
                             android:text="1873 MB/ 2.7 GB"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
 
