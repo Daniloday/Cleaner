@@ -34,13 +34,14 @@
         app:optRoundCardCornerRadius="30dp"
         app:optRoundCardLeftTopCorner="false"
         app:optRoundCardRightTopCorner="false">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_optimization_background">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/ic_optimization_background">-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_cardview2_gradient">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/materialTextView"
@@ -116,7 +117,7 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.3" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+<!--        </LinearLayout>-->
     </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
     <androidx.recyclerview.widget.RecyclerView

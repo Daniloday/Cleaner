@@ -70,13 +70,14 @@
         app:optRoundCardCornerRadius="30dp"
         app:optRoundCardLeftBottomCorner="false"
         app:optRoundCardRightBottomCorner="false">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_optimization_background">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/ic_optimization_background">-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_cardview_gradient">>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/submit_btn"
@@ -99,7 +100,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.15" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+<!--        </LinearLayout>-->
     </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
 
