@@ -15,4 +15,5 @@
     <color name="gray">#AAAAAA</color>
     <color name="gradient_blue_start">#0073D7</color>
     <color name="gradient_blue_end">#35A6F5</color>
+    <color name="spinner_bg">#E2F1FF</color>
 </resources>

@@ -1,0 +1,17 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="@color/spinner_bg"
+        android:endColor="@color/spinner_bg"
+        android:angle="0"
+
+        />
+<!--    <corners android:bottomRightRadius="30dp"-->
+<!--            android:bottomLeftRadius="30dp">-->
+
+<!--    </corners>-->
+        <corners android:topLeftRadius="12dp"
+            android:topRightRadius="12dp"
+            android:bottomLeftRadius="12dp"
+            android:bottomRightRadius="12dp"/>
+</shape>

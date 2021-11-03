@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginRight="3dp"
-    android:layout_weight=".28"
+    android:layout_weight=".30"
     android:layout_marginStart="22dp"
     android:orientation="horizontal"
+
     app:layout_constraintBottom_toTopOf="@+id/guidelineSpinner"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
@@ -15,12 +19,35 @@
     app:layout_constraintVertical_bias="1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_spinner_back" />
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_sort_drow_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_arrow_drop_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@drawable/ic_spinner_background_open" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -59,7 +59,12 @@ class FileManagerFilesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.storageName.text = filesType
         initUi()
+        binding.buttonBack.setOnClickListener {
+            (activity as MainActivity).back = true
+            requireActivity().onBackPressed()
+        }
     }
 
 
@@ -93,7 +98,7 @@ class FileManagerFilesFragment : Fragment() {
             Log.e("Files", selectedData.toString())
             phoneData.deleteFiles(selectedData)
             //todo optimization process
-            val dialog = FileOptimizationDialogFragment(text2 = getSize(data)) {
+            val dialog = FileOptimizationDialogFragment(text2 = getSize(selectedData)) {
                 viewModel.endOptimization()
             }
             dialog.show(childFragmentManager, "optimization")
@@ -120,7 +125,7 @@ class FileManagerFilesFragment : Fragment() {
                 })
             }
         adapter.add(spinnerParent)
-        binding.dropdownMenu.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
+//        binding.dropdownMenu.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
         binding.dropdownMenu.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.dropdownMenu.adapter = adapter
     }

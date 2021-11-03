@@ -53,7 +53,7 @@ class FileOptimizationDialogFragment  (
             animation.start()
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Cleaned ${text2}"){
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Cleaned ${text2} mb"){
                     callback.invoke()
                     dismiss()
                 }
