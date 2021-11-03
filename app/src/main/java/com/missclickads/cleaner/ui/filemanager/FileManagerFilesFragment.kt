@@ -1,5 +1,6 @@
 package com.missclickads.cleaner.ui.filemanager
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
@@ -49,6 +50,9 @@ class FileManagerFilesFragment : Fragment() {
     private val phoneData : PhoneData by inject()
     private var filesType: String? = null
 
+    private lateinit var adapter : GroupAdapter<GroupieViewHolder>
+    private lateinit var data :  MutableList<FileModel>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -79,27 +83,22 @@ class FileManagerFilesFragment : Fragment() {
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun initUi(){
 
-        val adapter = GroupAdapter<GroupieViewHolder>()
+        adapter = GroupAdapter<GroupieViewHolder>()
         val selectedData = mutableListOf<FileModel>()
 
-        val data = getData()
+        data = getData()
 
-//        when(binding.spinner.selectedItem.toString()){
-//            "Max size" -> {
-//                data.sortBy { it.size }
-//                data.reverse()
-//            }
-//            "Min size" -> { data.sortBy { it.size } }
-//            "Date" -> {data.sortBy { it.title }} // todo change on date
-//        }
         data.forEach {
             adapter.add(FileItem(it){ file, selected ->
                 if(selected) selectedData.add(file)
                 else selectedData.remove(file)
             })
         }
+
+
 
 
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
@@ -129,15 +128,30 @@ class FileManagerFilesFragment : Fragment() {
 
     }
 
-    fun initSpinner(){
+    @SuppressLint("NotifyDataSetChanged")
+    private fun sortBySize(min : Boolean){
+
+        println("sorting")
+        data.sortBy { it.size }
+        if(min) data.reverse()
+        adapter.notifyDataSetChanged()
+    }
+
+
+    private fun initSpinner(){
         val adapter = GroupAdapter<GroupieViewHolder>()
         val spinnerParent = ExpandableGroup(ParentDropDown())
             .apply {
                 add(Section().apply {
-                    add(ChildrenDropDown("Sort by pizza"))
+                    add(ChildrenDropDown("Sort by date") { sortBySize(true)
+
+                    })
                 })
                 add(Section().apply {
-                    add(ChildrenDropDown("Sort by hueta"))
+                    add(ChildrenDropDown("Sort by max size") { sortBySize(false) })
+                })
+                add(Section().apply {
+                    add(ChildrenDropDown("Sort by min size") { sortBySize(true) })
                 })
             }
         adapter.add(spinnerParent)

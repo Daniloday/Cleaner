@@ -9,12 +9,17 @@ import com.missclickads.cleaner.models.FileModel
 import com.xwray.groupie.viewbinding.BindableItem
 
 class ChildrenDropDown (
-    private val textSort : String
+    private val textSort : String,
+    private val callback : () -> Unit
 ) : BindableItem<ItemSpinnerBinding>(){
 
 
     override fun bind(viewBinding: ItemSpinnerBinding, position: Int) {
         viewBinding.sort.text = textSort
+        viewBinding.itemSpinner.setOnClickListener {
+            callback.invoke()
+        }
+
     }
 
 
