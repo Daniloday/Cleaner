@@ -28,7 +28,11 @@ import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
 import org.koin.android.ext.android.inject
 
+const val FROM = "from"
+
 class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
+
+    private var fromOptScreen : Boolean = false
 
     override val viewModel : BatteryOptimizerViewModel by viewModels()
     private var _binding: FragmentBatteryOptimizerBinding? = null
@@ -48,13 +52,14 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        fromOptScreen = arguments?.getBoolean(FROM) == true
         initUi()
     }
 
     @SuppressLint("SetTextI18n")
     private fun initUi(){
         if (optimizeDataSaver.dataSaver.batteryOptimizer) viewModel.endOptimization()
-
+        if (fromOptScreen) viewModel.startOptimization()
         val batteryValue = phoneData.getBatteryValue()
         binding.batteryInfo.text = "${batteryValue[0]} %"
         if (batteryValue[0] <= 20)

@@ -118,8 +118,8 @@ class PhoneData(val context: Context) {
 
 
 
-    fun getVideos(): MutableList<FileModel> {
-
+    fun getVideos(getSize: Boolean = false): Pair<MutableList<FileModel>, String> {
+        var sizeAll = 0.0
         val contentResolver: ContentResolver = context.contentResolver
         val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
         val cursor = contentResolver.query(uri, null, null, null, null)
@@ -141,25 +141,26 @@ class PhoneData(val context: Context) {
                         cursor.getInt(cursor.getColumnIndex(MediaStore.Video.VideoColumns._ID))
                             .toLong()
                     )
-                val video = FileModel(
-                    title = title,
-                    size = getCorrectSize(size),
-                    image = extractedImage,
-                    path = path,
-                    uri = videoUri
-                )
-                println(video)
-                videos.add(video)
-
+                sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
+                if(!getSize){
+                    val video = FileModel(
+                        title = title,
+                        size = getCorrectSize(size),
+                        image = extractedImage,
+                        path = path,
+                        uri = videoUri
+                    )
+                    videos.add(video)
+                }
             } while (cursor.moveToNext())
         }
 
-        return videos
+        return Pair(videos,"$sizeAll mb")
 
     }
 
-    fun getImages(): MutableList<FileModel> {
-
+    fun getImages(getSize: Boolean = false): Pair<MutableList<FileModel>, String> {
+        var sizeAll = 0.0
         val contentResolver: ContentResolver = context.contentResolver
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val cursor = contentResolver.query(uri, null, null, null, null)
@@ -179,27 +180,30 @@ class PhoneData(val context: Context) {
                             .toLong()
                     )
 
-                val im = BitmapFactory.decodeFile(path)
 
 
-                val image = FileModel(
-                    title = title,
-                    size = getCorrectSize(size),
-                    image = im,
-                    path = path,
-                    uri = imageUri
-                )
-                images.add(image)
+                sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
+                if(!getSize){
+                    val im = BitmapFactory.decodeFile(path)
+                    val image = FileModel(
+                        title = title,
+                        size = getCorrectSize(size),
+                        image = im,
+                        path = path,
+                        uri = imageUri
+                    )
+                    images.add(image)
+                }
 
             } while (cursor.moveToNext())
         }
 
-        return images
+        return Pair(images,"$sizeAll mb")
 
     }
 
-    fun getAudios(): MutableList<FileModel> {
-
+    fun getAudios(): Pair<MutableList<FileModel>, String> {
+        var sizeAll = 0.0
         val contentResolver: ContentResolver = context.contentResolver
         val uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
         val cursor = contentResolver
@@ -218,23 +222,24 @@ class PhoneData(val context: Context) {
                         cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.AudioColumns._ID))
                             .toLong()
                     )
-                val audio = FileModel(
-                    title = title,
-                    size = getCorrectSize(size),
-                    path = path,
-                    uri = uri
-                )
-                audios.add(audio)
+                sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
+                    val audio = FileModel(
+                        title = title,
+                        size = getCorrectSize(size),
+                        path = path,
+                        uri = uri
+                    )
+                    audios.add(audio)
 
             } while (cursor.moveToNext())
         }
 
-        return audios
+        return Pair(audios,"$sizeAll mb")
 
     }
 
-    fun getDocs(): MutableList<FileModel> {
-
+    fun getDocs(): Pair<MutableList<FileModel>, String> {
+        var sizeAll = 0.0
         val contentResolver: ContentResolver = context.contentResolver
         val uri = MediaStore.Files.getContentUri("external")
         val cursor = contentResolver
@@ -253,6 +258,7 @@ class PhoneData(val context: Context) {
                         cursor.getInt(cursor.getColumnIndex(MediaStore.Files.FileColumns._ID))
                             .toLong()
                     )
+                sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
                 val doc = FileModel(
                     title = title,
                     size = getCorrectSize(size),
@@ -264,7 +270,7 @@ class PhoneData(val context: Context) {
             } while (cursor.moveToNext())
         }
 
-        return docs
+        return Pair(docs,"$sizeAll mb")
 
     }
 
@@ -292,6 +298,8 @@ class PhoneData(val context: Context) {
 
         }
     }
+
+    fun getVideosSize() = getVideos()
 
     private fun getCorrectSize(size : String) =
         (((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0).toString() + " mb"

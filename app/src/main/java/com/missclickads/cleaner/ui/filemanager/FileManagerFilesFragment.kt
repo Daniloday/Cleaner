@@ -1,5 +1,6 @@
 package com.missclickads.cleaner.ui.filemanager
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -24,6 +25,13 @@ import com.missclickads.cleaner.adapters.CustomSpinnerAdapter
 
 
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.ui.filemanager.items.ChildrenDropDown
 import com.missclickads.cleaner.ui.filemanager.items.ParentDropDown
@@ -37,7 +45,7 @@ class FileManagerFilesFragment : Fragment() {
     val viewModel : FileManagerViewModel by viewModels()
     private var _binding: FragmentFileManagerFilesListFragmentBinding? = null
     private val binding get() = _binding!!
-
+    var mInterstitialAd: InterstitialAd? = null
     private val phoneData : PhoneData by inject()
     private var filesType: String? = null
 
@@ -60,6 +68,9 @@ class FileManagerFilesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.storageName.text = filesType
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+        loadAds(adRequest)
         initUi()
         binding.buttonBack.setOnClickListener {
             (activity as MainActivity).back = true
@@ -69,6 +80,7 @@ class FileManagerFilesFragment : Fragment() {
 
 
     private fun initUi(){
+
         val adapter = GroupAdapter<GroupieViewHolder>()
         val selectedData = mutableListOf<FileModel>()
 
@@ -100,6 +112,10 @@ class FileManagerFilesFragment : Fragment() {
             //todo optimization process
             val dialog = FileOptimizationDialogFragment(text2 = getSize(selectedData)) {
                 viewModel.endOptimization()
+                if (mInterstitialAd != null) {
+                    mInterstitialAd?.show(activity as MainActivity)
+                    println("Ads go!")
+                }
             }
             dialog.show(childFragmentManager, "optimization")
 //            (activity as MainActivity).back = true
@@ -138,11 +154,11 @@ class FileManagerFilesFragment : Fragment() {
     }
 
     private fun getData(): MutableList<FileModel> = when (filesType) {
-            "Video" -> phoneData.getVideos()
-            "Audio" -> phoneData.getAudios()
-            "Images" -> phoneData.getImages()
-            "Documents" -> phoneData.getDocs()
-            else -> phoneData.getVideos()
+            "Video" -> phoneData.getVideos().first
+            "Audio" -> phoneData.getAudios().first
+            "Images" -> phoneData.getImages().first
+            "Documents" -> phoneData.getDocs().first
+            else -> phoneData.getVideos().first
         }
     private fun getSize(list: List<FileModel>): String{
         var size = 0.0
@@ -159,5 +175,43 @@ class FileManagerFilesFragment : Fragment() {
                 putString(ARG_PARAM, param)
             }
 
+    }
+
+    private fun loadAds(adRequest: AdRequest){
+        //ads
+        InterstitialAd.load(
+            activity as MainActivity,
+            "ca-app-pub-3940256099942544/1033173712",
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    Log.d(ContentValues.TAG, adError?.message)
+                    mInterstitialAd = null
+                }
+
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    Log.d(ContentValues.TAG, "Ad was loaded")
+                    mInterstitialAd = interstitialAd
+                    mInterstitialAd?.fullScreenContentCallback =
+                        object : FullScreenContentCallback() {
+                            override fun onAdDismissedFullScreenContent() {
+                                Log.d(ContentValues.TAG, "Ad was dismissed.")
+//                                findNavController().navigate(R.id.optimizationEndsFragment)
+                            }
+
+                            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+                                Log.d(ContentValues.TAG, "Ad failed to show.")
+//                                findNavController().navigate(R.id.optimizationEndsFragment)
+                            }
+
+
+                            override fun onAdShowedFullScreenContent() {
+//                                findNavController().navigate(R.id.optimizationEndsFragment)
+                                Log.d(ContentValues.TAG, "Ad showed fullscreen content.")
+                                mInterstitialAd = null
+                            }
+                        }
+                }
+            })
     }
 }

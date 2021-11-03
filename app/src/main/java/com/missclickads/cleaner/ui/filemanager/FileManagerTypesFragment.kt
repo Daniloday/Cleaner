@@ -41,6 +41,7 @@ class FileManagerTypesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest)
+
         super.onViewCreated(view, savedInstanceState)
         val adapter = GroupAdapter<GroupieViewHolder>()
         val storage = phoneData.getStorage()
@@ -50,25 +51,25 @@ class FileManagerTypesFragment : Fragment() {
         val item = TypeItem(
             image = R.drawable.ic_icon_video,
             type = "Video",
-            memory = "268mb",
+            memory = phoneData.getVideos(true).second,
             ::nextFragment
         )
         val item2 = TypeItem(
             image = R.drawable.ic_audio_icon,
             type = "Audio",
-            memory = "268mb",
+            memory = phoneData.getAudios().second,
             ::nextFragment
         )
         val item3 = TypeItem(
             image = R.drawable.ic_images_icon,
             type = "Images",
-            memory = "268mb",
+            memory = phoneData.getImages(true).second,
             ::nextFragment
         )
         val item4 = TypeItem(
             image = R.drawable.ic_documents_icon,
             type = "Documents",
-            memory = "268mb",
+            memory = phoneData.getDocs().second,
             ::nextFragment
         )
         adapter.add(item)

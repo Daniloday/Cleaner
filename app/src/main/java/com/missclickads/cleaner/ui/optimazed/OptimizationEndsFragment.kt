@@ -14,6 +14,7 @@ import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.FragmentJunkCleanerBinding
 import com.missclickads.cleaner.databinding.FragmentOptimizationEndBinding
 import com.missclickads.cleaner.databinding.JunkCleanerOptimizationFragmentBinding
+import com.missclickads.cleaner.ui.batteryoptimizer.FROM
 import com.missclickads.cleaner.ui.filemanager.items.TypeItem
 import com.missclickads.cleaner.ui.optimazed.item.OptimizationItem
 import com.missclickads.cleaner.utils.OptimizeDataSaver
@@ -51,7 +52,7 @@ class OptimizationEndsFragment : Fragment() {
             else R.drawable.battery_warning,
             title = "Battery\nSaver",
             setOnClickCallback = {
-                findNavController().navigate(R.id.navigation_battery_optimizer)
+                findNavController().navigate(R.id.navigation_battery_optimizer, Bundle().apply { putBoolean(FROM,true) })
             }
         )
         val item2 = OptimizationItem(
@@ -60,7 +61,7 @@ class OptimizationEndsFragment : Fragment() {
             else R.drawable.cpu_warning,
             title = "CPU\nCooler",
             setOnClickCallback = {
-                findNavController().navigate(R.id.navigation_cpu_cooler)
+                findNavController().navigate(R.id.navigation_cpu_cooler, Bundle().apply { putBoolean(FROM,true) })
             }
         )
         val item3 = OptimizationItem(
@@ -69,7 +70,7 @@ class OptimizationEndsFragment : Fragment() {
             else R.drawable.junk_warning,
             title = "Junk\nCleaner",
             setOnClickCallback = {
-                findNavController().navigate(R.id.navigation_junk_cleaner)
+                findNavController().navigate(R.id.navigation_junk_cleaner, Bundle().apply { putBoolean(FROM,true) })
             }
         )
         val item4 = OptimizationItem(
@@ -78,7 +79,7 @@ class OptimizationEndsFragment : Fragment() {
             else R.drawable.phone_warning,
             title = "Phone\nBooster",
             setOnClickCallback = {
-                findNavController().navigate(R.id.navigation_phone_booster)
+                findNavController().navigate(R.id.navigation_phone_booster, Bundle().apply { putBoolean(FROM,true) })
             }
         )
 

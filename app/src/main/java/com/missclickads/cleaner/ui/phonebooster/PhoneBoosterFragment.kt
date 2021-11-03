@@ -22,6 +22,7 @@ import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentPhoneBoosterBinding
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.batteryoptimizer.FROM
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
 import org.koin.android.ext.android.inject
@@ -34,6 +35,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     private val phoneData : PhoneData by inject()
     private val optimizeDataSaver : OptimizeDataSaver by inject()
     private val binding get() = _binding!!
+    private var fromOptScreen : Boolean = false
     var mInterstitialAd: InterstitialAd? = null
 
     override fun onCreateView(
@@ -47,11 +49,13 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        fromOptScreen = arguments?.getBoolean(FROM) == true
         initUi()
     }
 
     private fun initUi(){
         if (optimizeDataSaver.dataSaver.phoneBooster) viewModel.endOptimization()
+        if (fromOptScreen) viewModel.startOptimization()
         val memory = phoneData.getMemory()
         val storage = phoneData.getStorage()
         binding.storage.text = storage.first.toString()

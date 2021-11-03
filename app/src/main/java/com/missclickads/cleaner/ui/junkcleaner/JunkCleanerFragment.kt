@@ -21,6 +21,7 @@ import com.missclickads.cleaner.R
 import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.FragmentJunkCleanerBinding
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.batteryoptimizer.FROM
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import org.koin.android.ext.android.inject
@@ -31,6 +32,7 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
     private var _binding: FragmentJunkCleanerBinding? = null
     private val optimizeDataSaver : OptimizeDataSaver by inject()
     private val binding get() = _binding!!
+    private var fromOptScreen : Boolean = false
     var mInterstitialAd: InterstitialAd? = null
     private lateinit var circlesList : List<ShapeableImageView>
 
@@ -45,11 +47,13 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        fromOptScreen = arguments?.getBoolean(FROM) == true
         initUi()
     }
 
     private fun initUi(){
         if (optimizeDataSaver.dataSaver.junkCleaner) viewModel.endOptimization()
+        if (fromOptScreen) viewModel.startOptimization()
         circlesList = listOf(binding.imageCircle1, binding.imageCircle2,
             binding.imageCircle3, binding.imageCircle4)
         //ads

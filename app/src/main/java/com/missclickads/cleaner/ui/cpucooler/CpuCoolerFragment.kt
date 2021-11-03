@@ -24,6 +24,7 @@ import com.missclickads.cleaner.core.BaseFragment
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.FragmentCpuCoolerBinding
 import com.missclickads.cleaner.models.OptimizeType
+import com.missclickads.cleaner.ui.batteryoptimizer.FROM
 
 import com.missclickads.cleaner.utils.OptimizeDataSaver
 import com.missclickads.cleaner.utils.PhoneData
@@ -39,6 +40,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
     private val optimizeDataSaver : OptimizeDataSaver by inject()
     private val binding get() = _binding!!
     var mInterstitialAd: InterstitialAd? = null
+    private var fromOptScreen : Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +53,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        fromOptScreen = arguments?.getBoolean(FROM) == true
         initUi()
     }
 
@@ -61,7 +64,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
         binding.adView.loadAd(adRequest)
         loadAds(adRequest)
         if (optimizeDataSaver.dataSaver.cpuCooler) viewModel.endOptimization()
-
+        if (fromOptScreen) viewModel.startOptimization()
         val appImageViewList = listOf(binding.appImage1,binding.appImage2,binding.appImage3,binding.appImage4,
             binding.appImage5,binding.appImage6,)
         val appMemoriesTextView = listOf(binding.appMb1,binding.appMb2,binding.appMb3,
