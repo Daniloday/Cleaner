@@ -140,11 +140,13 @@ class FileManagerFilesFragment : Fragment() {
 
     private fun initSpinner(){
         val adapter = GroupAdapter<GroupieViewHolder>()
-        val spinnerParent = ExpandableGroup(ParentDropDown())
-            .apply {
-                add(Section().apply {
-                    add(ChildrenDropDown("Sort by date") { sortBySize(true)
-
+        val dropDown = ParentDropDown()
+        val spinnerParent = ExpandableGroup(dropDown)
+            .apply ExpGroup@ {
+                add(Section().apply Section@ {
+                    add(ChildrenDropDown("Sort by date"){
+                        sortBySize(false)
+                        dropDown.expand()
                     })
                 })
                 add(Section().apply {

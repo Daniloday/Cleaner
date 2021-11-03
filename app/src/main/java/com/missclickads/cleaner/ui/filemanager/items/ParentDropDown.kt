@@ -27,4 +27,8 @@ class ParentDropDown(
         expandableGroup = onToggleListener
     }
 
+    fun expand(){
+        expandableGroup.onToggleExpanded()
+    }
+
 }
