@@ -1,8 +1,12 @@
 package com.missclickads.cleaner
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -42,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         if (optimizeDataSaver.checkShowRate()) rate()
 
     }
+
 
     override fun onBackPressed() {
         if(back) {

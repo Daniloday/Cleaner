@@ -52,62 +52,114 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ActivityCompat.requestPermissions(
-            activity as MainActivity,
-            arrayOf(
-                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_MEDIA_LOCATION
-            ),
-            1);
+//        ActivityCompat.requestPermissions(
+//            activity as MainActivity,
+//            arrayOf(
+//                Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+//                Manifest.permission.READ_EXTERNAL_STORAGE,
+//                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                Manifest.permission.ACCESS_MEDIA_LOCATION
+//            ),
+//            1);
 
         initUi()
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
-                                            grantResults: IntArray) {
-        when (requestCode) {
-            1 -> {
-                if (grantResults.isNotEmpty() && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED
-                ) {
-                    if ((ContextCompat.checkSelfPermission(
-                            activity as MainActivity,
-                            Manifest.permission.MANAGE_EXTERNAL_STORAGE
-                        ) ===
-                                PackageManager.PERMISSION_GRANTED)
-                    ) {
-                        println("permission")
-                        Toast.makeText(
-                            activity as MainActivity,
-                            "Permission Granted",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } else {
-                    println("permission")
-                    Toast.makeText(
-                        activity as MainActivity,
-                        "Permission Denied",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                return
-            }
-        }
-    }
+
 
 
     private fun initUi(){
         (activity as MainActivity).back = false
         binding.submitBtn.setOnClickListener {
-            findNavController().navigate(R.id.fileManagerTypesFragment)
+            checkPerm(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
+//            ActivityCompat.requestPermissions(
+//                activity as MainActivity,
+//                arrayOf(
+//                    Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+//                    Manifest.permission.READ_EXTERNAL_STORAGE,
+//                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                    Manifest.permission.ACCESS_MEDIA_LOCATION
+//                ),
+//                1);
+           // findNavController().navigate(R.id.fileManagerTypesFragment)
         }
         //ads
         binding.adView.loadAd(AdRequest.Builder().build())
 
     }
+
+    fun checkPerm(permission: String){
+        when {
+            ContextCompat.checkSelfPermission(
+                requireActivity(),
+                permission
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                // You can use the API that requires the permission.
+                Log.e("Here", "HERE")
+            }
+//            shouldShowRequestPermissionRationale(...) -> {
+//            // In an educational UI, explain to the user why your app requires this
+//            // permission for a specific feature to behave as expected. In this UI,
+//            // include a "cancel" or "no thanks" button that allows the user to
+//            // continue using your app without granting the permission.
+//            showInContextUI(...)
+            else -> {
+                // You can directly ask for the permission.
+                // The registered ActivityResultCallback gets the result of this request.
+                requestPermissionLauncher.launch(arrayOf(
+                    Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_MEDIA_LOCATION
+                ))
+            }
+        }
+    }
+
+
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            1 -> {
+                // If request is cancelled, the result arrays are empty.
+                if ((grantResults.isNotEmpty() &&
+                            grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Permission is granted. Continue the action or workflow
+                    // in your app.
+                } else {
+                    // Explain to the user that the feature is unavailable because
+                    // the features requires a permission that the user has denied.
+                    // At the same time, respect the user's decision. Don't link to
+                    // system settings in an effort to convince the user to change
+                    // their decision.
+                }
+                return
+            }
+
+            // Add other 'when' lines to check for other
+            // permissions this app might request.
+            else -> {
+                // Ignore all other requests.
+            }
+        }
+    }
+
+    val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            permissions.forEach{
+                Log.e("DEBUG", "${it.key} = ${it.value}")
+                if(it.value == true){
+                    findNavController().navigate(R.id.fileManagerTypesFragment)
+                }
+            }
+//            }
+        }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -130,3 +182,35 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
         Log.e("FileManager", "error")
     }
 }
+
+//    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
+//                                            grantResults: IntArray) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        when (requestCode) {
+//            1 -> {
+//                if (grantResults.isNotEmpty() && grantResults[0] ==
+//                    PackageManager.PERMISSION_GRANTED
+//                ) {
+//                    if ((ContextCompat.checkSelfPermission(
+//                            this,
+//                            Manifest.permission.MANAGE_EXTERNAL_STORAGE
+//                        ) ===
+//                                PackageManager.PERMISSION_GRANTED)
+//                    ) {
+//                        Toast.makeText(
+//                            this,
+//                            "Permission Granted",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//                } else {
+//                    Toast.makeText(
+//                        this,
+//                        "Permission Denied",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                return
+//            }
+//        }
+//    }
