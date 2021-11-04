@@ -89,7 +89,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     override fun optimization() {
         val dialog = PhoneOptimizationDialogFragment{
             viewModel.endOptimization()
-            showAd()
+//            showAd()
         }
         dialog.show(childFragmentManager, "optimization")
 

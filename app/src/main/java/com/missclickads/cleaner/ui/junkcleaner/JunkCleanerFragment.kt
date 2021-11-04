@@ -88,7 +88,7 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
         Log.e("JunkCleaner", "optimization")
         val dialog = JunkOptimizationDialogFragment{
             viewModel.endOptimization()
-            showAd()
+//            showAd()
         }
         dialog.show(childFragmentManager, "optimization")
 

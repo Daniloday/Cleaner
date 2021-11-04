@@ -126,6 +126,7 @@ class PhoneData(val context: Context) {
         val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
         val cursor = contentResolver.query(uri, null, null, null, null)
         val videos = mutableListOf<FileModel>()
+        var i = 0
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 val title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME))
@@ -146,6 +147,7 @@ class PhoneData(val context: Context) {
                 sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
                 if(!getSize){
                     val video = FileModel(
+                        id = i,
                         title = title,
                         size = getCorrectSize(size),
                         image = extractedImage,
@@ -154,9 +156,10 @@ class PhoneData(val context: Context) {
                     )
                     videos.add(video)
                 }
+                i++
             } while (cursor.moveToNext())
         }
-
+        videos.reverse()
         return Pair(videos,round(sizeAll))
 
     }
@@ -167,6 +170,7 @@ class PhoneData(val context: Context) {
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val cursor = contentResolver.query(uri, null, null, null, null)
         val images = mutableListOf<FileModel>()
+        var i = 0
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 val title = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME))
@@ -188,6 +192,7 @@ class PhoneData(val context: Context) {
                 if(!getSize){
                     val im = BitmapFactory.decodeFile(path)
                     val image = FileModel(
+                        id = i,
                         title = title,
                         size = getCorrectSize(size),
                         image = im,
@@ -196,10 +201,10 @@ class PhoneData(val context: Context) {
                     )
                     images.add(image)
                 }
-
+                i++
             } while (cursor.moveToNext())
         }
-
+        images.reverse()
         return Pair(images,round(sizeAll))
 
     }
@@ -211,6 +216,7 @@ class PhoneData(val context: Context) {
         val cursor = contentResolver
             .query(uri, null, null, null, null)
         val audios = mutableListOf<FileModel>()
+        var i = 0
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 val title =
@@ -226,16 +232,17 @@ class PhoneData(val context: Context) {
                     )
                 sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
                     val audio = FileModel(
+                        id = i,
                         title = title,
                         size = getCorrectSize(size),
                         path = path,
                         uri = uri
                     )
                     audios.add(audio)
-
+            i++
             } while (cursor.moveToNext())
         }
-
+        audios.reverse()
         return Pair(audios,round(sizeAll))
 
     }
@@ -247,6 +254,7 @@ class PhoneData(val context: Context) {
         val cursor = contentResolver
             .query(uri, null, "_data LIKE '%.pdf'", null, "_id DESC")
         val docs = mutableListOf<FileModel>()
+        var i = 0
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 val title =
@@ -262,16 +270,17 @@ class PhoneData(val context: Context) {
                     )
                 sizeAll += getCorrectSize(size).removeSuffix(" mb").toDouble()
                 val doc = FileModel(
+                    id = i,
                     title = title,
                     size = getCorrectSize(size),
                     path = path,
                     uri = uri
                 )
                 docs.add(doc)
-
+            i++
             } while (cursor.moveToNext())
         }
-
+        docs.reverse()
         return Pair(docs,round(sizeAll))
 
     }

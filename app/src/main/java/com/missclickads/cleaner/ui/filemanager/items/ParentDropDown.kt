@@ -1,6 +1,7 @@
 package com.missclickads.cleaner.ui.filemanager.items
 
 import android.view.View
+import android.widget.TextView
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.ItemDropDownParentBinding
 import com.xwray.groupie.ExpandableGroup
@@ -13,10 +14,12 @@ class ParentDropDown(
 
     private lateinit var expandableGroup: ExpandableGroup
 
+    private var text : TextView? = null
+
     override fun bind(viewBinding: ItemDropDownParentBinding, position: Int) {
         viewBinding.root.setOnClickListener {
             expandableGroup.onToggleExpanded()
-            
+            text = viewBinding.textSort
         }
     }
 
@@ -28,9 +31,9 @@ class ParentDropDown(
         expandableGroup = onToggleListener
     }
 
-    fun expand(){
+    fun expand(type : String){
         expandableGroup.onToggleExpanded()
-
+        text?.text = type
     }
 
 }

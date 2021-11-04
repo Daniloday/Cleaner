@@ -32,15 +32,15 @@ class SplashActivity : AppCompatActivity() {
         animation.start()
         lifecycleScope.launch {
             delay(timer)
-            if (mInterstitialAd != null) {
-                mInterstitialAd?.show(this@SplashActivity)
-            } else {
+//            if (mInterstitialAd != null) {
+//                mInterstitialAd?.show(this@SplashActivity)
+//            } else {
                 val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent)
                 closed = true
                 finish()
-            }
+//            }
         }
 
         //ads

@@ -78,6 +78,7 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
                         ) ===
                                 PackageManager.PERMISSION_GRANTED)
                     ) {
+                        println("permission")
                         Toast.makeText(
                             activity as MainActivity,
                             "Permission Granted",
@@ -85,6 +86,7 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
                         ).show()
                     }
                 } else {
+                    println("permission")
                     Toast.makeText(
                         activity as MainActivity,
                         "Permission Denied",

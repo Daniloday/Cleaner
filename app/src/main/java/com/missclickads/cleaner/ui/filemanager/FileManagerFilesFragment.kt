@@ -82,12 +82,13 @@ class FileManagerFilesFragment : Fragment() {
         }
     }
 
+    private val selectedData = mutableListOf<FileModel>()
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initUi(){
         (activity as MainActivity).back = true
         adapter = GroupAdapter<GroupieViewHolder>()
-        val selectedData = mutableListOf<FileModel>()
+
 
         data = getData()
 
@@ -97,8 +98,6 @@ class FileManagerFilesFragment : Fragment() {
                 else selectedData.remove(file)
             })
         }
-
-
 
 
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))
@@ -111,10 +110,10 @@ class FileManagerFilesFragment : Fragment() {
             //todo optimization process
             val dialog = FileOptimizationDialogFragment(text2 = getSize(selectedData)) {
                 viewModel.endOptimization()
-                if (mInterstitialAd != null) {
-                    mInterstitialAd?.show(activity as MainActivity)
-                    println("Ads go!")
-                }
+//                if (mInterstitialAd != null) {
+//                    mInterstitialAd?.show(activity as MainActivity)
+//                    println("Ads go!")
+//                }
             }
             dialog.show(childFragmentManager, "optimization")
 //            (activity as MainActivity).back = true
@@ -128,16 +127,31 @@ class FileManagerFilesFragment : Fragment() {
 
     }
 
-//    private fun sortByDate(){
-//        binding.
-//    }
+    private fun sortByDate(){
+        println("sorting")
+        data.sortBy { it.id }
+        data.reverse()
+        adapter.clear()
+        data.forEach {
+            adapter.add(FileItem(it){ file, selected ->
+                if(selected) selectedData.add(file)
+                else selectedData.remove(file)
+            })
+        }
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun sortBySize(min : Boolean){
         println("sorting")
         data.sortBy { it.size }
-        if(min) data.reverse()
-        adapter.notifyDataSetChanged()
+        if(!min) data.reverse()
+        adapter.clear()
+        data.forEach {
+            adapter.add(FileItem(it){ file, selected ->
+                if(selected) selectedData.add(file)
+                else selectedData.remove(file)
+            })
+        }
     }
 
 
@@ -148,20 +162,20 @@ class FileManagerFilesFragment : Fragment() {
             .apply ExpGroup@ {
                 add(Section().apply Section@ {
                     add(ChildrenDropDown("Sort by date"){
-                        sortBySize(false)
-                        dropDown.expand()
+                        sortByDate()
+                        dropDown.expand("Sort by date")
                     })
                 })
                 add(Section().apply {
                     add(ChildrenDropDown("Sort by max size") {
                         sortBySize(false)
-                        dropDown.expand()
+                        dropDown.expand("Sort by max size")
                     })
                 })
                 add(Section().apply {
                     add(ChildrenDropDown("Sort by min size") {
                         sortBySize(true)
-                        dropDown.expand()
+                        dropDown.expand("Sort by min size")
                     })
                 })
             }
