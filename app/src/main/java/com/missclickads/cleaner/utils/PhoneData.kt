@@ -12,6 +12,7 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.media.MediaMetadataRetriever
 import android.net.Uri
@@ -22,6 +23,10 @@ import android.os.StatFs
 import android.provider.MediaStore
 import android.util.DisplayMetrics
 import androidx.activity.result.IntentSenderRequest
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toDrawable
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.models.FileModel
 import kotlinx.coroutines.*
 import java.io.File
@@ -234,9 +239,11 @@ class PhoneData(val context: Context) {
                     val audio = FileModel(
                         id = i,
                         title = title,
+//                        image = (R.drawable.ic_audio_icon).toDrawable().toBitmap(84,84),
                         size = getCorrectSize(size),
                         path = path,
-                        uri = uri
+                        uri = uri,
+                        type = "audio"
                     )
                     audios.add(audio)
             i++
@@ -252,7 +259,7 @@ class PhoneData(val context: Context) {
         val contentResolver: ContentResolver = context.contentResolver
         val uri = MediaStore.Files.getContentUri("external")
         val cursor = contentResolver
-            .query(uri, null, "_data LIKE '%.pdf'", null, "_id DESC")
+            .query(uri, null, "_data LIKE '%.pdf' OR _data LIKE '%.docx'", null, "_id DESC")
         val docs = mutableListOf<FileModel>()
         var i = 0
         if (cursor != null && cursor.moveToFirst()) {
@@ -272,9 +279,11 @@ class PhoneData(val context: Context) {
                 val doc = FileModel(
                     id = i,
                     title = title,
+//                    image = (R.drawable.ic_documents_icon).toDrawable().toBitmap(50,50),
                     size = getCorrectSize(size),
                     path = path,
-                    uri = uri
+                    uri = uri,
+                    type = "doc"
                 )
                 docs.add(doc)
             i++
@@ -292,6 +301,15 @@ class PhoneData(val context: Context) {
             if (fDelete.exists()) {
                 GlobalScope.launch {
                     withContext(Dispatchers.IO) {
+//                        val contentResolver: ContentResolver = context.getContentResolver()
+//                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//                            println("R r r")
+//                            MediaStore.createDeleteRequest(contentResolver, listOf(file.uri))
+//                        }
+//                        else{
+//                            println("k r r")
+//                            contentResolver.delete(file.uri!!, null, null)
+//                        }
                         val contentResolver: ContentResolver = context.contentResolver
                         try {
                             contentResolver.delete(file.uri!!, null, null)

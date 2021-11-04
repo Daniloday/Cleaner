@@ -110,6 +110,14 @@ class FileManagerFilesFragment : Fragment() {
             //todo optimization process
             val dialog = FileOptimizationDialogFragment(text2 = getSize(selectedData)) {
                 viewModel.endOptimization()
+                adapter.clear()
+                data = getData()
+                data.forEach {
+                    adapter.add(FileItem(it){ file, selected ->
+                        if(selected) selectedData.add(file)
+                        else selectedData.remove(file)
+                    })
+                }
 //                if (mInterstitialAd != null) {
 //                    mInterstitialAd?.show(activity as MainActivity)
 //                    println("Ads go!")

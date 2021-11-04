@@ -9,5 +9,6 @@ data class FileModel(
     val size : String,
     val image : Bitmap? = null,
     val path : String,
-    val uri : Uri? = null
+    val uri : Uri? = null,
+    val type : String? = null
 )
