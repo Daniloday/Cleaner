@@ -35,7 +35,6 @@
 
             <shape
                 android:innerRadiusRatio="3.5"
-                android:opticalInsetTop="16dp"
                 android:shape="ring"
                 android:useLevel="true"
                 android:thicknessRatio="9.0">
