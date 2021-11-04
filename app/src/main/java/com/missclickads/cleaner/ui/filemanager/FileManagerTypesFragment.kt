@@ -76,9 +76,9 @@ class FileManagerTypesFragment : Fragment() {
         adapter.add(item2)
         adapter.add(item3)
         adapter.add(item4)
-
+        (activity as MainActivity).back = true
         binding.buttonBack.setOnClickListener {
-            (activity as MainActivity).back = true
+//            (activity as MainActivity).back = true
             requireActivity().onBackPressed()
         }
         binding.recycler.addItemDecoration(DividerItemDecoration(activity as MainActivity, DividerItemDecoration.VERTICAL))

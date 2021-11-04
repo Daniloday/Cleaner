@@ -3,6 +3,7 @@ package com.missclickads.cleaner.utils
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
+import android.app.RecoverableSecurityException
 import android.content.ContentResolver
 import android.content.ContentUris
 import android.content.Context
@@ -20,6 +21,7 @@ import android.os.Environment
 import android.os.StatFs
 import android.provider.MediaStore
 import android.util.DisplayMetrics
+import androidx.activity.result.IntentSenderRequest
 import com.missclickads.cleaner.models.FileModel
 import kotlinx.coroutines.*
 import java.io.File
@@ -155,7 +157,7 @@ class PhoneData(val context: Context) {
             } while (cursor.moveToNext())
         }
 
-        return Pair(videos,"$sizeAll mb")
+        return Pair(videos,round(sizeAll))
 
     }
 
@@ -198,7 +200,7 @@ class PhoneData(val context: Context) {
             } while (cursor.moveToNext())
         }
 
-        return Pair(images,"$sizeAll mb")
+        return Pair(images,round(sizeAll))
 
     }
 
@@ -234,7 +236,7 @@ class PhoneData(val context: Context) {
             } while (cursor.moveToNext())
         }
 
-        return Pair(audios,"$sizeAll mb")
+        return Pair(audios,round(sizeAll))
 
     }
 
@@ -270,7 +272,7 @@ class PhoneData(val context: Context) {
             } while (cursor.moveToNext())
         }
 
-        return Pair(docs,"$sizeAll mb")
+        return Pair(docs,round(sizeAll))
 
     }
 
@@ -281,14 +283,21 @@ class PhoneData(val context: Context) {
             if (fDelete.exists()) {
                 GlobalScope.launch {
                     withContext(Dispatchers.IO) {
-                        val contentResolver: ContentResolver = context.getContentResolver()
-                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                            println("R r r")
-                            MediaStore.createDeleteRequest(contentResolver, listOf(file.uri))
-                        }
-                        else{
-                            println("k r r")
+                        val contentResolver: ContentResolver = context.contentResolver
+                        try {
                             contentResolver.delete(file.uri!!, null, null)
+                        } catch (e: SecurityException) {
+                            val intentSender = when {
+                                Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
+                                    MediaStore.createDeleteRequest(contentResolver, listOf(file.uri!!)).intentSender
+                                }
+                                Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
+                                    val recoverableSecurityException = e as? RecoverableSecurityException
+                                    recoverableSecurityException?.userAction?.actionIntent?.intentSender
+                                }
+                                else -> null
+                            }
+
                         }
 
                     }
@@ -299,7 +308,9 @@ class PhoneData(val context: Context) {
         }
     }
 
-    fun getVideosSize() = getVideos()
+    private fun round(size : Double): String {
+        return ((size * 10).roundToInt() / 10.0).toString() +  " mb"
+    }
 
     private fun getCorrectSize(size : String) =
         (((size.toInt() / (1024.0 * 1024.0)) * 10).roundToInt() / 10.0).toString() + " mb"

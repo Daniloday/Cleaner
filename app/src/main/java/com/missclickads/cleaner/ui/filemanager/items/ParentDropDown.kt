@@ -16,6 +16,7 @@ class ParentDropDown(
     override fun bind(viewBinding: ItemDropDownParentBinding, position: Int) {
         viewBinding.root.setOnClickListener {
             expandableGroup.onToggleExpanded()
+            
         }
     }
 
@@ -29,6 +30,7 @@ class ParentDropDown(
 
     fun expand(){
         expandableGroup.onToggleExpanded()
+
     }
 
 }

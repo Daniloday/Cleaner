@@ -26,6 +26,8 @@ import android.provider.MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI
 import android.provider.MediaStore.Audio.Artists.EXTERNAL_CONTENT_URI
 import android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresPermission
+import androidx.core.content.ContextCompat
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.ui.batteryoptimizer.FROM
 
@@ -53,21 +55,50 @@ class FileManagerFragment : BaseFragment<FileManagerViewModel>() {
         ActivityCompat.requestPermissions(
             activity as MainActivity,
             arrayOf(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_MEDIA_LOCATION
             ),
             1);
 
-
         initUi()
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
+                                            grantResults: IntArray) {
+        when (requestCode) {
+            1 -> {
+                if (grantResults.isNotEmpty() && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED
+                ) {
+                    if ((ContextCompat.checkSelfPermission(
+                            activity as MainActivity,
+                            Manifest.permission.MANAGE_EXTERNAL_STORAGE
+                        ) ===
+                                PackageManager.PERMISSION_GRANTED)
+                    ) {
+                        Toast.makeText(
+                            activity as MainActivity,
+                            "Permission Granted",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    Toast.makeText(
+                        activity as MainActivity,
+                        "Permission Denied",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                return
+            }
+        }
+    }
 
 
     private fun initUi(){
-
+        (activity as MainActivity).back = false
         binding.submitBtn.setOnClickListener {
             findNavController().navigate(R.id.fileManagerTypesFragment)
         }

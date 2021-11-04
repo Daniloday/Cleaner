@@ -54,6 +54,7 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     }
 
     private fun initUi(){
+        (activity as MainActivity).back = false
         if (optimizeDataSaver.dataSaver.phoneBooster) viewModel.endOptimization()
         if (fromOptScreen) viewModel.startOptimization()
         val memory = phoneData.getMemory()

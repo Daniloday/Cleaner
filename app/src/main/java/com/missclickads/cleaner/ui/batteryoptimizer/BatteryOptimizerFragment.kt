@@ -58,6 +58,7 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
 
     @SuppressLint("SetTextI18n")
     private fun initUi(){
+        (activity as MainActivity).back = false
         if (optimizeDataSaver.dataSaver.batteryOptimizer) viewModel.endOptimization()
         if (fromOptScreen) viewModel.startOptimization()
         val batteryValue = phoneData.getBatteryValue()

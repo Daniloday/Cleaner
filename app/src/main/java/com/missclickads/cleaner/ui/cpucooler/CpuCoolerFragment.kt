@@ -60,6 +60,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
     @SuppressLint("SetTextI18n")
     private fun initUi(){
         //ads
+        (activity as MainActivity).back = false
         val adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest)
         loadAds(adRequest)

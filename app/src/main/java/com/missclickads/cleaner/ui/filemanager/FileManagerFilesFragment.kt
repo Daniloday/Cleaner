@@ -77,7 +77,7 @@ class FileManagerFilesFragment : Fragment() {
         loadAds(adRequest)
         initUi()
         binding.buttonBack.setOnClickListener {
-            (activity as MainActivity).back = true
+//            (activity as MainActivity).back = true
             requireActivity().onBackPressed()
         }
     }
@@ -85,7 +85,7 @@ class FileManagerFilesFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initUi(){
-
+        (activity as MainActivity).back = true
         adapter = GroupAdapter<GroupieViewHolder>()
         val selectedData = mutableListOf<FileModel>()
 
@@ -128,9 +128,12 @@ class FileManagerFilesFragment : Fragment() {
 
     }
 
+//    private fun sortByDate(){
+//        binding.
+//    }
+
     @SuppressLint("NotifyDataSetChanged")
     private fun sortBySize(min : Boolean){
-
         println("sorting")
         data.sortBy { it.size }
         if(min) data.reverse()
@@ -150,10 +153,16 @@ class FileManagerFilesFragment : Fragment() {
                     })
                 })
                 add(Section().apply {
-                    add(ChildrenDropDown("Sort by max size") { sortBySize(false) })
+                    add(ChildrenDropDown("Sort by max size") {
+                        sortBySize(false)
+                        dropDown.expand()
+                    })
                 })
                 add(Section().apply {
-                    add(ChildrenDropDown("Sort by min size") { sortBySize(true) })
+                    add(ChildrenDropDown("Sort by min size") {
+                        sortBySize(true)
+                        dropDown.expand()
+                    })
                 })
             }
         adapter.add(spinnerParent)

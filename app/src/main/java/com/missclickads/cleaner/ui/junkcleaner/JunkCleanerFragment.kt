@@ -52,6 +52,7 @@ class JunkCleanerFragment : BaseFragment<JunkCleanerViewModel>() {
     }
 
     private fun initUi(){
+        (activity as MainActivity).back = false
         if (optimizeDataSaver.dataSaver.junkCleaner) viewModel.endOptimization()
         if (fromOptScreen) viewModel.startOptimization()
         circlesList = listOf(binding.imageCircle1, binding.imageCircle2,
