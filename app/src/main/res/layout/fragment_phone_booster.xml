@@ -13,6 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="FULL_BANNER"
+        android:visibility="invisible"
         app:adUnitId="@string/phone_booster_ads"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

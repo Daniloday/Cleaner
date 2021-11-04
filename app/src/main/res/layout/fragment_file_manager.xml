@@ -14,6 +14,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="FULL_BANNER"
+        android:visibility="invisible"
         app:adUnitId="@string/file_manager_ads"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
