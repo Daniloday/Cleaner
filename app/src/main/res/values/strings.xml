@@ -8,11 +8,11 @@
     <string name="ram_usage">RAM Usage</string>
     <string name="optimize_btn">Optimize</string>
     <string name="optimized_btn">Optimized</string>
-    <string name="scanning_ram">Scanning RAM...</string>
+    <string name="scanning_ram">Scanning RAM…</string>
     <string name="complete">Complete</string>
     <string name="battery_optimizer">Battery Optimizer</string>
     <string name="charging_time_remaining">Charging time remaining</string>
-    <string name="optimizing_energy_nconsuming_processes">Optimizing energy\nconsuming processes...</string>
+    <string name="optimizing_energy_nconsuming_processes">Optimizing energy\nconsuming processes…</string>
     <string name="cpu_cooler">CPU Cooler</string>
     <string name="overheated">Overheated</string>
     <string name="normal">Normal</string>
@@ -38,7 +38,7 @@
     <string name="stil_not_optimized">Still not optimized!</string>
     <string name="quit">Quit</string>
     <string name="rate_multi_cleaner_pro">Rate Swift Cleaner</string>
-    <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute.</string>
+    <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute.\nThanks for your support!</string>
 
     <string name="term_and_privacy" translatable="false">Term and Privacy</string>
 

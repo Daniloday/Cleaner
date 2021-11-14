@@ -25,7 +25,7 @@
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Battery Optimizer"
+        android:text="@string/battery_optimizer"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"

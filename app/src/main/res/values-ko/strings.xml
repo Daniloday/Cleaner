@@ -3,41 +3,41 @@
     <string name="app_name">Swift Cleaner</string>
 
 
-    <string name="phone_booster">Phone Booster</string>
-    <string name="storage">Storage</string>
-    <string name="ram_usage">RAM Usage</string>
-    <string name="optimize_btn">Optimize</string>
-    <string name="optimized_btn">Optimized</string>
-    <string name="scanning_ram">Scanning RAM...</string>
-    <string name="complete">Complete</string>
-    <string name="battery_optimizer">Battery Optimizer</string>
-    <string name="charging_time_remaining">Charging time remaining</string>
-    <string name="optimizing_energy_nconsuming_processes">Optimizing energy\nconsuming processes...</string>
-    <string name="cpu_cooler">CPU Cooler</string>
+    <string name="phone_booster">폰 부스터</string>
+    <string name="storage">저장공간</string>
+    <string name="ram_usage">램 사용량</string>
+    <string name="optimize_btn">최적화</string>
+    <string name="optimized_btn">최적화됨</string>
+    <string name="scanning_ram">RAM 스캔 중…</string>
+    <string name="complete">완전한</string>
+    <string name="battery_optimizer">배터리 최적화</string>
+    <string name="charging_time_remaining">남은 충전 시간</string>
+    <string name="optimizing_energy_nconsuming_processes">에너지 소비 프로세스 최적화…</string>
+    <string name="cpu_cooler">CPU 쿨러</string>
     <string name="overheated">Overheated</string>
     <string name="normal">Normal</string>
-    <string name="applications_class_are_causing_problem_hit_cool_down">Application are causing\nproblem hit cool down</string>
-    <string name="cpu_good">CPU Temperature is Good</string>
-    <string name="cooled_CPU_to">Cooled CPU to</string>
-    <string name="junk_cleaner">Junk Cleaner</string>
-    <string name="system_njunk">System\nJunk</string>
-    <string name="residual_nfile">Residual\nFile</string>
-    <string name="cache_nmemory">Cache\nMemory</string>
-    <string name="tempopary_nfiles">Temporary\nFiles</string>
-    <string name="file_manager">File Manager</string>
-    <string name="please_provide_the_required_permissions">Please provide the required permissions</string>
+    <string name="applications_class_are_causing_problem_hit_cool_down">응용 프로그램이\n문제를 일으키고 있습니다.</string>
+    <string name="cpu_good">CPU 온도가 양호합니다</string>
+    <string name="cooled_CPU_to">CPU를 로 냉각</string>
+    <string name="junk_cleaner">휴지통 클리너</string>
+    <string name="system_njunk">시스템 정크</string>
+    <string name="residual_nfile">잔여 파일</string>
+    <string name="cache_nmemory">캐시 메모리</string>
+    <string name="tempopary_nfiles">임시 파일</string>
+    <string name="file_manager">파일 관리자</string>
+    <string name="please_provide_the_required_permissions">필요한 권한을 제공하십시오</string>
     <string name="submit_btn">Submit</string>
     <string name="Video">Video</string>
     <string name="Audio">Audio</string>
     <string name="Images">Images</string>
     <string name="Documents">Documents</string>
-    <string name="cleaned">cleaned</string>
+    <string name="cleaned">청소됨</string>
     <string name="you_haven_t_done_some_cleans">You haven’t done some cleans</string>
     <string name="are_you_want_to_quit">Are you want to quit?</string>
     <string name="stil_not_optimized">Still not optimized!</string>
     <string name="quit">Quit</string>
-    <string name="rate_multi_cleaner_pro">Rate Swift Cleaner</string>
-    <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute.</string>
+    <string name="rate_multi_cleaner_pro">Swift Cleaner 평가</string>
+    <string name="rate_text">저희 앱이 마음에 드셨다면 잠시 시간을 내어 평가해 주시겠습니까? 1분도 채 걸리지 않습니다.\n지원해 주셔서 감사합니다!</string>
 
 
 

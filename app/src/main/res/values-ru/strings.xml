@@ -8,11 +8,11 @@
     <string name="ram_usage">Использование RAM</string>
     <string name="optimize_btn">Оптимизировать</string>
     <string name="optimized_btn">Оптимизировано</string>
-    <string name="scanning_ram">Сканирование системы...</string>
+    <string name="scanning_ram">Сканирование системы…</string>
     <string name="complete">Выполнено</string>
     <string name="battery_optimizer">Оптимизация Батареи</string>
     <string name="charging_time_remaining">Оставшееся время работы</string>
-    <string name="optimizing_energy_nconsuming_processes">Оптимизация энергоемких\nпроцессов...</string>
+    <string name="optimizing_energy_nconsuming_processes">Оптимизация энергоемких\nпроцессов…</string>
     <string name="cpu_cooler">Охлаждение CPU</string>
     <string name="overheated">Перегрев</string>
     <string name="normal">В норме</string>
@@ -38,7 +38,7 @@
     <string name="stil_not_optimized">Еще не оптимизирован!</string>
     <string name="quit">Выйти</string>
     <string name="rate_multi_cleaner_pro">Оцените Swift Cleaner </string>
-    <string name="rate_text">Если вам нравится наше приложение, не могли бы вы уделить время, чтобы оценить его? Это займет не больше минуты.</string>
+    <string name="rate_text">Если вам нравится наше приложение, не могли бы вы уделить время, чтобы оценить его? Это займет не больше минуты.\nСпасибо за поддержку!</string>
 
 
 
