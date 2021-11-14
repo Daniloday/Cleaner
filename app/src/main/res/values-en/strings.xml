@@ -34,39 +34,12 @@
     <string name="cleaned">cleaned</string>
     <string name="you_haven_t_done_some_cleans">You haven’t done some cleans</string>
     <string name="are_you_want_to_quit">Are you want to quit?</string>
-    <string name="pb_main" translatable="false">Phone\nBooster</string>
     <string name="stil_not_optimized">Still not optimized!</string>
     <string name="quit">Quit</string>
     <string name="rate_multi_cleaner_pro">Rate Swift Cleaner</string>
     <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute.</string>
 
-    <string name="term_and_privacy" translatable="false">Term and Privacy</string>
 
 
-
-    <!--    Ads-->
-    <string name="admob" translatable="false">ca-app-pub-5421414594983392~4176660642</string>
-    <string name="splash_ads" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="phone_booster_ads" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="cpu_cooler_ads" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="battery_ads" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="junk_cleaner_ads" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="file_manager_ads" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-
-
-
-
-    <string name="sort_by_date" translatable="false">Sort by date</string>
-
-
-
-    <string-array name="spinners">
-        <item>Date</item>
-        <item>Max size</item>
-        <item>Min size</item>
-    </string-array>
 
 </resources>

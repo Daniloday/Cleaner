@@ -1,0 +1,47 @@
+<resources>
+
+    <string name="app_name">Swift Cleaner</string>
+
+
+    <string name="phone_booster">Ускорение телефона</string>
+    <string name="storage">Хранилище</string>
+    <string name="ram_usage">Использование RAM</string>
+    <string name="optimize_btn">Оптимизировать</string>
+    <string name="optimized_btn">Оптимизировано</string>
+    <string name="scanning_ram">Сканирование системы...</string>
+    <string name="complete">Выполнено</string>
+    <string name="battery_optimizer">Оптимизация Батареи</string>
+    <string name="charging_time_remaining">Оставшееся время работы</string>
+    <string name="optimizing_energy_nconsuming_processes">Оптимизация энергоемких\nпроцессов...</string>
+    <string name="cpu_cooler">Охлаждение CPU</string>
+    <string name="overheated">Перегрев</string>
+    <string name="normal">В норме</string>
+    <string name="applications_class_are_causing_problem_hit_cool_down">Необходимо охладить</string>
+    <string name="cpu_good">Температура CPU в норме</string>
+    <string name="cooled_CPU_to">Охлаждён до</string>
+    <string name="junk_cleaner">Удаление мусорных файлов</string>
+    <string name="system_njunk">Системный\nмусор</string>
+    <string name="residual_nfile">Остаточные\nфайлы</string>
+    <string name="cache_nmemory">Временные\nфайлы</string>
+    <string name="tempopary_nfiles">Кэш\nфайлы</string>
+    <string name="file_manager">Файл Менеджер</string>
+    <string name="please_provide_the_required_permissions">Пожалуйста, предоставьте необходимые разрешения</string>
+    <string name="submit_btn">Подтвердить</string>
+    <string name="Video">Видео</string>
+    <string name="Audio">Аудио</string>
+    <string name="Images">Изображения</string>
+    <string name="Documents">Документы</string>
+    <string name="cleaned">очищено</string>
+    <string name="you_haven_t_done_some_cleans">Не выполнены некоторые чистки </string>
+    <string name="are_you_want_to_quit">Вы уверены, что хотите выйти?</string>
+
+    <string name="stil_not_optimized">Еще не оптимизирован!</string>
+    <string name="quit">Выйти</string>
+    <string name="rate_multi_cleaner_pro">Оцените Swift Cleaner </string>
+    <string name="rate_text">Если вам нравится наше приложение, не могли бы вы уделить время, чтобы оценить его? Это займет не больше минуты.</string>
+
+
+
+
+
+</resources>
