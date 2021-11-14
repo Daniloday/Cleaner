@@ -74,7 +74,7 @@
             android:id="@+id/materialTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Storage"
+            android:text="@string/storage"
             android:textColor="@color/magenta_blue"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -214,7 +214,7 @@
                             android:layout_marginTop="35dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="center_horizontal"
-                            android:text="Storage"
+                            android:text="@string/storage"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 
@@ -292,7 +292,7 @@
                             android:layout_marginTop="35dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="center_horizontal"
-                            android:text="Ram Usage"
+                            android:text="@string/ram_usage"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 

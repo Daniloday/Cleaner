@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.ads.AdRequest
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.CpuCoolerOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
@@ -51,7 +52,7 @@ class CpuOptimizationDialogFragment(
             temperature.text = "${phoneData.cpuBeforeOpt}"
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Cooled CPU to ${phoneData.cpuAfterOpt} °C"){
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="${getString(R.string.cooled_CPU_to)} ${phoneData.cpuAfterOpt} °C"){
                     callback.invoke()
                     dismiss()
                 }

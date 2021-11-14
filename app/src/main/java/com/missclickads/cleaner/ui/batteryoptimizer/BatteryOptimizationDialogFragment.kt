@@ -57,7 +57,7 @@ class BatteryOptimizationDialogFragment(
             animation.start()
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Complete"){
+                val dialogCompleted = CompleteOptimizationDialogFragment(text =getString(R.string.complete)){
                     callback.invoke()
                     dismiss()
                 }

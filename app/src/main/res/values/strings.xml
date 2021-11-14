@@ -1,21 +1,48 @@
 <resources>
-    <string name="app_name">Cleaner</string>
-    <string name="junk_cleaner">Junk Cleaner</string>
-    <string name="battery_optimizer">Battery Optimizer</string>
-    <string name="cpu_cooler">CPU Cooler</string>
-    <string name="file_manager">File Manager</string>
-    <string name="pb_main">Phone\nBooster</string>
-    <string name="term_and_privacy">Term and Privacy</string>
+
+    <string name="app_name">Multi Cleaner PRO</string>
+
+
+    <string name="phone_booster">Phone Booster</string>
+    <string name="storage">Storage</string>
+    <string name="ram_usage">RAM Usage</string>
     <string name="optimize_btn">Optimize</string>
     <string name="optimized_btn">Optimized</string>
+    <string name="scanning_ram">Scanning RAM...</string>
+    <string name="complete">Complete</string>
+    <string name="battery_optimizer">Battery Optimizer</string>
     <string name="charging_time_remaining">Charging time remaining</string>
-    <string name="please_provide_the_required_permissions">Please provide the required permissions</string>
-    <string name="submit_btn">Submit</string>
-    <string name="applications_class_are_causing_problem_hit_cool_down">ApplicationsClass are causing \n problem hit cool down</string>
-    <string name="phone_booster">Phone Booster</string>
+    <string name="optimizing_energy_nconsuming_processes">Optimizing energy\nconsuming processes...</string>
+    <string name="cpu_cooler">CPU Cooler</string>
     <string name="overheated">Overheated</string>
     <string name="normal">Normal</string>
-    <string name="cpu_good">CPU Temperature is Good</string>>
+    <string name="applications_class_are_causing_problem_hit_cool_down">Application are causing\nproblem hit cool down</string>
+    <string name="cpu_good">CPU Temperature is Good</string>
+    <string name="cooled_CPU_to">Cooled CPU to</string>
+    <string name="junk_cleaner">Junk Cleaner</string>
+    <string name="system_njunk">System\nJunk</string>
+    <string name="residual_nfile">Residual\nFile</string>
+    <string name="cache_nmemory">Cache\nMemory</string>
+    <string name="tempopary_nfiles">Temporary\nFiles</string>
+    <string name="file_manager">File Manager</string>
+    <string name="please_provide_the_required_permissions">Please provide the required permissions</string>
+    <string name="submit_btn">Submit</string>
+    <string name="Video">Video</string>
+    <string name="Audio">Audio</string>
+    <string name="Images">Images</string>
+    <string name="Documents">Documents</string>
+    <string name="cleaned">cleaned</string>
+    <string name="you_haven_t_done_some_cleans">You haven’t done some cleans</string>
+    <string name="are_you_want_to_quit">Are you want to quit?</string>
+    <string name="pb_main">Phone\nBooster</string>
+    <string name="stil_not_optimized">Still not optimized!</string>
+    <string name="quit">Quit</string>
+    <string name="rate_multi_cleaner_pro">Rate Swift Cleaner</string>
+    <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute.</string>
+
+    <string name="term_and_privacy">Term and Privacy</string>
+
+
 
     <!--    Ads-->
     <string name="admob">ca-app-pub-5421414594983392~4176660642</string>
@@ -26,13 +53,15 @@
     <string name="junk_cleaner_ads">ca-app-pub-3940256099942544/6300978111</string>
     <string name="file_manager_ads">ca-app-pub-3940256099942544/6300978111</string>
     <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="rate_multi_cleaner_pro">Rate Multi Cleaner PRO</string>
-    <string name="rate_text">If you enjoy our app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
-    <string name="are_you_want_to_quit">Are you want to quit?</string>
-    <string name="stil_not_optimized">Stil not optimized!</string>
-    <string name="quit">Quit</string>
+
+
+
+
     <string name="sort_by_date">Sort by date</string>
+
+
 
     <string-array name="spinners">
         <item>Date</item>

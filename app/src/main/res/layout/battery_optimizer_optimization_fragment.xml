@@ -58,7 +58,7 @@
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Optimizing energy\nconsuming processes..."
+        android:text="@string/optimizing_energy_nconsuming_processes"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"

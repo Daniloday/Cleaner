@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="You haven’t  done some cleans"
+                    android:text="@string/you_haven_t_done_some_cleans"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"

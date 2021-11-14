@@ -111,7 +111,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="start"
-                            android:text="System\nJunk"
+                            android:text="@string/system_njunk"
                             android:textAlignment="viewStart"
                             android:textColor="@color/light_black"
                             android:textSize="16sp" />
@@ -157,7 +157,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="start"
-                            android:text="Residual\nFile"
+                            android:text="@string/residual_nfile"
                             android:textAlignment="viewStart"
                             android:textColor="@color/light_black"
                             android:textSize="16sp" />
@@ -204,7 +204,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="start"
-                            android:text="Cache\nMemory"
+                            android:text="@string/cache_nmemory"
                             android:textAlignment="viewStart"
                             android:textColor="@color/light_black"
                             android:textSize="16sp" />
@@ -251,7 +251,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="start"
-                            android:text="Tempopary\nFiles"
+                            android:text="@string/tempopary_nfiles"
                             android:textAlignment="viewStart"
                             android:textColor="@color/light_black"
                             android:textSize="16sp" />

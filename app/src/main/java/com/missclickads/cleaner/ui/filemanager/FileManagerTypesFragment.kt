@@ -50,25 +50,25 @@ class FileManagerTypesFragment : Fragment() {
 
         val item = TypeItem(
             image = R.drawable.ic_icon_video,
-            type = "Video",
+            type = getString(R.string.Video),
             memory = phoneData.getVideos(true).second,
             ::nextFragment
         )
         val item2 = TypeItem(
             image = R.drawable.ic_audio_icon,
-            type = "Audio",
+            type = getString(R.string.Audio),
             memory = phoneData.getAudios().second,
             ::nextFragment
         )
         val item3 = TypeItem(
             image = R.drawable.ic_images_icon,
-            type = "Images",
+            type = getString(R.string.Images),
             memory = phoneData.getImages(true).second,
             ::nextFragment
         )
         val item4 = TypeItem(
             image = R.drawable.ic_documents_icon,
-            type = "Documents",
+            type = getString(R.string.Documents),
             memory = phoneData.getDocs().second,
             ::nextFragment
         )

@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.ads.AdRequest
+import com.missclickads.cleaner.R
 import com.missclickads.cleaner.databinding.CompleteDialogFragmentBinding
 import com.missclickads.cleaner.databinding.PhoneBoosterOptimizationFragmentBinding
 import com.missclickads.cleaner.ui.optimazed.CompleteOptimizationDialogFragment
@@ -53,7 +54,7 @@ class FileOptimizationDialogFragment  (
             animation.start()
             lifecycleScope.launch{
                 delay(5*1000)
-                val dialogCompleted = CompleteOptimizationDialogFragment(text ="Cleaned ${text2} mb"){
+                val dialogCompleted = CompleteOptimizationDialogFragment(text ="$text2 mb ${getString(R.string.cleaned)}"){
                     callback.invoke()
                     dismiss()
                 }
