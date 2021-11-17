@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_phone_booster">
+    app:startDestination="@id/mainScreenFragment">
 
     <fragment
         android:id="@+id/navigation_phone_booster"
@@ -45,4 +45,9 @@
         android:id="@+id/fileManagerFilesFragment"
         android:name="com.missclickads.cleaner.ui.filemanager.FileManagerFilesFragment"
         android:label="FileManagerFilesFragment" />
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.missclickads.cleaner.ui.MainScreenFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" />
 </navigation>
