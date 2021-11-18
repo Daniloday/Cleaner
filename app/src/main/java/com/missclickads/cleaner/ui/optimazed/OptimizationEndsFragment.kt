@@ -41,6 +41,9 @@ class OptimizationEndsFragment : Fragment() {
         setupRecycler()
         val adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest)
+        (activity as MainActivity).setUpBottomNavInEndsFragment {
+            findNavController().navigate(R.id.mainScreenFragment, Bundle().apply { putInt(FROM, it.itemId) })
+        }
     }
 
     private fun setupRecycler(){

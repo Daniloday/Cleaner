@@ -98,6 +98,7 @@ class BatteryOptimizerFragment : BaseFragment<BatteryOptimizerViewModel>() {
         Log.e("BatteryOptimizer", "optimization")
         val dialog = BatteryOptimizationDialogFragment{
             viewModel.endOptimization()
+            findNavController().navigate(R.id.optimizationEndsFragment)
 //            showAd()
         }
         dialog.show(childFragmentManager, "optimization")

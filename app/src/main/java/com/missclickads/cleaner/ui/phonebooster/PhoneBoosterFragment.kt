@@ -89,6 +89,8 @@ class PhoneBoosterFragment : BaseFragment<PhoneBoosterViewModel>() {
     override fun optimization() {
         val dialog = PhoneOptimizationDialogFragment{
             viewModel.endOptimization()
+            findNavController().navigate(R.id.optimizationEndsFragment)
+            //todo delete findNav after uncomment showAd
 //            showAd()
         }
         dialog.show(childFragmentManager, "optimization")

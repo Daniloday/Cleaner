@@ -3,6 +3,7 @@ package com.missclickads.cleaner
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setUpBottomNavWithViewPager(){
-        navigationView?.menu?.findItem(R.id.navigation_phone_booster)?.isEnabled = false
+        //navigationView?.menu?.findItem(R.id.navigation_phone_booster)?.isEnabled = false
         navigationView?.setOnNavigationItemSelectedListener  {
             //Log.e("NavSetSelected", it.toString())
             when(it.itemId){
@@ -72,7 +73,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    fun setUpBottomNavInEndsFragment(callback : (MenuItem) -> (Unit)){
+        //navigationView?.menu?.findItem(R.id.navigation_phone_booster)?.isEnabled = false
+        navigationView?.setOnNavigationItemSelectedListener  {
+            //Log.e("NavSetSelected", it.toString())
+//            when(it.itemId){
+//                R.id.navigation_battery_optimizer -> viewPager?.currentItem = 1
+//                R.id.navigation_phone_booster -> viewPager?.currentItem = 0
+//                R.id.navigation_junk_cleaner -> viewPager?.currentItem = 3
+//                R.id.navigation_cpu_cooler -> viewPager?.currentItem = 2
+//                R.id.navigation_file_manager -> viewPager?.currentItem = 4
+//            }
+            callback.invoke(it)
+            false
+        }
+    }
 
     override fun onBackPressed() {
         if(back) {

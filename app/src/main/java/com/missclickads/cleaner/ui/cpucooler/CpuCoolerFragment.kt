@@ -106,6 +106,7 @@ class CpuCoolerFragment : BaseFragment<CpuCoolerViewModel>() {
         Log.e("CpuCooler", "optimization")
         val dialog = CpuOptimizationDialogFragment{
             viewModel.endOptimization()
+            findNavController().navigate(R.id.optimizationEndsFragment)
 //            showAd()
         }
         dialog.show(childFragmentManager, "optimization")

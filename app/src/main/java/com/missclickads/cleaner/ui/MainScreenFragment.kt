@@ -4,19 +4,24 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.missclickads.cleaner.MainActivity
 import com.missclickads.cleaner.R
 import com.missclickads.cleaner.adapters.ViewPagerAdapter
+import com.missclickads.cleaner.ui.batteryoptimizer.FROM
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     var viewPager : ViewPager2? = null
     var act : MainActivity? = null
-
+    private var to : Int? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.e("MainScreen", "OnViewCreated")
+        to = arguments?.getInt(FROM)
         act = (activity as MainActivity)
         viewPager = view.findViewById<ViewPager2>(R.id.viewPager2)
         val viewPagerAdapter = ViewPagerAdapter(act!!)
@@ -28,20 +33,33 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             }
         })
         act!!.setupViewPagerFromFragment(viewPager!!)
-//        if(to != null){
-//            when (to){
-//                0-> act!!.unblockAllExcept(Screen.PHONE_BOOSTER)
-//                1-> act!!.unblockAllExcept(Screen.BATTERY_SAVER)
-//                2-> act!!.unblockAllExcept(Screen.OPTIMIZER)
-//                3-> act!!.unblockAllExcept(Screen.JUNK_CLEANER)
-//            }
-//            Log.e("MainScreen", to.toString())
-//            //Хз почему, но без задержки нихуя не работает
-//            viewPager!!.postDelayed(Runnable {
-//                viewPager!!.currentItem = to!!
-//            }, 10)
-//
-//        }
+        if(to != null){
+            Log.e("MainScreen", to.toString())
+            lifecycleScope.launch {
+                when(to){
+                    R.id.navigation_battery_optimizer -> {
+                        delay(10)
+                        viewPager?.currentItem = 1
+                    }
+                    R.id.navigation_phone_booster -> {
+                        delay(10)
+                        viewPager?.currentItem = 0
+                    }
+                    R.id.navigation_junk_cleaner -> {
+                        delay(10)
+                        viewPager?.currentItem = 3
+                    }
+                    R.id.navigation_cpu_cooler -> {
+                        delay(10)
+                        viewPager?.currentItem = 2
+                    }
+                    R.id.navigation_file_manager -> {
+                        delay(10)
+                        viewPager?.currentItem = 4
+                    }
+                }
+            }
+        }
     }
 
 //    override fun onResume() {
